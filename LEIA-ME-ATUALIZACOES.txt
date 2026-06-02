@@ -1,0 +1,16 @@
+SITE BIOGUARÁ - PADRÃO UNIFICADO
+
+Alterações aplicadas:
+1. Todas as páginas de aulas foram padronizadas no mesmo layout mais organizado usado no 7º ano.
+2. A linha lesson-kicker foi removida das páginas.
+3. A página de vídeos foi removida.
+4. Cada aula possui espaço reservado para vídeo complementar ao final das questões.
+5. Cada aula possui comentários no código para facilitar a edição no Visual Studio Code.
+6. As questões permanecem em lista numerada: <ol class="questions"><li>...</li></ol>.
+
+Para editar uma aula no VS Code, use Ctrl + F e procure por:
+AULA 01
+AULA 02
+AULA 03
+
+Os comentários de separação não aparecem para os alunos no site.

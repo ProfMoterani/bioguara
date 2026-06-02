@@ -1,0 +1,39 @@
+COMO COLOCAR UM VÍDEO DO YOUTUBE EM UMA AULA
+
+1. Abra a página da turma no Visual Studio Code.
+   Exemplo: bimestre-1-1-biologia.html
+
+2. Procure pela aula desejada.
+   Exemplo: Aula 01
+
+3. Depois das questões, você verá este bloco:
+
+<div class="video-placeholder">
+  <h3>🎥 Vídeo da aula</h3>
+  <p>Espaço reservado para inserir futuramente um vídeo explicativo desta aula.</p>
+  <!-- Para colocar um vídeo do YouTube no futuro, substitua este bloco por:
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/CODIGO_DO_VIDEO" title="Vídeo da aula" allowfullscreen></iframe>
+  </div>
+  -->
+</div>
+
+4. Para inserir o vídeo, substitua o bloco inteiro por:
+
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/CODIGO_DO_VIDEO" title="Vídeo da aula" allowfullscreen></iframe>
+</div>
+
+5. No lugar de CODIGO_DO_VIDEO, coloque o código do vídeo do YouTube.
+
+Exemplo:
+Link normal do YouTube:
+https://www.youtube.com/watch?v=abc123
+
+Código do vídeo:
+abc123
+
+Código final:
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/abc123" title="Vídeo da aula" allowfullscreen></iframe>
+</div>

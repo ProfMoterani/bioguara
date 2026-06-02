@@ -144,3 +144,239 @@ a{color:inherit;text-decoration:none}
 
 @media(max-width:1100px){.hero-left-logo{left:20px;width:190px}.brand-title{font-size:92px}.hero-right-logo{width:310px}.mainnav{grid-template-columns:repeat(4,1fr)}.bimester-grid{grid-template-columns:repeat(2,1fr);margin:0 0 25px}.subject-grid{grid-template-columns:repeat(2,1fr)}.feature-footer{grid-template-columns:1fr 1fr}.lesson-layout{grid-template-columns:1fr}.topbar{display:none}}
 @media(max-width:650px){.hero{min-height:330px}.hero-left-logo{position:relative;left:auto;top:auto;width:140px;margin-bottom:10px}.hero-center{display:flex;flex-direction:column;align-items:center}.brand-title{font-size:55px}.brand-sub,.quote{font-size:15px}.hero-right-logo{display:none}.mainnav{grid-template-columns:1fr 1fr;margin-top:0;width:100%;border-radius:0}.mainnav a{font-size:13px;padding:13px 6px}.section-title{font-size:23px}.section-title::before,.section-title::after{width:35px;margin:0 8px}.bimester-grid,.subject-grid,.class-grid{grid-template-columns:1fr;margin:0 0 18px}.bimester-card,.subject-card{grid-template-columns:85px 1fr}.feature-footer{grid-template-columns:1fr}.signature{justify-content:flex-start}.page-wrap{padding:18px}.page-title{font-size:29px}}
+
+/* Ajustes para páginas com muitas aulas */
+.lessons-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.lesson-card {
+  scroll-margin-top: 20px;
+}
+.lesson-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff8a00, #ff5a1f);
+  color: #fff;
+  font-weight: 800;
+  padding: 8px 14px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+  box-shadow: 0 8px 18px rgba(255, 104, 31, 0.22);
+}
+.page-intro {
+  max-width: 900px;
+  margin: -10px auto 24px auto;
+  text-align: center;
+  color: #6b3a12;
+  font-size: 1.05rem;
+}
+.questions {
+  list-style-type: decimal;
+  margin-left: 28px;
+  padding-left: 18px;
+  line-height: 1.75;
+}
+.questions li {
+  margin-bottom: 12px;
+  padding-left: 6px;
+}
+.questions li::marker {
+  color: #f57c00;
+  font-weight: 900;
+}
+.sticky-list {
+  position: sticky;
+  top: 16px;
+  max-height: 85vh;
+  overflow: auto;
+}
+@media (max-width: 900px) {
+  .sticky-list { position: static; max-height: none; }
+}
+
+
+/* Espaço reservado para inserir vídeos nas aulas */
+.video-placeholder{
+  margin-top:22px;
+  padding:18px 20px;
+  border:2px dashed rgba(243,108,19,.45);
+  border-radius:16px;
+  background:linear-gradient(135deg,#fff7ed,#ffe6c7);
+  color:#3b1608;
+}
+.video-placeholder h3{
+  margin:0 0 8px;
+  color:#d94a07;
+  font-size:20px;
+}
+.video-placeholder p{
+  margin:0;
+  font-weight:600;
+}
+.video-container{
+  position:relative;
+  width:100%;
+  padding-bottom:56.25%;
+  margin-top:14px;
+  border-radius:16px;
+  overflow:hidden;
+  background:#111;
+}
+.video-container iframe{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+
+/* =========================================================
+   PADRÃO UNIFICADO BIOGUARÁ - PÁGINAS DE AULAS
+   ========================================================= */
+.intro-alert{
+  background:linear-gradient(135deg,#fff4e5,#ffe1bd);
+  border:1px solid #f0bd8a;
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:24px;
+  color:#3c1608;
+}
+.lesson-stack{
+  display:flex;
+  flex-direction:column;
+  gap:26px;
+}
+.lesson-card{
+  background:#fff9ef;
+  border:1px solid #f0bd8a;
+  border-radius:16px;
+  padding:24px;
+  margin-bottom:0;
+  box-shadow:0 8px 22px rgba(89,34,6,.10);
+  scroll-margin-top:18px;
+}
+.lesson-head{
+  display:flex;
+  gap:16px;
+  align-items:center;
+  border-bottom:1px solid #f3c69a;
+  padding-bottom:12px;
+  margin-bottom:10px;
+}
+.lesson-head h2{
+  margin:0;
+  color:#371406;
+  font-size:25px;
+  line-height:1.2;
+}
+.lesson-badge{
+  display:inline-block;
+  background:linear-gradient(135deg,#ff7a1a,#d94a07);
+  color:#fff;
+  font-weight:900;
+  border-radius:999px;
+  padding:8px 12px;
+  white-space:nowrap;
+  box-shadow:0 5px 12px rgba(216,75,8,.25);
+  margin-bottom:0;
+}
+.lesson-tabs{
+  display:flex;
+  gap:30px;
+  border-bottom:1px solid #d6b08a;
+  margin:15px 0 20px;
+}
+.lesson-tabs .tab{
+  font-weight:900;
+  text-transform:uppercase;
+  padding:10px 0;
+  color:#3c1608;
+}
+.lesson-tabs .tab.active{
+  color:#e4500b;
+  border-bottom:3px solid #e4500b;
+}
+.lesson-section{
+  margin-top:12px;
+}
+.lesson-section h3{
+  color:#3d1608;
+  margin-top:18px;
+}
+.lesson-section p,
+.lesson-section li{
+  font-size:16px;
+}
+.lesson-list,
+.lesson-section ul{
+  padding-left:24px;
+  margin-top:8px;
+}
+.lesson-list li,
+.lesson-section ul li{
+  margin-bottom:7px;
+}
+.example-note{
+  background:#fff0dc;
+  border-left:5px solid #f36c13;
+  padding:12px 14px;
+  border-radius:8px;
+}
+.questions-block{
+  background:#fff4e5;
+  border-radius:12px;
+  padding:16px;
+  margin-top:18px;
+  border:1px solid #ffd1a6;
+}
+.questions{
+  list-style-type:decimal;
+  margin-left:30px;
+  padding-left:22px;
+  line-height:1.75;
+}
+.questions li{
+  margin-bottom:14px;
+  padding-left:5px;
+  border-bottom:none;
+}
+.questions li::marker{
+  color:#f36c13;
+  font-weight:900;
+}
+.sidebox.sticky,
+.sticky-list{
+  position:sticky;
+  top:16px;
+  max-height:85vh;
+  overflow:auto;
+}
+.sidebox a{
+  border-bottom:1px solid rgba(216,75,8,.10);
+}
+.video-placeholder{
+  margin-top:22px;
+  padding:18px 20px;
+  border:2px dashed rgba(243,108,19,.45);
+  border-radius:16px;
+  background:linear-gradient(135deg,#fff7ed,#ffe6c7);
+  color:#3b1608;
+}
+.video-placeholder h3{
+  margin:0 0 8px;
+  color:#d94a07;
+  font-size:20px;
+}
+.video-placeholder p{
+  margin:0;
+  font-weight:600;
+}
+@media(max-width:700px){
+  .lesson-head{display:block}
+  .lesson-badge{display:inline-block;margin-bottom:10px}
+  .lesson-head h2{font-size:21px}
+  .lesson-tabs{gap:18px;flex-wrap:wrap}
+}
