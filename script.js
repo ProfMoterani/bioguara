@@ -1,1 +1,1 @@
-console.log("Site Bioguará carregado com sucesso.");
+function filtrarAulas(){const termo=document.getElementById('busca')?.value.toLowerCase()||'';document.querySelectorAll('.lesson').forEach(a=>{a.style.display=a.innerText.toLowerCase().includes(termo)?'block':'none'});} console.log('Bioguará carregado');

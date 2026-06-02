@@ -1,0 +1,1 @@
+Site Bioguará completo. Abra index.html no Visual Studio Code ou publique no GitHub Pages/Netlify. A imagem do logo está em assets/logo-bioguara.png.
