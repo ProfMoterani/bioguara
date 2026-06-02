@@ -1,1 +1,10 @@
-function filtrarAulas(){const termo=document.getElementById('busca')?.value.toLowerCase()||'';document.querySelectorAll('.lesson').forEach(a=>{a.style.display=a.innerText.toLowerCase().includes(termo)?'block':'none'});} console.log('Bioguará carregado');
+const searchInput = document.querySelector('#siteSearch');
+if (searchInput) {
+  searchInput.addEventListener('input', () => {
+    const termo = searchInput.value.toLowerCase().trim();
+    document.querySelectorAll('[data-search]').forEach(card => {
+      const texto = card.dataset.search.toLowerCase();
+      card.style.display = texto.includes(termo) ? '' : 'none';
+    });
+  });
+}
