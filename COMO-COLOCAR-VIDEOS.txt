@@ -1,39 +1,27 @@
-COMO COLOCAR UM VÍDEO DO YOUTUBE EM UMA AULA
+COMO COLOCAR VÍDEOS NAS AULAS DO BIOGUARÁ
 
 1. Abra a página da turma no Visual Studio Code.
-   Exemplo: bimestre-1-1-biologia.html
-
-2. Procure pela aula desejada.
-   Exemplo: Aula 01
-
-3. Depois das questões, você verá este bloco:
-
-<div class="video-placeholder">
-  <h3>🎥 Vídeo da aula</h3>
-  <p>Espaço reservado para inserir futuramente um vídeo explicativo desta aula.</p>
-  <!-- Para colocar um vídeo do YouTube no futuro, substitua este bloco por:
-  <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/CODIGO_DO_VIDEO" title="Vídeo da aula" allowfullscreen></iframe>
-  </div>
-  -->
-</div>
-
-4. Para inserir o vídeo, substitua o bloco inteiro por:
+2. Use Ctrl + F e procure por: VÍDEO DA AULA 01, VÍDEO DA AULA 02, etc.
+3. Em cada aula, você verá um bloco assim:
 
 <div class="video-container">
-  <iframe src="https://www.youtube.com/embed/CODIGO_DO_VIDEO" title="Vídeo da aula" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/COLE_AQUI_O_CODIGO_DO_VIDEO" title="Vídeo da Aula 01" allowfullscreen=""></iframe>
 </div>
 
-5. No lugar de CODIGO_DO_VIDEO, coloque o código do vídeo do YouTube.
+4. Substitua SOMENTE o valor de src.
 
-Exemplo:
-Link normal do YouTube:
-https://www.youtube.com/watch?v=abc123
+Exemplo: se o link do YouTube for:
+https://youtu.be/hafFiUsN02I?si=E74hIYXbJTl9Y-gB
 
-Código do vídeo:
-abc123
+Use apenas o código do vídeo e deixe assim:
+https://www.youtube.com/embed/hafFiUsN02I
 
-Código final:
-<div class="video-container">
-  <iframe src="https://www.youtube.com/embed/abc123" title="Vídeo da aula" allowfullscreen></iframe>
-</div>
+Exemplo final:
+<iframe src="https://www.youtube.com/embed/hafFiUsN02I" title="Vídeo da Aula 01" allowfullscreen=""></iframe>
+
+IMPORTANTE:
+- Não use links youtu.be dentro do iframe.
+- Não use links com /watch?v=.
+- Use sempre o formato /embed/.
+- Não coloque o vídeo dentro de comentários HTML.
+- As aulas novas devem ser inseridas acima da linha: NOVAS AULAS DEVEM SER INSERIDAS ACIMA DESTA LINHA.
