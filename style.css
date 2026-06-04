@@ -380,3 +380,198 @@ a{color:inherit;text-decoration:none}
   .lesson-head h2{font-size:21px}
   .lesson-tabs{gap:18px;flex-wrap:wrap}
 }
+
+
+/* =========================================================
+   NAVEGAÇÃO POR TURMA - BIOGUARÁ
+   ========================================================= */
+.home-class-grid{
+  grid-template-columns:repeat(4,1fr);
+  margin-bottom:28px;
+}
+.hub-subject-grid{
+  grid-template-columns:repeat(2,1fr);
+}
+@media(max-width:1100px){
+  .home-class-grid{grid-template-columns:repeat(2,1fr);}
+  .hub-subject-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:650px){
+  .home-class-grid,
+  .hub-subject-grid{grid-template-columns:1fr;}
+}
+
+/* =========================================================
+   CORREÇÕES RESPONSIVAS - CARDS DOS BIMESTRES E CELULAR
+   Atualizado para evitar texto cortado nos cards das páginas de turma.
+   ========================================================= */
+
+/* Menu principal mais flexível em telas de tamanhos diferentes */
+.mainnav{
+  grid-template-columns:repeat(auto-fit, minmax(135px, 1fr));
+}
+
+/* Dá um pouco mais de espaço útil às páginas de turma */
+.page-wrap{
+  width:min(1320px,94%);
+}
+
+/* Cards dos bimestres: não cortar texto, botão ou título */
+.bimester-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+  gap:22px;
+  margin:0 auto 28px;
+  width:100%;
+  max-width:1120px;
+}
+
+.bimester-card{
+  min-width:0;
+  min-height:150px;
+  grid-template-columns:74px minmax(0, 1fr);
+  gap:16px;
+  padding:18px 18px;
+  overflow:hidden;
+}
+
+.bimester-card *{
+  min-width:0;
+}
+
+.bim-text{
+  min-width:0;
+  overflow:visible;
+}
+
+.bim-number{
+  font-size:clamp(42px, 5vw, 58px);
+  line-height:.9;
+}
+
+.bim-label{
+  font-size:clamp(17px, 2vw, 22px);
+  line-height:1.05;
+  white-space:normal;
+  overflow-wrap:break-word;
+}
+
+.bim-icon{
+  width:66px;
+  height:66px;
+  font-size:34px;
+}
+
+.bimester-card .btn{
+  min-width:0;
+  width:auto;
+  max-width:100%;
+  padding:8px 14px;
+  font-size:14px;
+  white-space:normal;
+}
+
+/* Cards de turmas e matérias também ficam mais seguros em telas estreitas */
+.subject-grid,
+.home-class-grid,
+.hub-subject-grid,
+.class-grid{
+  width:100%;
+}
+
+.subject-card,
+.class-card{
+  min-width:0;
+  overflow:hidden;
+}
+
+.subject-card h3,
+.class-card h3{
+  overflow-wrap:break-word;
+}
+
+/* Tablet */
+@media(max-width:1100px){
+  .page-wrap{
+    width:min(980px,94%);
+  }
+  .bimester-grid{
+    grid-template-columns:repeat(2, minmax(230px, 1fr));
+    max-width:760px;
+  }
+  .mainnav{
+    grid-template-columns:repeat(3, 1fr);
+  }
+}
+
+/* Celular */
+@media(max-width:650px){
+  body{
+    overflow-x:hidden;
+  }
+  .page-wrap{
+    width:94%;
+    padding:16px;
+    margin:18px auto;
+  }
+  .bimester-grid{
+    grid-template-columns:1fr;
+    gap:16px;
+    max-width:100%;
+    margin:0 0 20px;
+  }
+  .bimester-card{
+    grid-template-columns:58px minmax(0, 1fr);
+    gap:14px;
+    min-height:120px;
+    padding:16px;
+  }
+  .bim-icon{
+    width:54px;
+    height:54px;
+    font-size:28px;
+  }
+  .bim-number{
+    font-size:38px;
+  }
+  .bim-label{
+    font-size:17px;
+  }
+  .bimester-card .btn{
+    display:inline-block;
+    font-size:13px;
+    padding:7px 12px;
+  }
+  .mainnav{
+    grid-template-columns:1fr 1fr;
+  }
+  .mainnav a{
+    min-height:48px;
+  }
+  .lesson-layout{
+    grid-template-columns:1fr;
+  }
+  .lesson-card{
+    padding:18px;
+  }
+  .lesson-section p,
+  .lesson-section li{
+    font-size:15.5px;
+  }
+}
+
+/* Celulares muito estreitos */
+@media(max-width:380px){
+  .bimester-card{
+    grid-template-columns:1fr;
+    text-align:center;
+    justify-items:center;
+  }
+  .bim-text{
+    text-align:center;
+  }
+  .bimester-card .btn{
+    margin-left:auto;
+    margin-right:auto;
+  }
+}
