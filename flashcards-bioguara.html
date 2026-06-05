@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flashcards Bioguará - Bioguará</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topbar"><div class="search-box">🔎 <input id="siteSearch" type="search" placeholder="Buscar no site..."></div><a class="top-link" href="index.html">🏠 Início</a><a class="top-link" href="sobre.html">ℹ️ Sobre o Site</a><a class="top-link" href="mailto:moterani.lucas@gmail.com">✉️ Contato</a></div>
+<section class="hero">
+<img class="hero-left-logo" src="assets/logo-bioguara.png" alt="Logo Bioguará">
+<img class="hero-right-logo" src="assets/logo-bioguara.png" alt="Logo Bioguará decorativo">
+<div class="hero-center"><h1 class="brand-title"><span class="bio">BIO</span><span class="guara">GUARÁ</span></h1><div class="brand-sub">Ciências e Biologia <span>•</span> Resumos <span>•</span> Questões</div><div class="quote"><b>“</b> Estudar é construir o futuro. <b>”</b></div></div>
+</section>
+<nav class="mainnav"><a class="" href="index.html"><span>🏠</span>Início</a><a class="" href="bimestre-1.html"><span>🗓️</span>1º Bimestre</a><a class="" href="bimestre-2.html"><span>🗓️</span>2º Bimestre</a><a class="" href="bimestre-3.html"><span>🗓️</span>3º Bimestre</a><a class="" href="bimestre-4.html"><span>🗓️</span>4º Bimestre</a><a class="" href="materiais.html"><span>📁</span>Materiais</a><a class="" href="sobre.html"><span>ℹ️</span>Sobre o Site</a></nav>
+<main class="page-wrap tool-page">
+  <div class="breadcrumb">Início › Ferramentas de Estudo › Flashcards</div>
+  <div class="page-actions top-return"><a class="return-button secondary" href="ferramentas-estudo.html">⬅ Voltar para Ferramentas de Estudo</a></div>
+  <div class="local-counter" data-counter-page="flashcards">👁️ Acessos neste navegador: <span id="localVisitCount">0</span></div>
+  <h1 class="page-title">Flashcards Bioguará</h1>
+  <div class="intro-alert"><strong>Transforme conteúdo em perguntas.</strong> Flashcards ajudam na prática de recuperação, uma das técnicas mais fortes para lembrar melhor.</div>
+  
+<section class="tool-panel">
+  <div class="tool-form">
+    <label>Pergunta</label><input id="fcFront" type="text" placeholder="Ex.: O que é bioacumulação?">
+    <label>Resposta</label><textarea id="fcBack" rows="4" placeholder="Escreva a resposta com suas palavras."></textarea>
+    <button id="addCard" class="timer-btn primary">➕ Adicionar flashcard</button>
+  </div>
+  <div class="tool-note"><h3>Como estudar?</h3><p>Leia a pergunta, tente responder sem olhar e só depois vire o cartão.</p></div>
+</section>
+<section class="lesson-card"><div class="lesson-head"><span class="lesson-badge">📝</span><h2>Meus flashcards</h2></div><div class="lesson-section"><div id="flashList" class="flash-grid"></div><div class="page-actions"><button id="clearCards" class="return-button secondary">🗑️ Limpar flashcards</button></div></div></section>
+
+</main>
+<footer class="feature-footer">
+<div class="feature"><div class="fi">📖</div><p>Resumos claros<br>e organizados</p></div>
+<div class="feature"><div class="fi">☑️</div><p>Questões para<br>fixação do conteúdo</p></div>
+<div class="feature"><div class="fi">🎥</div><p>Espaço para vídeo<br>em cada aula</p></div>
+<div class="feature"><div class="fi">🎯</div><p>Estude em casa,<br>no seu ritmo!</p></div>
+<div class="feature youtube-footer-link"><a href="https://www.youtube.com/@bioguara" target="_blank" rel="noopener noreferrer"><div class="fi">▶️</div><p>Canal Bioguará<br>no YouTube</p></a></div>
+<div class="signature"><img src="assets/logo-bioguara.png" alt="Logo"><div><div class="sig-name">Professor Lucas Costa Moterani</div><div class="sig-sub">Bioguará - Ciências e Biologia</div></div></div>
+</footer>
+<script src="script.js"></script>
+
+<script>
+(function(){
+ const key='bioguaraFlashcards';
+ const front=document.getElementById('fcFront'), back=document.getElementById('fcBack'), list=document.getElementById('flashList');
+ function load(){return JSON.parse(localStorage.getItem(key)||'[]');}
+ function save(a){localStorage.setItem(key,JSON.stringify(a));}
+ function render(){
+  const cards=load();
+  if(!cards.length){list.innerHTML='<p>Nenhum flashcard criado ainda.</p>';return;}
+  list.innerHTML=cards.map((c,i)=>`<div class="flash-card" tabindex="0"><div class="flash-front"><strong>Pergunta</strong><p>${c.f}</p><span>Clique para virar</span></div><div class="flash-back"><strong>Resposta</strong><p>${c.b}</p><button data-i="${i}" class="delete-card">Excluir</button></div></div>`).join('');
+  document.querySelectorAll('.flash-card').forEach(card=>card.addEventListener('click',e=>{if(!e.target.classList.contains('delete-card')) card.classList.toggle('flipped')}));
+  document.querySelectorAll('.delete-card').forEach(btn=>btn.addEventListener('click',e=>{e.stopPropagation(); const a=load(); a.splice(btn.dataset.i,1); save(a); render();}));
+ }
+ document.getElementById('addCard').addEventListener('click',()=>{
+   if(!front.value.trim()||!back.value.trim()){alert('Preencha pergunta e resposta.');return;}
+   const a=load(); a.push({f:front.value.trim(), b:back.value.trim()}); save(a); front.value=''; back.value=''; render();
+ });
+ document.getElementById('clearCards').addEventListener('click',()=>{if(confirm('Apagar todos os flashcards deste navegador?')){save([]);render();}});
+ render();
+})();
+</script>
+
+</body>
+</html>

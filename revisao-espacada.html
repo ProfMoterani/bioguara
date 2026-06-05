@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revisão Espaçada Bioguará - Bioguará</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topbar"><div class="search-box">🔎 <input id="siteSearch" type="search" placeholder="Buscar no site..."></div><a class="top-link" href="index.html">🏠 Início</a><a class="top-link" href="sobre.html">ℹ️ Sobre o Site</a><a class="top-link" href="mailto:moterani.lucas@gmail.com">✉️ Contato</a></div>
+<section class="hero">
+<img class="hero-left-logo" src="assets/logo-bioguara.png" alt="Logo Bioguará">
+<img class="hero-right-logo" src="assets/logo-bioguara.png" alt="Logo Bioguará decorativo">
+<div class="hero-center"><h1 class="brand-title"><span class="bio">BIO</span><span class="guara">GUARÁ</span></h1><div class="brand-sub">Ciências e Biologia <span>•</span> Resumos <span>•</span> Questões</div><div class="quote"><b>“</b> Estudar é construir o futuro. <b>”</b></div></div>
+</section>
+<nav class="mainnav"><a class="" href="index.html"><span>🏠</span>Início</a><a class="" href="bimestre-1.html"><span>🗓️</span>1º Bimestre</a><a class="" href="bimestre-2.html"><span>🗓️</span>2º Bimestre</a><a class="" href="bimestre-3.html"><span>🗓️</span>3º Bimestre</a><a class="" href="bimestre-4.html"><span>🗓️</span>4º Bimestre</a><a class="" href="materiais.html"><span>📁</span>Materiais</a><a class="" href="sobre.html"><span>ℹ️</span>Sobre o Site</a></nav>
+<main class="page-wrap tool-page">
+  <div class="breadcrumb">Início › Ferramentas de Estudo › Revisão Espaçada</div>
+  <div class="page-actions top-return"><a class="return-button secondary" href="ferramentas-estudo.html">⬅ Voltar para Ferramentas de Estudo</a></div>
+  <div class="local-counter" data-counter-page="revisao">👁️ Acessos neste navegador: <span id="localVisitCount">0</span></div>
+  <h1 class="page-title">Revisão Espaçada Bioguará</h1>
+  <div class="intro-alert"><strong>Revisar no momento certo ajuda a lembrar por mais tempo.</strong> Cadastre o conteúdo estudado e acompanhe as próximas revisões.</div>
+  
+<section class="tool-panel">
+  <div class="tool-form">
+    <label>Nome da aula ou conteúdo estudado</label>
+    <input id="revTopic" type="text" placeholder="Ex.: Aula 8 - Tipos de Poluição">
+    <label>Data em que estudou</label>
+    <input id="revDate" type="date">
+    <button id="addReview" class="timer-btn primary">➕ Criar revisões</button>
+  </div>
+  <div class="tool-note">
+    <h3>Como funciona?</h3>
+    <p>A ferramenta cria revisões em 1, 3, 7, 15 e 30 dias. O objetivo é combater o esquecimento e fortalecer a memória de longo prazo.</p>
+  </div>
+</section>
+<section class="lesson-card">
+  <div class="lesson-head"><span class="lesson-badge">🧠</span><h2>Minhas revisões</h2></div>
+  <div class="lesson-section">
+    <div id="reviewList" class="review-list"></div>
+    <div class="page-actions"><button id="exportReviewsTxt" class="return-button">⬇️ Baixar .txt</button><button id="printReviewsPdf" class="return-button secondary">🖨️ Salvar em PDF</button><button id="clearReviews" class="return-button secondary">🗑️ Limpar revisões</button></div>
+  </div>
+</section>
+
+</main>
+<footer class="feature-footer">
+<div class="feature"><div class="fi">📖</div><p>Resumos claros<br>e organizados</p></div>
+<div class="feature"><div class="fi">☑️</div><p>Questões para<br>fixação do conteúdo</p></div>
+<div class="feature"><div class="fi">🎥</div><p>Espaço para vídeo<br>em cada aula</p></div>
+<div class="feature"><div class="fi">🎯</div><p>Estude em casa,<br>no seu ritmo!</p></div>
+<div class="feature youtube-footer-link"><a href="https://www.youtube.com/@bioguara" target="_blank" rel="noopener noreferrer"><div class="fi">▶️</div><p>Canal Bioguará<br>no YouTube</p></a></div>
+<div class="signature"><img src="assets/logo-bioguara.png" alt="Logo"><div><div class="sig-name">Professor Lucas Costa Moterani</div><div class="sig-sub">Bioguará - Ciências e Biologia</div></div></div>
+</footer>
+<script src="script.js"></script>
+
+<script>
+(function(){
+  const key='bioguaraRevisoes';
+  const topic=document.getElementById('revTopic');
+  const date=document.getElementById('revDate');
+  const list=document.getElementById('reviewList');
+  const add=document.getElementById('addReview');
+  const clear=document.getElementById('clearReviews');
+  date.value = new Date().toISOString().slice(0,10);
+  function load(){return JSON.parse(localStorage.getItem(key)||'[]');}
+  function save(items){localStorage.setItem(key, JSON.stringify(items));}
+  function addDays(base, days){
+    const d = new Date(base+'T12:00:00');
+    d.setDate(d.getDate()+days);
+    return d.toISOString().slice(0,10);
+  }
+  function fmt(d){return new Date(d+'T12:00:00').toLocaleDateString('pt-BR');}
+  function render(){
+    const items=load().sort((a,b)=>a.date.localeCompare(b.date));
+    if(!items.length){list.innerHTML='<p>Nenhuma revisão cadastrada ainda.</p>';return;}
+    list.innerHTML=items.map((it,i)=>`<div class="review-item ${it.done?'done':''}"><div><strong>${it.topic}</strong><span>${it.label} • ${fmt(it.date)}</span></div><button data-i="${i}" class="mark-review">${it.done?'Concluída':'Marcar concluída'}</button></div>`).join('');
+    document.querySelectorAll('.mark-review').forEach(btn=>btn.addEventListener('click',()=>{
+      const arr=load().sort((a,b)=>a.date.localeCompare(b.date));
+      arr[btn.dataset.i].done=!arr[btn.dataset.i].done;
+      save(arr); render();
+    }));
+  }
+  add.addEventListener('click',()=>{
+    if(!topic.value.trim()){alert('Digite o nome da aula ou conteúdo.');return;}
+    const base=date.value || new Date().toISOString().slice(0,10);
+    const intervals=[['Revisão 1',1],['Revisão 2',3],['Revisão 3',7],['Revisão 4',15],['Revisão 5',30]];
+    const arr=load();
+    intervals.forEach(([label,days])=>arr.push({topic:topic.value.trim(), label, date:addDays(base,days), done:false}));
+    save(arr); topic.value=''; render();
+  });
+  clear.addEventListener('click',()=>{if(confirm('Apagar todas as revisões salvas neste navegador?')){save([]);render();}});
+  document.getElementById('exportReviewsTxt').addEventListener('click',()=>{
+    const items=load().sort((a,b)=>a.date.localeCompare(b.date));
+    if(!items.length){alert('Nenhuma revisão para baixar.');return;}
+    const txt='Revisão Espaçada Bioguará\n\n'+items.map(it=>`${it.topic} | ${it.label} | ${fmt(it.date)} | ${it.done?'Concluída':'Pendente'}`).join('\n');
+    const blob=new Blob([txt],{type:'text/plain;charset=utf-8'});
+    const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='revisao-espacada-bioguara.txt'; a.click(); URL.revokeObjectURL(a.href);
+  });
+  document.getElementById('printReviewsPdf').addEventListener('click',()=>window.print());
+  render();
+})();
+</script>
+
+</body>
+</html>

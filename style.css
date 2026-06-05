@@ -685,11 +685,22 @@ a{color:inherit;text-decoration:none}
 
 
 /* =========================================================
-   CHAMADA DO CANAL BIOGUARÁ NO YOUTUBE
+   REVISÃO FINAL - ÍCONES, YOUTUBE, FERRAMENTAS E POMODORO
    ========================================================= */
+
+.student-support-grid{
+  grid-template-columns:repeat(3,1fr);
+  margin-bottom:34px;
+}
+
+.support-card{
+  background:linear-gradient(135deg,#fffaf1,#ffe7c9);
+  border:1px solid rgba(216,111,38,.34);
+}
+
 .youtube-callout{
-  width:min(1120px,94%);
-  margin:30px auto 38px;
+  width:min(1180px,94%);
+  margin:28px auto 8px;
 }
 
 .youtube-card{
@@ -778,33 +789,16 @@ a{color:inherit;text-decoration:none}
   box-shadow:0 8px 18px rgba(0,0,0,.20);
 }
 
-.support-title{
-  margin-top:34px;
-}
-
-.support-grid{
-  grid-template-columns:repeat(2,minmax(260px,1fr));
-  max-width:760px;
-  margin:0 auto 34px;
-}
-
-.support-card{
-  border-color:rgba(242,106,22,.42);
-  box-shadow:0 12px 26px rgba(89,34,6,.13);
-}
-
 .youtube-footer-link a{
   display:flex;
   align-items:center;
   gap:18px;
   color:white;
-  width:100%;
 }
 
 .youtube-footer-link .fi{
   width:54px;
   height:54px;
-  min-width:54px;
   border-radius:18px;
   background:#ffffff;
   color:#d60000;
@@ -819,16 +813,264 @@ a{color:inherit;text-decoration:none}
   grid-template-columns:repeat(5,1fr) 1.35fr;
 }
 
+.references-list li{
+  margin-bottom:12px;
+  line-height:1.6;
+}
+
+.references-list a{
+  color:#d94a07;
+  font-weight:800;
+  text-decoration:underline;
+}
+
+.tools-grid{
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+.tool-card{
+  min-height:190px;
+}
+
+.disabled-tool{
+  opacity:.72;
+  filter:saturate(.75);
+}
+
+.disabled-tool .btn{
+  background:linear-gradient(180deg,#d7c1aa,#b99d81);
+  color:#351909;
+}
+
+.pomodoro-page{
+  max-width:1180px;
+}
+
+.pomodoro-card{
+  background:
+    radial-gradient(circle at 10% 5%,rgba(255,255,255,.28),transparent 18%),
+    linear-gradient(135deg,#1a0904,#421508 40%,#ff7417 125%);
+  border:1px solid rgba(255,176,98,.70);
+  border-radius:28px;
+  padding:28px;
+  color:white;
+  box-shadow:0 20px 40px rgba(65,20,3,.25);
+  margin-bottom:36px;
+  overflow:hidden;
+}
+
+.pomodoro-brand{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  margin-bottom:24px;
+}
+
+.pomodoro-brand img{
+  width:86px;
+  filter:drop-shadow(0 8px 12px rgba(0,0,0,.35));
+}
+
+.pomodoro-brand h2{
+  margin:0;
+  font-family:Oswald,Poppins,sans-serif;
+  font-size:32px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+.pomodoro-brand p{
+  margin:4px 0 0;
+  color:#ffe5c5;
+}
+
+.pomodoro-layout{
+  display:grid;
+  grid-template-columns:390px 1fr;
+  gap:30px;
+  align-items:center;
+}
+
+.timer-ring{
+  --progress:0deg;
+  width:340px;
+  height:340px;
+  border-radius:50%;
+  background:conic-gradient(#ff7a1a var(--progress), rgba(255,255,255,.18) 0deg);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:auto;
+  box-shadow:inset 0 0 22px rgba(255,255,255,.16), 0 18px 32px rgba(0,0,0,.25);
+}
+
+.timer-inner{
+  width:265px;
+  height:265px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#fff7ed,#ffd9a9);
+  color:#381406;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:22px;
+  box-shadow:0 12px 28px rgba(0,0,0,.25);
+}
+
+.timer-mode{
+  font-weight:900;
+  color:#d94a07;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+.timer-display{
+  font-family:Oswald,Poppins,sans-serif;
+  font-size:72px;
+  font-weight:900;
+  line-height:1;
+  margin:8px 0;
+}
+
+.timer-status{
+  font-size:15px;
+  font-weight:700;
+}
+
+.timer-controls h3{
+  color:#fff;
+  margin:0 0 14px;
+  font-size:24px;
+}
+
+.mode-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin-bottom:18px;
+}
+
+.mode-btn,
+.timer-btn{
+  border:0;
+  cursor:pointer;
+  font-family:Poppins,Arial,sans-serif;
+  font-weight:900;
+  border-radius:16px;
+  transition:.15s;
+}
+
+.mode-btn{
+  background:rgba(255,255,255,.14);
+  color:white;
+  border:1px solid rgba(255,255,255,.28);
+  padding:14px 10px;
+  font-size:16px;
+}
+
+.mode-btn span{
+  color:#ffd9a9;
+  font-size:13px;
+}
+
+.mode-btn.active,
+.mode-btn:hover{
+  background:linear-gradient(135deg,#fff7ed,#ffd9a9);
+  color:#381406;
+}
+
+.mode-btn.active span,
+.mode-btn:hover span{
+  color:#d94a07;
+}
+
+.control-row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
+
+.timer-btn{
+  min-height:46px;
+  padding:10px 16px;
+  background:#fff7ed;
+  color:#381406;
+}
+
+.timer-btn.primary{
+  background:linear-gradient(135deg,#ff7a1a,#d94a07);
+  color:white;
+}
+
+.study-task{
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.20);
+  padding:14px;
+  border-radius:16px;
+}
+
+.study-task label{
+  display:block;
+  font-weight:900;
+  margin-bottom:8px;
+}
+
+.study-task select{
+  width:100%;
+  padding:11px 12px;
+  border-radius:10px;
+  border:0;
+  font-family:Poppins,Arial,sans-serif;
+}
+
+.pomodoro-stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:24px;
+}
+
+.pomodoro-stats div{
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.20);
+  border-radius:18px;
+  padding:16px;
+  text-align:center;
+}
+
+.pomodoro-stats strong{
+  display:block;
+  font-size:34px;
+  color:#ffd9a9;
+}
+
+.pomodoro-stats span{
+  display:block;
+  font-size:14px;
+  color:#fff7ed;
+}
+
 @media(max-width:1100px){
   .feature-footer{
     grid-template-columns:1fr 1fr;
+  }
+  .student-support-grid,
+  .tools-grid{
+    grid-template-columns:1fr 1fr;
+  }
+  .pomodoro-layout{
+    grid-template-columns:1fr;
   }
 }
 
 @media(max-width:700px){
   .youtube-callout{
     width:94%;
-    margin:20px auto 30px;
+    margin:18px auto 8px;
   }
   .youtube-card{
     flex-direction:column;
@@ -851,22 +1093,366 @@ a{color:inherit;text-decoration:none}
   .youtube-content p{
     font-size:15px;
   }
-  .support-grid{
+  .student-support-grid,
+  .tools-grid{
     grid-template-columns:1fr;
-    max-width:100%;
+  }
+  .pomodoro-card{
+    padding:20px;
+    border-radius:22px;
+  }
+  .pomodoro-brand{
+    flex-direction:column;
+    text-align:center;
+  }
+  .pomodoro-brand img{
+    width:72px;
+  }
+  .timer-ring{
+    width:260px;
+    height:260px;
+  }
+  .timer-inner{
+    width:205px;
+    height:205px;
+  }
+  .timer-display{
+    font-size:54px;
+  }
+  .mode-grid{
+    grid-template-columns:1fr;
+  }
+  .control-row{
+    flex-direction:column;
+  }
+  .timer-btn{
+    width:100%;
+  }
+  .pomodoro-stats{
+    grid-template-columns:1fr;
   }
 }
 
-/* Link do YouTube em rodapé legado */
 
-.footer-youtube a{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  color:#fff;
+/* =========================================================
+   FERRAMENTAS FUNCIONAIS BIOGUARÁ - REVISÃO FINAL
+   ========================================================= */
+
+.tool-page{
+  max-width:1180px;
+}
+
+.tool-panel{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:22px;
+  margin-bottom:28px;
+}
+
+.tool-form,
+.tool-note{
+  background:#fff9ef;
+  border:1px solid #f0bd8a;
+  border-radius:18px;
+  padding:22px;
+  box-shadow:0 10px 24px rgba(89,34,6,.10);
+}
+
+.tool-form label{
+  display:block;
   font-weight:900;
-  background:linear-gradient(135deg,#ff1f1f,#b40000);
-  padding:10px 14px;
+  color:#3c1608;
+  margin:10px 0 6px;
+}
+
+.tool-form input,
+.tool-form textarea,
+.tool-form select{
+  width:100%;
+  border:1px solid #f0bd8a;
+  background:#fffdf8;
+  border-radius:12px;
+  padding:12px 14px;
+  font-family:Poppins,Arial,sans-serif;
+  font-size:15px;
+  outline:none;
+}
+
+.tool-form input:focus,
+.tool-form textarea:focus,
+.tool-form select:focus{
+  border-color:#f36c13;
+  box-shadow:0 0 0 3px rgba(243,108,19,.14);
+}
+
+.tool-note h3{
+  margin-top:0;
+  color:#d94a07;
+}
+
+.review-item,
+.grade-item{
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  align-items:center;
+  background:#fffdf8;
+  border:1px solid #f0bd8a;
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:10px;
+}
+
+.review-item span{
+  display:block;
+  color:#7a3a14;
+  font-size:14px;
+}
+
+.review-item.done{
+  opacity:.65;
+  background:#f3ffe8;
+}
+
+.review-item button,
+.grade-item button,
+.delete-card,
+.delete-org{
+  border:0;
+  border-radius:10px;
+  padding:8px 10px;
+  font-weight:900;
+  cursor:pointer;
+  background:#ffe0bd;
+  color:#3c1608;
+}
+
+.planner-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:16px;
+}
+
+.planner-day{
+  background:linear-gradient(135deg,#fff7ed,#ffe4c5);
+  border:1px solid #f0bd8a;
+  border-radius:16px;
+  padding:16px;
+}
+
+.planner-day h3{
+  margin:0 0 8px;
+  color:#d94a07;
+}
+
+.planner-day p{
+  margin:8px 0;
+}
+
+.planner-day span{
+  display:inline-block;
+  margin-top:8px;
+  font-weight:900;
+}
+
+.flash-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:16px;
+}
+
+.flash-card{
+  min-height:210px;
+  perspective:1000px;
+  position:relative;
+  cursor:pointer;
+}
+
+.flash-front,
+.flash-back{
+  min-height:210px;
+  border-radius:18px;
+  padding:20px;
+  border:1px solid #f0bd8a;
+  box-shadow:0 10px 24px rgba(89,34,6,.10);
+  backface-visibility:hidden;
+  transition:.35s;
+  position:absolute;
+  inset:0;
+}
+
+.flash-front{
+  background:linear-gradient(135deg,#fff7ed,#ffd9a9);
+}
+
+.flash-back{
+  background:linear-gradient(135deg,#401408,#ff7a1a);
+  color:white;
+  transform:rotateY(180deg);
+}
+
+.flash-card.flipped .flash-front{
+  transform:rotateY(180deg);
+}
+
+.flash-card.flipped .flash-back{
+  transform:rotateY(360deg);
+}
+
+.flash-front strong,
+.flash-back strong{
+  display:block;
+  color:#d94a07;
+  margin-bottom:8px;
+}
+
+.flash-back strong{
+  color:#ffe5c5;
+}
+
+.flash-front span{
+  display:inline-block;
+  margin-top:10px;
+  font-size:13px;
+  font-weight:900;
+  color:#7a3a14;
+}
+
+.media-result{
+  background:linear-gradient(135deg,#ff7a1a,#d94a07);
+  color:white;
+  border-radius:16px;
+  padding:18px;
+  font-weight:900;
+  font-size:20px;
+  margin-top:16px;
+  text-align:center;
+}
+
+.grade-item span{
+  font-weight:900;
+  flex:1;
+}
+
+.grade-item strong{
+  font-size:22px;
+  color:#d94a07;
+}
+
+.grade-item em{
+  font-style:normal;
+  font-size:13px;
+  color:#7a3a14;
+}
+
+.org-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:16px;
+}
+
+.org-item{
+  background:#fffdf8;
+  border:1px solid #f0bd8a;
+  border-radius:18px;
+  padding:18px;
+  box-shadow:0 10px 24px rgba(89,34,6,.10);
+}
+
+.org-item h3{
+  margin:0 0 4px;
+  color:#3c1608;
+}
+
+.org-item p{
+  margin:0 0 12px;
+  color:#7a3a14;
+}
+
+.org-item label{
+  display:block;
+  margin:8px 0;
+  font-weight:700;
+}
+
+.quiz-box{
+  display:grid;
+  gap:16px;
+}
+
+.quiz-item{
+  background:#fffdf8;
+  border:1px solid #f0bd8a;
+  border-radius:18px;
+  padding:18px;
+}
+
+.quiz-item h3{
+  margin-top:0;
+}
+
+.quiz-item label{
+  display:block;
+  margin:10px 0;
+  background:#fff4e5;
+  padding:10px 12px;
+  border-radius:12px;
+}
+
+@media(max-width:800px){
+  .tool-panel{
+    grid-template-columns:1fr;
+  }
+  .review-item,
+  .grade-item{
+    flex-direction:column;
+    align-items:stretch;
+  }
+}
+
+
+/* =========================================================
+   EXPORTAÇÃO E CONTADOR LOCAL
+   ========================================================= */
+.local-counter{
+  width:max-content;
+  max-width:100%;
+  margin:0 auto 18px;
+  padding:8px 14px;
   border-radius:999px;
-  box-shadow:0 8px 18px rgba(0,0,0,.18);
+  background:linear-gradient(135deg,#fff7ed,#ffe0bd);
+  border:1px solid #f0bd8a;
+  color:#3c1608;
+  font-weight:800;
+  font-size:13px;
+  box-shadow:0 6px 14px rgba(89,34,6,.08);
+}
+
+@media print{
+  .topbar,
+  .hero,
+  .mainnav,
+  .feature-footer,
+  .page-actions,
+  .return-button,
+  .timer-btn,
+  .local-counter{
+    display:none !important;
+  }
+  body{
+    background:#fff !important;
+    color:#000 !important;
+  }
+  .page-wrap,
+  .lesson-card,
+  .tool-panel,
+  .tool-form,
+  .tool-note{
+    box-shadow:none !important;
+    border:1px solid #ccc !important;
+    background:#fff !important;
+  }
+  .page-title{
+    color:#000 !important;
+  }
 }
