@@ -38,7 +38,7 @@
   <div class="lesson-head"><span class="lesson-badge">🧠</span><h2>Minhas revisões</h2></div>
   <div class="lesson-section">
     <div id="reviewList" class="review-list"></div>
-    <div class="page-actions"><button id="exportReviewsTxt" class="return-button">⬇️ Baixar .txt</button><button id="printReviewsPdf" class="return-button secondary">🖨️ Salvar em PDF</button><button id="clearReviews" class="return-button secondary">🗑️ Limpar revisões</button></div>
+    <div class="page-actions"><button id="exportReviewsTxt" class="return-button">⬇️ Baixar .txt</button><button id="printReviewsPdf" class="return-button secondary">🦊 Gerar relatório em PDF</button><button id="clearReviews" class="return-button secondary">🗑️ Limpar revisões</button></div>
   </div>
 </section>
 
@@ -54,6 +54,50 @@
 <script src="script.js"></script>
 
 <script>
+
+function abrirRelatorioBioguara(titulo, subtitulo, corpoHtml){
+  const data = new Date().toLocaleDateString('pt-BR');
+  const win = window.open('', '_blank');
+  if(!win){
+    alert('O navegador bloqueou a janela do relatório. Autorize pop-ups para este site.');
+    return;
+  }
+  const doc = `<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><title>${titulo}</title>
+<style>
+@page{size:A4;margin:14mm}
+*{box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;color:#241006;margin:0;background:#fff;line-height:1.45}
+.actions{margin:18px 0;display:flex;gap:10px}
+.actions button{border:0;background:linear-gradient(135deg,#ff7a1a,#d94a07);color:#fff;border-radius:999px;padding:10px 16px;font-weight:bold;cursor:pointer}
+.report-header{display:flex;align-items:center;gap:14px;border-bottom:3px solid #f26a16;padding-bottom:12px;margin-bottom:16px}
+.report-logo{width:64px;height:64px;object-fit:contain}
+.report-title{margin:0;font-size:24px;color:#351305;text-transform:uppercase;letter-spacing:.5px}
+.report-subtitle{margin:3px 0 0;font-size:13px;color:#7a3a14}
+.student-line{display:grid;grid-template-columns:1fr 130px;gap:18px;margin:14px 0 18px;font-size:13px}
+.line{border-bottom:1px solid #999;min-height:22px;display:inline-block;width:100%}
+.report-section{page-break-inside:avoid;break-inside:avoid;border:1px solid #f0bd8a;border-left:6px solid #f26a16;border-radius:10px;padding:12px 14px;margin-bottom:12px;background:#fffaf2}
+.report-section h2{margin:0 0 8px;color:#351305;font-size:18px}
+.report-section p{margin:4px 0}
+.checkline{display:inline-block;margin-right:16px;font-weight:bold}
+.meta{color:#6b3a12;font-size:13px}
+table{width:100%;border-collapse:collapse;margin-top:8px}
+tr{page-break-inside:avoid;break-inside:avoid}
+th{background:#f26a16;color:#fff;text-align:left;padding:8px;font-size:12px}
+td{border:1px solid #f0bd8a;padding:8px;font-size:12px;vertical-align:top}
+.footer{border-top:1px solid #f0bd8a;margin-top:18px;padding-top:8px;font-size:11px;color:#7a3a14;display:flex;justify-content:space-between;gap:10px}
+@media print{.actions{display:none}body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style></head><body>
+<div class="actions"><button onclick="window.print()">Salvar como PDF / Imprimir</button><button onclick="window.close()">Fechar</button></div>
+<header class="report-header"><img class="report-logo" src="assets/logo-bioguara.png" alt="Logo Bioguará"><div><h1 class="report-title">${titulo}</h1><p class="report-subtitle">${subtitulo}</p></div></header>
+<div class="student-line"><div>Aluno(a): <span class="line"></span></div><div>Data: ${data}</div></div>
+${corpoHtml}
+<div class="footer"><span>www.profbioguara.com.br</span><span>Professor Lucas Costa Moterani • Bioguará</span></div>
+</body></html>`;
+  win.document.open();
+  win.document.write(doc);
+  win.document.close();
+}
+
 (function(){
   const key='bioguaraRevisoes';
   const topic=document.getElementById('revTopic');
@@ -96,7 +140,12 @@
     const blob=new Blob([txt],{type:'text/plain;charset=utf-8'});
     const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='revisao-espacada-bioguara.txt'; a.click(); URL.revokeObjectURL(a.href);
   });
-  document.getElementById('printReviewsPdf').addEventListener('click',()=>window.print());
+  document.getElementById('printReviewsPdf').addEventListener('click',()=>{
+    const items=load().sort((a,b)=>a.date.localeCompare(b.date));
+    if(!items.length){alert('Nenhuma revisão para gerar relatório.');return;}
+    const rows=items.map(it=>`<tr><td>${it.topic}</td><td>${it.label}</td><td>${fmt(it.date)}</td><td>${it.done?'Concluída':'Pendente'}</td></tr>`).join('');
+    abrirRelatorioBioguara('Revisão Espaçada Bioguará','Agenda de revisões gerada pelo Método Bioguará',`<section class="report-section"><h2>Revisões programadas</h2><table><thead><tr><th>Conteúdo</th><th>Etapa</th><th>Data</th><th>Status</th></tr></thead><tbody>${rows}</tbody></table></section>`);
+  });
   render();
 })();
 </script>

@@ -1456,3 +1456,175 @@ a{color:inherit;text-decoration:none}
     color:#000 !important;
   }
 }
+
+
+/* =========================================================
+   PAINEL DO PROFESSOR - SIMULADOR DE PROVAS
+   ========================================================= */
+.admin-login-card{
+  margin-top:34px;
+}
+
+.teacher-login-box{
+  max-width:520px;
+}
+
+.compact-form{
+  max-width:520px;
+}
+
+.admin-message{
+  color:#b42105;
+  font-weight:900;
+  margin-bottom:0;
+}
+
+.teacher-panel .intro-alert{
+  margin-bottom:22px;
+}
+
+.admin-question-list h3{
+  color:#d94a07;
+  margin-top:22px;
+  margin-bottom:10px;
+}
+
+.admin-question-item{
+  background:#fffdf8;
+  border:1px solid #f0bd8a;
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:12px;
+  box-shadow:0 8px 18px rgba(89,34,6,.08);
+}
+
+.admin-question-item p{
+  margin:8px 0;
+  color:#7a3a14;
+}
+
+.admin-question-item button{
+  border:0;
+  border-radius:999px;
+  padding:8px 12px;
+  background:#ffe0bd;
+  color:#3c1608;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.code-box{
+  margin-top:22px;
+  background:#fff9ef;
+  border:1px solid #f0bd8a;
+  border-radius:18px;
+  padding:18px;
+}
+
+.code-box textarea{
+  width:100%;
+  border:1px solid #f0bd8a;
+  border-radius:12px;
+  padding:12px;
+  font-family:Consolas, monospace;
+  font-size:13px;
+  background:#fffdf8;
+}
+
+.nested-card{
+  margin-top:24px;
+}
+
+
+/* =========================================================
+   SIMULADOR HIERÁRQUICO - TURMA, DISCIPLINA E BIMESTRE
+   ========================================================= */
+.quiz-info{
+  background:linear-gradient(135deg,#fff7ed,#ffe0bd);
+  border:1px solid #f0bd8a;
+  border-radius:14px;
+  padding:12px 14px;
+  margin-bottom:18px;
+  color:#3c1608;
+}
+
+.quiz-info span{
+  color:#7a3a14;
+  font-weight:800;
+}
+
+.admin-login-card{
+  margin-top:34px;
+}
+
+.teacher-login-box{
+  max-width:520px;
+}
+
+.compact-form{
+  max-width:520px;
+}
+
+.admin-message{
+  color:#b42105;
+  font-weight:900;
+  margin-bottom:0;
+}
+
+.teacher-panel .intro-alert{
+  margin-bottom:22px;
+}
+
+.admin-question-list h3{
+  color:#d94a07;
+  margin-top:22px;
+  margin-bottom:10px;
+  border-bottom:1px solid #f0bd8a;
+  padding-bottom:8px;
+}
+
+.admin-question-item{
+  background:#fffdf8;
+  border:1px solid #f0bd8a;
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:12px;
+  box-shadow:0 8px 18px rgba(89,34,6,.08);
+}
+
+.admin-question-item p{
+  margin:8px 0;
+  color:#7a3a14;
+}
+
+.admin-question-item button{
+  border:0;
+  border-radius:999px;
+  padding:8px 12px;
+  background:#ffe0bd;
+  color:#3c1608;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.code-box{
+  margin-top:22px;
+  background:#fff9ef;
+  border:1px solid #f0bd8a;
+  border-radius:18px;
+  padding:18px;
+}
+
+.code-box textarea{
+  width:100%;
+  border:1px solid #f0bd8a;
+  border-radius:12px;
+  padding:12px;
+  font-family:Consolas, monospace;
+  font-size:13px;
+  background:#fffdf8;
+}
+
+.nested-card{
+  margin-top:24px;
+}

@@ -18,23 +18,153 @@
   <div class="breadcrumb">Início › Ferramentas de Estudo › Simulador de Provas</div>
   <div class="page-actions top-return"><a class="return-button secondary" href="ferramentas-estudo.html">⬅ Voltar para Ferramentas de Estudo</a></div>
   <div class="local-counter" data-counter-page="simulador">👁️ Acessos neste navegador: <span id="localVisitCount">0</span></div>
-  <h1 class="page-title">Simulador de Provas</h1>
-  <div class="intro-alert"><strong>Treine com questões rápidas.</strong> Use para testar se você consegue lembrar e aplicar o conteúdo.</div>
-  
-<section class="tool-panel">
-  <div class="tool-form">
-    <label>Escolha o tema</label>
-    <select id="quizTheme">
-      <option value="ciencias">Ciências</option>
-      <option value="biologia">Biologia</option>
-      <option value="estudo">Métodos de Estudo</option>
-    </select>
-    <button id="startQuiz" class="timer-btn primary">🎯 Gerar simulado</button>
-  </div>
-  <div class="tool-note"><h3>Treino rápido</h3><p>As questões são exemplos gerais para treino. Depois podemos criar bancos específicos por aula e bimestre.</p></div>
-</section>
-<section class="lesson-card"><div class="lesson-head"><span class="lesson-badge">🎯</span><h2>Questões</h2></div><div class="lesson-section"><form id="quizBox" class="quiz-box"></form><div id="quizResult" class="media-result"></div></div></section>
 
+  <h1 class="page-title">Simulador de Provas</h1>
+  <div class="intro-alert">
+    <strong>Treine por turma, disciplina e bimestre.</strong> Escolha exatamente o conteúdo que deseja revisar e gere um simulado com questões do banco Bioguará.
+  </div>
+
+  <section class="tool-panel">
+    <div class="tool-form">
+      <label>Turma</label>
+      <select id="quizTurma"></select>
+
+      <label>Disciplina</label>
+      <select id="quizDisciplina"></select>
+
+      <label>Bimestre</label>
+      <select id="quizBimestre">
+        <option value="todos">Todos os bimestres</option>
+        <option value="b1">1º Bimestre</option>
+        <option value="b2">2º Bimestre</option>
+        <option value="b3">3º Bimestre</option>
+        <option value="b4">4º Bimestre</option>
+      </select>
+
+      <label>Quantidade de questões</label>
+      <select id="quizAmount">
+        <option value="3">3 questões</option>
+        <option value="5">5 questões</option>
+        <option value="10">10 questões</option>
+        <option value="999">Todas disponíveis</option>
+      </select>
+
+      <button id="startQuiz" class="timer-btn primary" type="button">🎯 Gerar simulado</button>
+    </div>
+
+    <div class="tool-note">
+      <h3>Simulado organizado</h3>
+      <p>Agora o treino segue a estrutura do site: turma, disciplina e bimestre.</p>
+      <p>Exemplos: <strong>7º Ano › Ciências › 1º Bimestre</strong> ou <strong>2º Ano EM › Biologia › 4º Bimestre</strong>.</p>
+      <p>O professor pode cadastrar novas questões na área restrita no fim da página.</p>
+    </div>
+  </section>
+
+  <section class="lesson-card">
+    <div class="lesson-head"><span class="lesson-badge">🎯</span><h2>Questões</h2></div>
+    <div class="lesson-section">
+      <div id="quizInfo" class="quiz-info"></div>
+      <form id="quizBox" class="quiz-box"></form>
+      <div id="quizResult" class="media-result"></div>
+    </div>
+  </section>
+
+  <section class="lesson-card admin-login-card">
+    <div class="lesson-head"><span class="lesson-badge">🔒</span><h2>Área do Professor</h2></div>
+    <div class="lesson-section">
+      <p>Área restrita para cadastrar questões extras do simulador.</p>
+
+      <div id="teacherLoginBox" class="teacher-login-box">
+        <div class="tool-form compact-form">
+          <label>Login</label>
+          <input id="teacherUser" type="text" placeholder="Digite o login">
+
+          <label>Senha</label>
+          <input id="teacherPass" type="password" placeholder="Digite a senha">
+
+          <button id="teacherLoginBtn" class="timer-btn primary" type="button">🔓 Entrar</button>
+          <p id="teacherLoginMsg" class="admin-message"></p>
+        </div>
+      </div>
+
+      <div id="teacherPanel" class="teacher-panel" hidden>
+        <div class="intro-alert">
+          <strong>Painel do Professor Bioguará:</strong> cadastre questões por turma, disciplina e bimestre. As questões extras ficam salvas neste navegador. Para deixá-las permanentes no site para todos os alunos, use “Gerar código” e cole no banco principal futuramente.
+        </div>
+
+        <section class="tool-panel">
+          <div class="tool-form">
+            <label>Turma</label>
+            <select id="newTurma"></select>
+
+            <label>Disciplina</label>
+            <select id="newDisciplina"></select>
+
+            <label>Bimestre</label>
+            <select id="newBimestre">
+              <option value="b1">1º Bimestre</option>
+              <option value="b2">2º Bimestre</option>
+              <option value="b3">3º Bimestre</option>
+              <option value="b4">4º Bimestre</option>
+            </select>
+
+            <label>Pergunta</label>
+            <textarea id="newQuestion" rows="3" placeholder="Digite a pergunta"></textarea>
+
+            <label>Alternativa A</label>
+            <input id="newA" type="text" placeholder="Alternativa A">
+
+            <label>Alternativa B</label>
+            <input id="newB" type="text" placeholder="Alternativa B">
+
+            <label>Alternativa C</label>
+            <input id="newC" type="text" placeholder="Alternativa C">
+
+            <label>Alternativa D</label>
+            <input id="newD" type="text" placeholder="Alternativa D">
+
+            <label>Resposta correta</label>
+            <select id="newCorrect">
+              <option value="0">A</option>
+              <option value="1">B</option>
+              <option value="2">C</option>
+              <option value="3">D</option>
+            </select>
+
+            <button id="saveQuestionBtn" class="timer-btn primary" type="button">➕ Adicionar questão</button>
+          </div>
+
+          <div class="tool-note">
+            <h3>Como cadastrar</h3>
+            <p>1. Escolha a turma.</p>
+            <p>2. Escolha a disciplina correspondente.</p>
+            <p>3. Escolha o bimestre.</p>
+            <p>4. Digite a pergunta, as alternativas e a resposta correta.</p>
+            <p>5. Clique em adicionar questão.</p>
+          </div>
+        </section>
+
+        <section class="lesson-card nested-card">
+          <div class="lesson-head"><span class="lesson-badge">📋</span><h2>Questões extras cadastradas</h2></div>
+          <div class="lesson-section">
+            <div id="extraQuestionsList" class="admin-question-list"></div>
+            <div class="page-actions">
+              <button id="exportQuestionsBtn" class="return-button" type="button">⬇️ Baixar JSON</button>
+              <button id="generateCodeBtn" class="return-button secondary" type="button">🧩 Gerar código para colar no site</button>
+              <button id="clearQuestionsBtn" class="return-button secondary" type="button">🗑️ Limpar extras</button>
+              <button id="teacherLogoutBtn" class="return-button secondary" type="button">🚪 Sair</button>
+            </div>
+
+            <div id="generatedCodeBox" class="code-box" hidden>
+              <h3>Código gerado</h3>
+              <p>Copie as questões abaixo e cole no banco de questões permanente quando quiser atualizar o site para todos os alunos.</p>
+              <textarea id="generatedCode" rows="14" readonly></textarea>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
 </main>
 <footer class="feature-footer">
 <div class="feature"><div class="fi">📖</div><p>Resumos claros<br>e organizados</p></div>
@@ -48,40 +178,449 @@
 
 <script>
 (function(){
- const bank={
-  ciencias:[
-   {q:'Qual atitude reduz melhor a poluição ambiental?', o:['Descartar lixo em rios','Separar resíduos recicláveis','Queimar lixo doméstico','Usar mais combustíveis fósseis'], a:1},
-   {q:'O que é poluição sonora?', o:['Excesso de ruídos','Excesso de luz','Contaminação da água','Perda de solo'], a:0},
-   {q:'O efeito estufa natural é importante porque:', o:['Elimina toda radiação solar','Mantém temperatura adequada à vida','Impede a fotossíntese','Resfria totalmente o planeta'], a:1}
-  ],
-  biologia:[
-   {q:'Bioacumulação é:', o:['Perda de habitat','Acúmulo de substâncias no organismo','Produção de sementes','Divisão celular'], a:1},
-   {q:'Transgênico é um organismo que:', o:['Não possui DNA','Recebeu gene de outra espécie','Não se reproduz','É sempre bactéria'], a:1},
-   {q:'Polinização é importante porque:', o:['Impede a fecundação','Permite formação de sementes e frutos','Elimina abelhas','Aumenta pesticidas'], a:1}
-  ],
-  estudo:[
-   {q:'Qual técnica é mais eficiente para lembrar?', o:['Só reler','Tentar lembrar sem olhar','Grifar tudo','Estudar só na véspera'], a:1},
-   {q:'Revisão espaçada significa:', o:['Revisar várias vezes em dias diferentes','Nunca revisar','Copiar sem pensar','Estudar deitado'], a:0},
-   {q:'Durante um ciclo Pomodoro, o ideal é:', o:['Fazer várias tarefas ao mesmo tempo','Manter foco em uma tarefa','Abrir redes sociais','Parar a cada minuto'], a:1}
-  ]
- };
- const box=document.getElementById('quizBox'), result=document.getElementById('quizResult');
- function start(){
-  const arr=bank[document.getElementById('quizTheme').value];
-  box.innerHTML=arr.map((it,i)=>`<div class="quiz-item"><h3>${i+1}. ${it.q}</h3>${it.o.map((op,j)=>`<label><input type="radio" name="q${i}" value="${j}"> ${op}</label>`).join('')}</div>`).join('')+'<button type="submit" class="timer-btn primary">Corrigir</button>';
-  result.textContent='';
- }
- box.addEventListener('submit',e=>{
-  e.preventDefault();
-  const arr=bank[document.getElementById('quizTheme').value];
-  let score=0;
-  arr.forEach((it,i)=>{const checked=box.querySelector(`input[name="q${i}"]:checked`); if(checked && parseInt(checked.value,10)===it.a) score++;});
-  result.textContent=`Resultado: ${score} de ${arr.length} acertos.`;
- });
- document.getElementById('startQuiz').addEventListener('click', start);
- start();
+  'use strict';
+
+  const TEACHER_USER = 'profbioguara';
+  const TEACHER_PASS_HASH = 'd34a2edd0351148756b6385156dcdeb611064e0cb97f5203269e8445e8f5fa82';
+  const EXTRA_KEY = 'bioguaraSimuladorQuestoesExtrasV2';
+  const LOGIN_KEY = 'bioguaraProfessorLogado';
+
+  const structure = {
+    '7ano': {
+      label: '7º Ano',
+      icon: '🔬',
+      subjects: {
+        ciencias: 'Ciências'
+      }
+    },
+    '9ano': {
+      label: '9º Ano',
+      icon: '🧪',
+      subjects: {
+        ciencias: 'Ciências'
+      }
+    },
+    '1em': {
+      label: '1º Ano EM',
+      icon: '🌱',
+      subjects: {
+        biologia: 'Biologia',
+        educacaoFinanceira: 'Educação Financeira'
+      }
+    },
+    '2em': {
+      label: '2º Ano EM',
+      icon: '🧬',
+      subjects: {
+        biologia: 'Biologia',
+        liderancaOratoria: 'Liderança e Oratória'
+      }
+    }
+  };
+
+  const bimestreLabels = {
+    b1: '1º Bimestre',
+    b2: '2º Bimestre',
+    b3: '3º Bimestre',
+    b4: '4º Bimestre'
+  };
+
+  const defaultBank = {
+    '7ano-ciencias-b1': [
+      { q:'O efeito estufa natural é importante porque:', o:['Elimina toda radiação solar','Mantém a temperatura adequada à vida','Impede a fotossíntese','Resfria totalmente o planeta'], a:1 },
+      { q:'A atmosfera terrestre contribui para a vida porque:', o:['Filtra parte da radiação e regula a temperatura','Impede totalmente a entrada de luz','É formada apenas por oxigênio','Não participa dos ciclos naturais'], a:0 },
+      { q:'Tempo e clima são diferentes porque:', o:['Tempo é momentâneo e clima é padrão ao longo do tempo','Clima muda todo minuto e tempo nunca muda','São exatamente a mesma coisa','Tempo só existe no inverno'], a:0 }
+    ],
+    '7ano-ciencias-b2': [
+      { q:'Qual atitude reduz melhor a poluição ambiental?', o:['Descartar lixo em rios','Separar resíduos recicláveis','Queimar lixo doméstico','Usar mais combustíveis fósseis'], a:1 },
+      { q:'O que é poluição sonora?', o:['Excesso de ruídos','Excesso de luz','Contaminação da água','Perda de solo'], a:0 },
+      { q:'O saneamento básico é importante porque:', o:['Aumenta a poluição','Ajuda a proteger a saúde e reduzir a contaminação ambiental','Impede o tratamento de água','Substitui a necessidade de higiene'], a:1 }
+    ],
+    '7ano-ciencias-b3': [],
+    '7ano-ciencias-b4': [],
+
+    '9ano-ciencias-b1': [
+      { q:'Uma onda mecânica precisa:', o:['De um meio material para se propagar','Sempre do vácuo','Apenas de luz solar','De ausência total de energia'], a:0 },
+      { q:'A frequência de uma onda indica:', o:['A cor do objeto','O número de oscilações por unidade de tempo','A massa do meio','A temperatura do ambiente'], a:1 }
+    ],
+    '9ano-ciencias-b2': [
+      { q:'Na retina, os cones estão relacionados principalmente com:', o:['Percepção de cores','Produção de som','Equilíbrio corporal','Filtração do sangue'], a:0 },
+      { q:'A cóclea participa do sentido da:', o:['Visão','Audição','Olfato','Gustação'], a:1 }
+    ],
+    '9ano-ciencias-b3': [],
+    '9ano-ciencias-b4': [],
+
+    '1em-biologia-b1': [
+      { q:'A radiação pode ser perigosa quando:', o:['Nunca interage com a matéria','A dose e o tipo de exposição causam danos biológicos','É sempre inexistente no ambiente','Só aparece em plantas'], a:1 }
+    ],
+    '1em-biologia-b2': [
+      { q:'O aumento de CO₂ na atmosfera pode:', o:['Intensificar a retenção de calor','Eliminar o efeito estufa natural','Resfriar todo o planeta imediatamente','Impedir a fotossíntese em todas as plantas'], a:0 },
+      { q:'Mudanças climáticas são:', o:['Alterações de longo prazo nos padrões climáticos','Apenas a chuva de um dia','Somente vento forte','Fenômenos sem relação com dados científicos'], a:0 }
+    ],
+    '1em-biologia-b3': [],
+    '1em-biologia-b4': [],
+
+    '1em-educacaoFinanceira-b1': [
+      { q:'Educação financeira ajuda principalmente a:', o:['Gastar sem controle','Planejar o uso do dinheiro e tomar decisões melhores','Ignorar receitas e despesas','Comprar tudo parcelado sem avaliar'], a:1 }
+    ],
+    '1em-educacaoFinanceira-b2': [],
+    '1em-educacaoFinanceira-b3': [],
+    '1em-educacaoFinanceira-b4': [],
+
+    '2em-biologia-b1': [
+      { q:'Bioacumulação é:', o:['Perda de habitat','Acúmulo de substâncias no organismo ao longo do tempo','Produção de sementes','Divisão celular'], a:1 },
+      { q:'Polinização é importante porque:', o:['Impede a fecundação','Permite formação de sementes e frutos','Elimina abelhas','Aumenta pesticidas'], a:1 }
+    ],
+    '2em-biologia-b2': [
+      { q:'Transgênico é um organismo que:', o:['Não possui DNA','Recebeu gene de outra espécie','Não se reproduz','É sempre bactéria'], a:1 },
+      { q:'Um OGM é:', o:['Um organismo com material genético alterado por engenharia genética','Sempre um animal sem células','Um ser vivo sem DNA','Apenas uma bactéria patogênica'], a:0 }
+    ],
+    '2em-biologia-b3': [],
+    '2em-biologia-b4': [],
+
+    '2em-liderancaOratoria-b1': [
+      { q:'Uma boa comunicação em público exige:', o:['Clareza, organização e respeito ao público','Falar sem parar e sem objetivo','Ignorar a plateia','Usar apenas frases decoradas'], a:0 }
+    ],
+    '2em-liderancaOratoria-b2': [],
+    '2em-liderancaOratoria-b3': [],
+    '2em-liderancaOratoria-b4': []
+  };
+
+  function $(id) {
+    return document.getElementById(id);
+  }
+
+  function escapeHTML(value) {
+    return String(value).replace(/[&<>"']/g, function(ch) {
+      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]);
+    });
+  }
+
+  function makeKey(turma, disciplina, bimestre) {
+    return turma + '-' + disciplina + '-' + bimestre;
+  }
+
+  function getDisciplinas(turma) {
+    return structure[turma].subjects;
+  }
+
+  function loadExtras() {
+    try {
+      const data = JSON.parse(localStorage.getItem(EXTRA_KEY) || '{}');
+      return data && typeof data === 'object' ? data : {};
+    } catch(e) {
+      return {};
+    }
+  }
+
+  function saveExtras(data) {
+    localStorage.setItem(EXTRA_KEY, JSON.stringify(data));
+  }
+
+  function getQuestionsByKey(key) {
+    const extras = loadExtras();
+    return (defaultBank[key] || []).concat(extras[key] || []);
+  }
+
+  function getSelectedQuestions() {
+    const turma = $('quizTurma').value;
+    const disciplina = $('quizDisciplina').value;
+    const bimestre = $('quizBimestre').value;
+
+    if (bimestre === 'todos') {
+      let all = [];
+      ['b1','b2','b3','b4'].forEach(function(bim) {
+        all = all.concat(getQuestionsByKey(makeKey(turma, disciplina, bim)));
+      });
+      return all;
+    }
+
+    return getQuestionsByKey(makeKey(turma, disciplina, bimestre));
+  }
+
+  function getSelectionLabel(prefix) {
+    const turma = $(prefix + 'Turma').value;
+    const disciplina = $(prefix + 'Disciplina').value;
+    const bimestreEl = $(prefix + 'Bimestre');
+    const bimestre = bimestreEl ? bimestreEl.value : 'todos';
+    const turmaLabel = structure[turma].label;
+    const disciplinaLabel = structure[turma].subjects[disciplina];
+    const bimLabel = bimestre === 'todos' ? 'Todos os bimestres' : bimestreLabels[bimestre];
+    return turmaLabel + ' › ' + disciplinaLabel + ' › ' + bimLabel;
+  }
+
+  function fillTurmaSelect(selectId) {
+    const select = $(selectId);
+    if (!select) return;
+    select.innerHTML = Object.keys(structure).map(function(key) {
+      return '<option value="' + key + '">' + structure[key].icon + ' ' + structure[key].label + '</option>';
+    }).join('');
+  }
+
+  function fillDisciplinaSelect(turmaSelectId, disciplinaSelectId) {
+    const turmaSelect = $(turmaSelectId);
+    const disciplinaSelect = $(disciplinaSelectId);
+    if (!turmaSelect || !disciplinaSelect) return;
+    const turma = turmaSelect.value;
+    const subjects = getDisciplinas(turma);
+    disciplinaSelect.innerHTML = Object.keys(subjects).map(function(key) {
+      return '<option value="' + key + '">' + subjects[key] + '</option>';
+    }).join('');
+  }
+
+  function initializeSelectors() {
+    fillTurmaSelect('quizTurma');
+    fillDisciplinaSelect('quizTurma', 'quizDisciplina');
+
+    fillTurmaSelect('newTurma');
+    fillDisciplinaSelect('newTurma', 'newDisciplina');
+
+    if ($('quizTurma')) $('quizTurma').addEventListener('change', function() {
+      fillDisciplinaSelect('quizTurma', 'quizDisciplina');
+      startQuiz();
+    });
+    if ($('quizDisciplina')) $('quizDisciplina').addEventListener('change', startQuiz);
+    if ($('quizBimestre')) $('quizBimestre').addEventListener('change', startQuiz);
+
+    if ($('newTurma')) $('newTurma').addEventListener('change', function() {
+      fillDisciplinaSelect('newTurma', 'newDisciplina');
+    });
+  }
+
+  function shuffle(array) {
+    const copy = array.slice();
+    for (let i = copy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy;
+  }
+
+  function startQuiz() {
+    const all = getSelectedQuestions();
+    const amount = parseInt($('quizAmount').value, 10);
+    const selected = shuffle(all).slice(0, Math.min(amount, all.length));
+    const box = $('quizBox');
+    const result = $('quizResult');
+    const info = $('quizInfo');
+
+    info.innerHTML = '<strong>Selecionado:</strong> ' + escapeHTML(getSelectionLabel('quiz')) + '<br><span>Questões disponíveis: ' + all.length + '</span>';
+
+    if (!selected.length) {
+      box.innerHTML = '<p>Nenhuma questão disponível para esta seleção ainda. O professor pode cadastrar novas questões na área restrita.</p>';
+      result.textContent = '';
+      box.dataset.currentQuestions = '[]';
+      return;
+    }
+
+    box.dataset.currentQuestions = JSON.stringify(selected);
+
+    box.innerHTML = selected.map(function(it, i) {
+      return '<div class="quiz-item"><h3>' + (i + 1) + '. ' + escapeHTML(it.q) + '</h3>' +
+        it.o.map(function(op, j) {
+          return '<label><input type="radio" name="q' + i + '" value="' + j + '"> ' + escapeHTML(op) + '</label>';
+        }).join('') +
+      '</div>';
+    }).join('') + '<button type="submit" class="timer-btn primary">Corrigir</button>';
+
+    result.textContent = '';
+  }
+
+  function correctQuiz(event) {
+    event.preventDefault();
+    const box = $('quizBox');
+    const result = $('quizResult');
+    const questions = JSON.parse(box.dataset.currentQuestions || '[]');
+    let score = 0;
+
+    questions.forEach(function(it, i) {
+      const checked = box.querySelector('input[name="q' + i + '"]:checked');
+      if (checked && parseInt(checked.value, 10) === it.a) {
+        score++;
+      }
+    });
+
+    result.textContent = 'Resultado: ' + score + ' de ' + questions.length + ' acertos.';
+  }
+
+  async function sha256(text) {
+    if (window.crypto && crypto.subtle) {
+      const buffer = new TextEncoder().encode(text);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', buffer);
+      return Array.from(new Uint8Array(hashBuffer)).map(function(b) {
+        return b.toString(16).padStart(2, '0');
+      }).join('');
+    }
+    return text;
+  }
+
+  async function loginTeacher() {
+    const user = $('teacherUser').value.trim();
+    const pass = $('teacherPass').value;
+    const msg = $('teacherLoginMsg');
+    const hash = await sha256(pass);
+
+    if (user === TEACHER_USER && hash === TEACHER_PASS_HASH) {
+      localStorage.setItem(LOGIN_KEY, '1');
+      msg.textContent = '';
+      showTeacherPanel(true);
+    } else {
+      msg.textContent = 'Login ou senha incorretos.';
+    }
+  }
+
+  function showTeacherPanel(show) {
+    $('teacherLoginBox').hidden = show;
+    $('teacherPanel').hidden = !show;
+    if (show) {
+      renderExtraQuestions();
+    }
+  }
+
+  function logoutTeacher() {
+    localStorage.removeItem(LOGIN_KEY);
+    showTeacherPanel(false);
+  }
+
+  function saveNewQuestion() {
+    const turma = $('newTurma').value;
+    const disciplina = $('newDisciplina').value;
+    const bimestre = $('newBimestre').value;
+    const key = makeKey(turma, disciplina, bimestre);
+
+    const q = $('newQuestion').value.trim();
+    const alternatives = [
+      $('newA').value.trim(),
+      $('newB').value.trim(),
+      $('newC').value.trim(),
+      $('newD').value.trim()
+    ];
+    const correct = parseInt($('newCorrect').value, 10);
+
+    if (!q || alternatives.some(function(item) { return !item; })) {
+      alert('Preencha a pergunta e as quatro alternativas.');
+      return;
+    }
+
+    const extras = loadExtras();
+    if (!extras[key]) extras[key] = [];
+    extras[key].push({ q: q, o: alternatives, a: correct });
+    saveExtras(extras);
+
+    $('newQuestion').value = '';
+    $('newA').value = '';
+    $('newB').value = '';
+    $('newC').value = '';
+    $('newD').value = '';
+    $('newCorrect').value = '0';
+
+    renderExtraQuestions();
+    startQuiz();
+  }
+
+  function keyToLabel(key) {
+    const parts = key.split('-');
+    const turma = parts[0];
+    const disciplina = parts[1];
+    const bimestre = parts[2];
+    if (!structure[turma] || !structure[turma].subjects[disciplina]) return key;
+    return structure[turma].label + ' › ' + structure[turma].subjects[disciplina] + ' › ' + bimestreLabels[bimestre];
+  }
+
+  function renderExtraQuestions() {
+    const extras = loadExtras();
+    const list = $('extraQuestionsList');
+    const keys = Object.keys(extras).sort();
+    let html = '';
+
+    if (!keys.length) {
+      list.innerHTML = '<p>Nenhuma questão extra cadastrada ainda.</p>';
+      return;
+    }
+
+    keys.forEach(function(key) {
+      html += '<h3>' + escapeHTML(keyToLabel(key)) + '</h3>';
+
+      if (!extras[key].length) {
+        html += '<p>Nenhuma questão extra cadastrada.</p>';
+        return;
+      }
+
+      html += extras[key].map(function(it, i) {
+        return '<div class="admin-question-item"><strong>' + (i + 1) + '. ' + escapeHTML(it.q) + '</strong>' +
+          '<p>Resposta correta: ' + String.fromCharCode(65 + it.a) + '</p>' +
+          '<button type="button" class="delete-extra-question" data-key="' + key + '" data-index="' + i + '">Excluir</button></div>';
+      }).join('');
+    });
+
+    list.innerHTML = html;
+
+    document.querySelectorAll('.delete-extra-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const extras = loadExtras();
+        extras[btn.dataset.key].splice(parseInt(btn.dataset.index, 10), 1);
+        if (!extras[btn.dataset.key].length) delete extras[btn.dataset.key];
+        saveExtras(extras);
+        renderExtraQuestions();
+        startQuiz();
+      });
+    });
+  }
+
+  function exportQuestionsJSON() {
+    const extras = loadExtras();
+    const blob = new Blob([JSON.stringify(extras, null, 2)], { type: 'application/json;charset=utf-8' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'questoes-extras-bioguara.json';
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(link.href);
+  }
+
+  function generateCode() {
+    const extras = loadExtras();
+    const box = $('generatedCodeBox');
+    const textarea = $('generatedCode');
+
+    const code = Object.keys(extras).sort().map(function(key) {
+      return '/* ===== ' + keyToLabel(key).toUpperCase() + ' ===== */\n' +
+        'defaultBank[\'' + key + '\'] = (defaultBank[\'' + key + '\'] || []).concat(' +
+        JSON.stringify(extras[key], null, 2) + ');';
+    }).join('\n\n');
+
+    textarea.value = code || 'Nenhuma questão extra cadastrada.';
+    box.hidden = false;
+    textarea.select();
+  }
+
+  function clearExtraQuestions() {
+    if (confirm('Apagar todas as questões extras salvas neste navegador?')) {
+      saveExtras({});
+      renderExtraQuestions();
+      startQuiz();
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    initializeSelectors();
+
+    if ($('startQuiz')) $('startQuiz').addEventListener('click', startQuiz);
+    if ($('quizAmount')) $('quizAmount').addEventListener('change', startQuiz);
+    if ($('quizBox')) $('quizBox').addEventListener('submit', correctQuiz);
+
+    if ($('teacherLoginBtn')) $('teacherLoginBtn').addEventListener('click', loginTeacher);
+    if ($('teacherLogoutBtn')) $('teacherLogoutBtn').addEventListener('click', logoutTeacher);
+    if ($('saveQuestionBtn')) $('saveQuestionBtn').addEventListener('click', saveNewQuestion);
+    if ($('exportQuestionsBtn')) $('exportQuestionsBtn').addEventListener('click', exportQuestionsJSON);
+    if ($('generateCodeBtn')) $('generateCodeBtn').addEventListener('click', generateCode);
+    if ($('clearQuestionsBtn')) $('clearQuestionsBtn').addEventListener('click', clearExtraQuestions);
+
+    showTeacherPanel(localStorage.getItem(LOGIN_KEY) === '1');
+    startQuiz();
+  });
 })();
 </script>
-
 </body>
 </html>
