@@ -21,7 +21,7 @@
 
   <h1 class="page-title">Simulador de Provas</h1>
   <div class="intro-alert">
-    <strong>Treine por turma, disciplina e bimestre.</strong> Escolha exatamente o conteúdo que deseja revisar e gere um simulado com questões do banco Bioguará.
+    <strong>Treine por turma, disciplina e bimestre.</strong> O simulador lê o banco permanente do arquivo <code>dados/questoes.json</code> e também pode usar questões extras importadas no navegador.
   </div>
 
   <section class="tool-panel">
@@ -54,9 +54,8 @@
 
     <div class="tool-note">
       <h3>Simulado organizado</h3>
-      <p>Agora o treino segue a estrutura do site: turma, disciplina e bimestre.</p>
-      <p>Exemplos: <strong>7º Ano › Ciências › 1º Bimestre</strong> ou <strong>2º Ano EM › Biologia › 4º Bimestre</strong>.</p>
-      <p>O professor pode cadastrar novas questões na área restrita no fim da página.</p>
+      <p>Escolha turma, disciplina e bimestre. Se escolher “Todos os bimestres”, o sistema mistura questões da disciplina selecionada.</p>
+      <p>O banco permanente fica em <strong>dados/questoes.json</strong>. Ao substituir esse arquivo no GitHub, as questões ficam disponíveis para todos os alunos.</p>
     </div>
   </section>
 
@@ -72,7 +71,7 @@
   <section class="lesson-card admin-login-card">
     <div class="lesson-head"><span class="lesson-badge">🔒</span><h2>Área do Professor</h2></div>
     <div class="lesson-section">
-      <p>Área restrita para cadastrar questões extras do simulador.</p>
+      <p>Área restrita para cadastrar questões e gerar o arquivo <strong>questoes.json</strong>.</p>
 
       <div id="teacherLoginBox" class="teacher-login-box">
         <div class="tool-form compact-form">
@@ -89,7 +88,7 @@
 
       <div id="teacherPanel" class="teacher-panel" hidden>
         <div class="intro-alert">
-          <strong>Painel do Professor Bioguará:</strong> cadastre questões por turma, disciplina e bimestre. As questões extras ficam salvas neste navegador. Para deixá-las permanentes no site para todos os alunos, use “Gerar código” e cole no banco principal futuramente.
+          <strong>Painel do Professor Bioguará:</strong> cadastre questões por turma, disciplina e bimestre. Depois clique em <strong>Baixar questoes.json completo</strong> e substitua o arquivo <code>dados/questoes.json</code> no site para todos os alunos acessarem.
         </div>
 
         <section class="tool-panel">
@@ -135,30 +134,30 @@
           </div>
 
           <div class="tool-note">
-            <h3>Como cadastrar</h3>
-            <p>1. Escolha a turma.</p>
-            <p>2. Escolha a disciplina correspondente.</p>
-            <p>3. Escolha o bimestre.</p>
-            <p>4. Digite a pergunta, as alternativas e a resposta correta.</p>
-            <p>5. Clique em adicionar questão.</p>
+            <h3>Fluxo recomendado</h3>
+            <p>1. Cadastre as questões.</p>
+            <p>2. Clique em <strong>Baixar questoes.json completo</strong>.</p>
+            <p>3. No VS Code, substitua o arquivo <strong>dados/questoes.json</strong>.</p>
+            <p>4. Faça commit e push para o GitHub.</p>
+            <p>5. Todos os alunos verão as novas questões.</p>
           </div>
         </section>
 
         <section class="lesson-card nested-card">
-          <div class="lesson-head"><span class="lesson-badge">📋</span><h2>Questões extras cadastradas</h2></div>
+          <div class="lesson-head"><span class="lesson-badge">📋</span><h2>Questões cadastradas</h2></div>
           <div class="lesson-section">
             <div id="extraQuestionsList" class="admin-question-list"></div>
             <div class="page-actions">
-              <button id="exportQuestionsBtn" class="return-button" type="button">⬇️ Baixar JSON</button>
-              <button id="generateCodeBtn" class="return-button secondary" type="button">🧩 Gerar código para colar no site</button>
+              <button id="downloadFullBankBtn" class="return-button" type="button">⬇️ Baixar questoes.json completo</button>
+              <button id="exportQuestionsBtn" class="return-button secondary" type="button">⬇️ Baixar extras JSON</button>
+              <button id="importQuestionsBtn" class="return-button secondary" type="button">📂 Importar JSON</button>
+              <input id="importQuestionsFile" type="file" accept=".json" style="display:none;">
               <button id="clearQuestionsBtn" class="return-button secondary" type="button">🗑️ Limpar extras</button>
               <button id="teacherLogoutBtn" class="return-button secondary" type="button">🚪 Sair</button>
             </div>
 
-            <div id="generatedCodeBox" class="code-box" hidden>
-              <h3>Código gerado</h3>
-              <p>Copie as questões abaixo e cole no banco de questões permanente quando quiser atualizar o site para todos os alunos.</p>
-              <textarea id="generatedCode" rows="14" readonly></textarea>
+            <div class="intro-alert">
+              <strong>Importante:</strong> o botão “Baixar questoes.json completo” gera o arquivo que deve substituir <code>dados/questoes.json</code> no projeto. Esse é o jeito de tornar as questões permanentes para todos os alunos no GitHub Pages.
             </div>
           </div>
         </section>
@@ -182,113 +181,20 @@
 
   const TEACHER_USER = 'profbioguara';
   const TEACHER_PASS_HASH = 'd34a2edd0351148756b6385156dcdeb611064e0cb97f5203269e8445e8f5fa82';
-  const EXTRA_KEY = 'bioguaraSimuladorQuestoesExtrasV2';
+  const EXTRA_KEY = 'bioguaraSimuladorQuestoesExtrasV3';
   const LOGIN_KEY = 'bioguaraProfessorLogado';
 
   const structure = {
-    '7ano': {
-      label: '7º Ano',
-      icon: '🔬',
-      subjects: {
-        ciencias: 'Ciências'
-      }
-    },
-    '9ano': {
-      label: '9º Ano',
-      icon: '🧪',
-      subjects: {
-        ciencias: 'Ciências'
-      }
-    },
-    '1em': {
-      label: '1º Ano EM',
-      icon: '🌱',
-      subjects: {
-        biologia: 'Biologia',
-        educacaoFinanceira: 'Educação Financeira'
-      }
-    },
-    '2em': {
-      label: '2º Ano EM',
-      icon: '🧬',
-      subjects: {
-        biologia: 'Biologia',
-        liderancaOratoria: 'Liderança e Oratória'
-      }
-    }
+    '7ano': { label: '7º Ano', icon: '🔬', subjects: { ciencias: 'Ciências' } },
+    '9ano': { label: '9º Ano', icon: '🧪', subjects: { ciencias: 'Ciências' } },
+    '1em': { label: '1º Ano EM', icon: '🌱', subjects: { biologia: 'Biologia', educacaoFinanceira: 'Educação Financeira' } },
+    '2em': { label: '2º Ano EM', icon: '🧬', subjects: { biologia: 'Biologia', liderancaOratoria: 'Liderança e Oratória' } }
   };
 
-  const bimestreLabels = {
-    b1: '1º Bimestre',
-    b2: '2º Bimestre',
-    b3: '3º Bimestre',
-    b4: '4º Bimestre'
-  };
+  const bimestreLabels = { b1: '1º Bimestre', b2: '2º Bimestre', b3: '3º Bimestre', b4: '4º Bimestre' };
+  let permanentBank = {};
 
-  const defaultBank = {
-    '7ano-ciencias-b1': [
-      { q:'O efeito estufa natural é importante porque:', o:['Elimina toda radiação solar','Mantém a temperatura adequada à vida','Impede a fotossíntese','Resfria totalmente o planeta'], a:1 },
-      { q:'A atmosfera terrestre contribui para a vida porque:', o:['Filtra parte da radiação e regula a temperatura','Impede totalmente a entrada de luz','É formada apenas por oxigênio','Não participa dos ciclos naturais'], a:0 },
-      { q:'Tempo e clima são diferentes porque:', o:['Tempo é momentâneo e clima é padrão ao longo do tempo','Clima muda todo minuto e tempo nunca muda','São exatamente a mesma coisa','Tempo só existe no inverno'], a:0 }
-    ],
-    '7ano-ciencias-b2': [
-      { q:'Qual atitude reduz melhor a poluição ambiental?', o:['Descartar lixo em rios','Separar resíduos recicláveis','Queimar lixo doméstico','Usar mais combustíveis fósseis'], a:1 },
-      { q:'O que é poluição sonora?', o:['Excesso de ruídos','Excesso de luz','Contaminação da água','Perda de solo'], a:0 },
-      { q:'O saneamento básico é importante porque:', o:['Aumenta a poluição','Ajuda a proteger a saúde e reduzir a contaminação ambiental','Impede o tratamento de água','Substitui a necessidade de higiene'], a:1 }
-    ],
-    '7ano-ciencias-b3': [],
-    '7ano-ciencias-b4': [],
-
-    '9ano-ciencias-b1': [
-      { q:'Uma onda mecânica precisa:', o:['De um meio material para se propagar','Sempre do vácuo','Apenas de luz solar','De ausência total de energia'], a:0 },
-      { q:'A frequência de uma onda indica:', o:['A cor do objeto','O número de oscilações por unidade de tempo','A massa do meio','A temperatura do ambiente'], a:1 }
-    ],
-    '9ano-ciencias-b2': [
-      { q:'Na retina, os cones estão relacionados principalmente com:', o:['Percepção de cores','Produção de som','Equilíbrio corporal','Filtração do sangue'], a:0 },
-      { q:'A cóclea participa do sentido da:', o:['Visão','Audição','Olfato','Gustação'], a:1 }
-    ],
-    '9ano-ciencias-b3': [],
-    '9ano-ciencias-b4': [],
-
-    '1em-biologia-b1': [
-      { q:'A radiação pode ser perigosa quando:', o:['Nunca interage com a matéria','A dose e o tipo de exposição causam danos biológicos','É sempre inexistente no ambiente','Só aparece em plantas'], a:1 }
-    ],
-    '1em-biologia-b2': [
-      { q:'O aumento de CO₂ na atmosfera pode:', o:['Intensificar a retenção de calor','Eliminar o efeito estufa natural','Resfriar todo o planeta imediatamente','Impedir a fotossíntese em todas as plantas'], a:0 },
-      { q:'Mudanças climáticas são:', o:['Alterações de longo prazo nos padrões climáticos','Apenas a chuva de um dia','Somente vento forte','Fenômenos sem relação com dados científicos'], a:0 }
-    ],
-    '1em-biologia-b3': [],
-    '1em-biologia-b4': [],
-
-    '1em-educacaoFinanceira-b1': [
-      { q:'Educação financeira ajuda principalmente a:', o:['Gastar sem controle','Planejar o uso do dinheiro e tomar decisões melhores','Ignorar receitas e despesas','Comprar tudo parcelado sem avaliar'], a:1 }
-    ],
-    '1em-educacaoFinanceira-b2': [],
-    '1em-educacaoFinanceira-b3': [],
-    '1em-educacaoFinanceira-b4': [],
-
-    '2em-biologia-b1': [
-      { q:'Bioacumulação é:', o:['Perda de habitat','Acúmulo de substâncias no organismo ao longo do tempo','Produção de sementes','Divisão celular'], a:1 },
-      { q:'Polinização é importante porque:', o:['Impede a fecundação','Permite formação de sementes e frutos','Elimina abelhas','Aumenta pesticidas'], a:1 }
-    ],
-    '2em-biologia-b2': [
-      { q:'Transgênico é um organismo que:', o:['Não possui DNA','Recebeu gene de outra espécie','Não se reproduz','É sempre bactéria'], a:1 },
-      { q:'Um OGM é:', o:['Um organismo com material genético alterado por engenharia genética','Sempre um animal sem células','Um ser vivo sem DNA','Apenas uma bactéria patogênica'], a:0 }
-    ],
-    '2em-biologia-b3': [],
-    '2em-biologia-b4': [],
-
-    '2em-liderancaOratoria-b1': [
-      { q:'Uma boa comunicação em público exige:', o:['Clareza, organização e respeito ao público','Falar sem parar e sem objetivo','Ignorar a plateia','Usar apenas frases decoradas'], a:0 }
-    ],
-    '2em-liderancaOratoria-b2': [],
-    '2em-liderancaOratoria-b3': [],
-    '2em-liderancaOratoria-b4': []
-  };
-
-  function $(id) {
-    return document.getElementById(id);
-  }
+  function $(id) { return document.getElementById(id); }
 
   function escapeHTML(value) {
     return String(value).replace(/[&<>"']/g, function(ch) {
@@ -296,12 +202,30 @@
     });
   }
 
-  function makeKey(turma, disciplina, bimestre) {
-    return turma + '-' + disciplina + '-' + bimestre;
+  function makeKey(turma, disciplina, bimestre) { return turma + '-' + disciplina + '-' + bimestre; }
+
+  function ensureAllKeys(bank) {
+    Object.keys(structure).forEach(function(turma) {
+      Object.keys(structure[turma].subjects).forEach(function(disciplina) {
+        ['b1','b2','b3','b4'].forEach(function(bim) {
+          const key = makeKey(turma, disciplina, bim);
+          if (!Array.isArray(bank[key])) bank[key] = [];
+        });
+      });
+    });
+    return bank;
   }
 
-  function getDisciplinas(turma) {
-    return structure[turma].subjects;
+  async function loadPermanentBank() {
+    try {
+      const response = await fetch('dados/questoes.json?versao=' + Date.now(), { cache: 'no-store' });
+      if (!response.ok) throw new Error('Erro ao carregar questoes.json');
+      const data = await response.json();
+      permanentBank = ensureAllKeys(data || {});
+    } catch(e) {
+      console.warn('Não foi possível carregar dados/questoes.json. Usando banco vazio.', e);
+      permanentBank = ensureAllKeys({});
+    }
   }
 
   function loadExtras() {
@@ -313,14 +237,21 @@
     }
   }
 
-  function saveExtras(data) {
-    localStorage.setItem(EXTRA_KEY, JSON.stringify(data));
+  function saveExtras(data) { localStorage.setItem(EXTRA_KEY, JSON.stringify(data)); }
+
+  function getFullBank() {
+    const extras = loadExtras();
+    const merged = JSON.parse(JSON.stringify(permanentBank || {}));
+    Object.keys(extras).forEach(function(key) {
+      if (!Array.isArray(merged[key])) merged[key] = [];
+      merged[key] = merged[key].concat(extras[key] || []);
+    });
+    return ensureAllKeys(merged);
   }
 
-  function getQuestionsByKey(key) {
-    const extras = loadExtras();
-    return (defaultBank[key] || []).concat(extras[key] || []);
-  }
+  function getQuestionsByKey(key) { return getFullBank()[key] || []; }
+
+  function getDisciplinas(turma) { return structure[turma].subjects; }
 
   function getSelectedQuestions() {
     const turma = $('quizTurma').value;
@@ -371,20 +302,14 @@
   function initializeSelectors() {
     fillTurmaSelect('quizTurma');
     fillDisciplinaSelect('quizTurma', 'quizDisciplina');
-
     fillTurmaSelect('newTurma');
     fillDisciplinaSelect('newTurma', 'newDisciplina');
 
-    if ($('quizTurma')) $('quizTurma').addEventListener('change', function() {
-      fillDisciplinaSelect('quizTurma', 'quizDisciplina');
-      startQuiz();
-    });
+    if ($('quizTurma')) $('quizTurma').addEventListener('change', function() { fillDisciplinaSelect('quizTurma', 'quizDisciplina'); startQuiz(); });
     if ($('quizDisciplina')) $('quizDisciplina').addEventListener('change', startQuiz);
     if ($('quizBimestre')) $('quizBimestre').addEventListener('change', startQuiz);
-
-    if ($('newTurma')) $('newTurma').addEventListener('change', function() {
-      fillDisciplinaSelect('newTurma', 'newDisciplina');
-    });
+    if ($('quizAmount')) $('quizAmount').addEventListener('change', startQuiz);
+    if ($('newTurma')) $('newTurma').addEventListener('change', function() { fillDisciplinaSelect('newTurma', 'newDisciplina'); });
   }
 
   function shuffle(array) {
@@ -414,7 +339,6 @@
     }
 
     box.dataset.currentQuestions = JSON.stringify(selected);
-
     box.innerHTML = selected.map(function(it, i) {
       return '<div class="quiz-item"><h3>' + (i + 1) + '. ' + escapeHTML(it.q) + '</h3>' +
         it.o.map(function(op, j) {
@@ -435,9 +359,7 @@
 
     questions.forEach(function(it, i) {
       const checked = box.querySelector('input[name="q' + i + '"]:checked');
-      if (checked && parseInt(checked.value, 10) === it.a) {
-        score++;
-      }
+      if (checked && parseInt(checked.value, 10) === it.a) score++;
     });
 
     result.textContent = 'Resultado: ' + score + ' de ' + questions.length + ' acertos.';
@@ -447,9 +369,7 @@
     if (window.crypto && crypto.subtle) {
       const buffer = new TextEncoder().encode(text);
       const hashBuffer = await crypto.subtle.digest('SHA-256', buffer);
-      return Array.from(new Uint8Array(hashBuffer)).map(function(b) {
-        return b.toString(16).padStart(2, '0');
-      }).join('');
+      return Array.from(new Uint8Array(hashBuffer)).map(function(b) { return b.toString(16).padStart(2, '0'); }).join('');
     }
     return text;
   }
@@ -472,9 +392,7 @@
   function showTeacherPanel(show) {
     $('teacherLoginBox').hidden = show;
     $('teacherPanel').hidden = !show;
-    if (show) {
-      renderExtraQuestions();
-    }
+    if (show) renderExtraQuestions();
   }
 
   function logoutTeacher() {
@@ -483,18 +401,9 @@
   }
 
   function saveNewQuestion() {
-    const turma = $('newTurma').value;
-    const disciplina = $('newDisciplina').value;
-    const bimestre = $('newBimestre').value;
-    const key = makeKey(turma, disciplina, bimestre);
-
+    const key = makeKey($('newTurma').value, $('newDisciplina').value, $('newBimestre').value);
     const q = $('newQuestion').value.trim();
-    const alternatives = [
-      $('newA').value.trim(),
-      $('newB').value.trim(),
-      $('newC').value.trim(),
-      $('newD').value.trim()
-    ];
+    const alternatives = [$('newA').value.trim(), $('newB').value.trim(), $('newC').value.trim(), $('newD').value.trim()];
     const correct = parseInt($('newCorrect').value, 10);
 
     if (!q || alternatives.some(function(item) { return !item; })) {
@@ -520,40 +429,35 @@
 
   function keyToLabel(key) {
     const parts = key.split('-');
-    const turma = parts[0];
-    const disciplina = parts[1];
-    const bimestre = parts[2];
+    const turma = parts[0], disciplina = parts[1], bimestre = parts[2];
     if (!structure[turma] || !structure[turma].subjects[disciplina]) return key;
     return structure[turma].label + ' › ' + structure[turma].subjects[disciplina] + ' › ' + bimestreLabels[bimestre];
   }
 
   function renderExtraQuestions() {
     const extras = loadExtras();
+    const fullBank = getFullBank();
     const list = $('extraQuestionsList');
-    const keys = Object.keys(extras).sort();
-    let html = '';
+    const keys = Object.keys(fullBank).sort();
 
-    if (!keys.length) {
-      list.innerHTML = '<p>Nenhuma questão extra cadastrada ainda.</p>';
-      return;
-    }
+    let html = '<p><strong>Banco permanente:</strong> ' + Object.values(permanentBank).reduce((sum, arr) => sum + (Array.isArray(arr) ? arr.length : 0), 0) + ' questões. <strong>Extras locais:</strong> ' + Object.values(extras).reduce((sum, arr) => sum + (Array.isArray(arr) ? arr.length : 0), 0) + ' questões.</p>';
 
     keys.forEach(function(key) {
-      html += '<h3>' + escapeHTML(keyToLabel(key)) + '</h3>';
+      const extraCount = (extras[key] || []).length;
+      const totalCount = (fullBank[key] || []).length;
+      if (totalCount === 0) return;
+      html += '<h3>' + escapeHTML(keyToLabel(key)) + ' <small>(' + totalCount + ' questões, ' + extraCount + ' extras)</small></h3>';
 
-      if (!extras[key].length) {
-        html += '<p>Nenhuma questão extra cadastrada.</p>';
-        return;
+      if (extraCount > 0) {
+        html += extras[key].map(function(it, i) {
+          return '<div class="admin-question-item"><strong>Extra ' + (i + 1) + '. ' + escapeHTML(it.q) + '</strong>' +
+            '<p>Resposta correta: ' + String.fromCharCode(65 + it.a) + '</p>' +
+            '<button type="button" class="delete-extra-question" data-key="' + key + '" data-index="' + i + '">Excluir extra</button></div>';
+        }).join('');
       }
-
-      html += extras[key].map(function(it, i) {
-        return '<div class="admin-question-item"><strong>' + (i + 1) + '. ' + escapeHTML(it.q) + '</strong>' +
-          '<p>Resposta correta: ' + String.fromCharCode(65 + it.a) + '</p>' +
-          '<button type="button" class="delete-extra-question" data-key="' + key + '" data-index="' + i + '">Excluir</button></div>';
-      }).join('');
     });
 
-    list.innerHTML = html;
+    list.innerHTML = html || '<p>Nenhuma questão cadastrada ainda.</p>';
 
     document.querySelectorAll('.delete-extra-question').forEach(function(btn) {
       btn.addEventListener('click', function() {
@@ -567,32 +471,46 @@
     });
   }
 
-  function exportQuestionsJSON() {
-    const extras = loadExtras();
-    const blob = new Blob([JSON.stringify(extras, null, 2)], { type: 'application/json;charset=utf-8' });
+  function downloadJSON(filename, data) {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json;charset=utf-8' });
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
-    link.download = 'questoes-extras-bioguara.json';
+    link.download = filename;
     document.body.appendChild(link);
     link.click();
     link.remove();
     URL.revokeObjectURL(link.href);
   }
 
-  function generateCode() {
-    const extras = loadExtras();
-    const box = $('generatedCodeBox');
-    const textarea = $('generatedCode');
+  function exportExtrasJSON() { downloadJSON('questoes-extras-bioguara.json', loadExtras()); }
+  function downloadFullBank() { downloadJSON('questoes.json', getFullBank()); }
 
-    const code = Object.keys(extras).sort().map(function(key) {
-      return '/* ===== ' + keyToLabel(key).toUpperCase() + ' ===== */\n' +
-        'defaultBank[\'' + key + '\'] = (defaultBank[\'' + key + '\'] || []).concat(' +
-        JSON.stringify(extras[key], null, 2) + ');';
-    }).join('\n\n');
-
-    textarea.value = code || 'Nenhuma questão extra cadastrada.';
-    box.hidden = false;
-    textarea.select();
+  function importQuestionsJSON(file) {
+    const reader = new FileReader();
+    reader.onload = function() {
+      try {
+        const data = ensureAllKeys(JSON.parse(reader.result));
+        const currentPermanent = JSON.stringify(permanentBank);
+        const imported = JSON.stringify(data);
+        if (confirm('Deseja importar este JSON como questões extras locais?\n\nPara substituir o banco permanente do site, baixe o arquivo questoes.json e substitua em dados/questoes.json no VS Code.')) {
+          const extras = {};
+          Object.keys(data).forEach(function(key) {
+            const permanentArr = permanentBank[key] || [];
+            const dataArr = data[key] || [];
+            if (JSON.stringify(dataArr) !== JSON.stringify(permanentArr)) {
+              extras[key] = dataArr;
+            }
+          });
+          saveExtras(extras);
+          alert('JSON importado como banco local de questões extras.');
+          renderExtraQuestions();
+          startQuiz();
+        }
+      } catch(e) {
+        alert('Arquivo JSON inválido.');
+      }
+    };
+    reader.readAsText(file);
   }
 
   function clearExtraQuestions() {
@@ -603,18 +521,20 @@
     }
   }
 
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', async function() {
+    await loadPermanentBank();
     initializeSelectors();
 
     if ($('startQuiz')) $('startQuiz').addEventListener('click', startQuiz);
-    if ($('quizAmount')) $('quizAmount').addEventListener('change', startQuiz);
     if ($('quizBox')) $('quizBox').addEventListener('submit', correctQuiz);
 
     if ($('teacherLoginBtn')) $('teacherLoginBtn').addEventListener('click', loginTeacher);
     if ($('teacherLogoutBtn')) $('teacherLogoutBtn').addEventListener('click', logoutTeacher);
     if ($('saveQuestionBtn')) $('saveQuestionBtn').addEventListener('click', saveNewQuestion);
-    if ($('exportQuestionsBtn')) $('exportQuestionsBtn').addEventListener('click', exportQuestionsJSON);
-    if ($('generateCodeBtn')) $('generateCodeBtn').addEventListener('click', generateCode);
+    if ($('exportQuestionsBtn')) $('exportQuestionsBtn').addEventListener('click', exportExtrasJSON);
+    if ($('downloadFullBankBtn')) $('downloadFullBankBtn').addEventListener('click', downloadFullBank);
+    if ($('importQuestionsBtn')) $('importQuestionsBtn').addEventListener('click', function() { $('importQuestionsFile').click(); });
+    if ($('importQuestionsFile')) $('importQuestionsFile').addEventListener('change', function(ev) { if(ev.target.files[0]) importQuestionsJSON(ev.target.files[0]); });
     if ($('clearQuestionsBtn')) $('clearQuestionsBtn').addEventListener('click', clearExtraQuestions);
 
     showTeacherPanel(localStorage.getItem(LOGIN_KEY) === '1');

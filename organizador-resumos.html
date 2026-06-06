@@ -25,7 +25,7 @@
   <div class="tool-form">
     <label>Disciplina</label><input id="orgSubject" type="text" placeholder="Ex.: Ciências, Biologia">
     <label>Aula ou resumo</label><input id="orgLesson" type="text" placeholder="Ex.: Aula 10 - Transgênicos">
-    <button id="addLesson" class="timer-btn primary">➕ Adicionar aula</button>
+    <button id="addLesson" class="timer-btn primary" type="button">➕ Adicionar aula</button>
   </div>
   <div class="tool-note"><h3>Controle de progresso</h3><p>Marque o que já leu, copiou, respondeu e revisou. Isso ajuda a não se perder antes da prova.</p></div>
 </section>
@@ -42,86 +42,6 @@
 </footer>
 <script src="script.js"></script>
 
-<script>
-
-function abrirRelatorioBioguara(titulo, subtitulo, corpoHtml){
-  const data = new Date().toLocaleDateString('pt-BR');
-  const win = window.open('', '_blank');
-  if(!win){
-    alert('O navegador bloqueou a janela do relatório. Autorize pop-ups para este site.');
-    return;
-  }
-  const doc = `<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><title>${titulo}</title>
-<style>
-@page{size:A4;margin:14mm}
-*{box-sizing:border-box}
-body{font-family:Arial,Helvetica,sans-serif;color:#241006;margin:0;background:#fff;line-height:1.45}
-.actions{margin:18px 0;display:flex;gap:10px}
-.actions button{border:0;background:linear-gradient(135deg,#ff7a1a,#d94a07);color:#fff;border-radius:999px;padding:10px 16px;font-weight:bold;cursor:pointer}
-.report-header{display:flex;align-items:center;gap:14px;border-bottom:3px solid #f26a16;padding-bottom:12px;margin-bottom:16px}
-.report-logo{width:64px;height:64px;object-fit:contain}
-.report-title{margin:0;font-size:24px;color:#351305;text-transform:uppercase;letter-spacing:.5px}
-.report-subtitle{margin:3px 0 0;font-size:13px;color:#7a3a14}
-.student-line{display:grid;grid-template-columns:1fr 130px;gap:18px;margin:14px 0 18px;font-size:13px}
-.line{border-bottom:1px solid #999;min-height:22px;display:inline-block;width:100%}
-.report-section{page-break-inside:avoid;break-inside:avoid;border:1px solid #f0bd8a;border-left:6px solid #f26a16;border-radius:10px;padding:12px 14px;margin-bottom:12px;background:#fffaf2}
-.report-section h2{margin:0 0 8px;color:#351305;font-size:18px}
-.report-section p{margin:4px 0}
-.checkline{display:inline-block;margin-right:16px;font-weight:bold}
-.meta{color:#6b3a12;font-size:13px}
-table{width:100%;border-collapse:collapse;margin-top:8px}
-tr{page-break-inside:avoid;break-inside:avoid}
-th{background:#f26a16;color:#fff;text-align:left;padding:8px;font-size:12px}
-td{border:1px solid #f0bd8a;padding:8px;font-size:12px;vertical-align:top}
-.footer{border-top:1px solid #f0bd8a;margin-top:18px;padding-top:8px;font-size:11px;color:#7a3a14;display:flex;justify-content:space-between;gap:10px}
-@media print{.actions{display:none}body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
-</style></head><body>
-<div class="actions"><button onclick="window.print()">Salvar como PDF / Imprimir</button><button onclick="window.close()">Fechar</button></div>
-<header class="report-header"><img class="report-logo" src="assets/logo-bioguara.png" alt="Logo Bioguará"><div><h1 class="report-title">${titulo}</h1><p class="report-subtitle">${subtitulo}</p></div></header>
-<div class="student-line"><div>Aluno(a): <span class="line"></span></div><div>Data: ${data}</div></div>
-${corpoHtml}
-<div class="footer"><span>www.profbioguara.com.br</span><span>Professor Lucas Costa Moterani • Bioguará</span></div>
-</body></html>`;
-  win.document.open();
-  win.document.write(doc);
-  win.document.close();
-}
-
-(function(){
- const key='bioguaraOrganizador';
- function load(){return JSON.parse(localStorage.getItem(key)||'[]');}
- function save(a){localStorage.setItem(key,JSON.stringify(a));}
- const list=document.getElementById('orgList');
- function render(){
-  const a=load();
-  if(!a.length){list.innerHTML='<p>Nenhuma aula adicionada ainda.</p>';return;}
-  list.innerHTML=a.map((it,i)=>`<div class="org-item"><h3>${it.lesson}</h3><p>${it.subject}</p><label><input type="checkbox" data-i="${i}" data-k="leu" ${it.leu?'checked':''}> Leu</label><label><input type="checkbox" data-i="${i}" data-k="copiou" ${it.copiou?'checked':''}> Copiou</label><label><input type="checkbox" data-i="${i}" data-k="questoes" ${it.questoes?'checked':''}> Questões</label><label><input type="checkbox" data-i="${i}" data-k="revisou" ${it.revisou?'checked':''}> Revisou</label><button data-i="${i}" class="delete-org">Excluir</button></div>`).join('');
-  document.querySelectorAll('.org-item input').forEach(ch=>ch.addEventListener('change',()=>{const arr=load(); arr[ch.dataset.i][ch.dataset.k]=ch.checked; save(arr);}));
-  document.querySelectorAll('.delete-org').forEach(b=>b.addEventListener('click',()=>{const arr=load(); arr.splice(b.dataset.i,1); save(arr); render();}));
- }
- document.getElementById('addLesson').addEventListener('click',()=>{
-   const subject=document.getElementById('orgSubject').value.trim()||'Disciplina';
-   const lesson=document.getElementById('orgLesson').value.trim();
-   if(!lesson){alert('Digite o nome da aula.');return;}
-   const a=load(); a.push({subject,lesson,leu:false,copiou:false,questoes:false,revisou:false}); save(a); document.getElementById('orgLesson').value=''; render();
- });
- document.getElementById('clearOrg').addEventListener('click',()=>{if(confirm('Apagar todo o progresso salvo neste navegador?')){save([]);render();}});
- document.getElementById('exportOrgTxt').addEventListener('click',()=>{
-   const a=load();
-   if(!a.length){alert('Nenhuma aula adicionada.');return;}
-   const txt='Organizador de Resumos Bioguará\n\n'+a.map(it=>`${it.subject} - ${it.lesson}\nLeu: ${it.leu?'sim':'não'} | Copiou: ${it.copiou?'sim':'não'} | Questões: ${it.questoes?'sim':'não'} | Revisou: ${it.revisou?'sim':'não'}`).join('\n\n');
-   const blob=new Blob([txt],{type:'text/plain;charset=utf-8'});
-   const link=document.createElement('a'); link.href=URL.createObjectURL(blob); link.download='organizador-resumos-bioguara.txt'; link.click(); URL.revokeObjectURL(link.href);
- });
- document.getElementById('printOrgPdf').addEventListener('click',()=>{
-   const a=load();
-   if(!a.length){alert('Nenhuma aula adicionada para gerar relatório.');return;}
-   const sections=a.map(it=>`<section class="report-section"><h2>${it.lesson}</h2><p class="meta">Disciplina: ${it.subject}</p><p><span class="checkline">${it.leu?'☑':'☐'} Leu</span><span class="checkline">${it.copiou?'☑':'☐'} Copiou</span><span class="checkline">${it.questoes?'☑':'☐'} Questões</span><span class="checkline">${it.revisou?'☑':'☐'} Revisou</span></p></section>`).join('');
-   abrirRelatorioBioguara('Organizador de Resumos Bioguará','Progresso de estudo das aulas e resumos',sections);
- });
- render();
-})();
-</script>
-
+<script src="bioguara-tools.js"></script>
 </body>
 </html>
