@@ -1,0 +1,35 @@
+RELATÓRIO DE ATUALIZAÇÃO - BIOGUARÁ
+Página atualizada: bimestre-2-9-ciencias.html
+Conteúdo: Ciências - 9º Ano - 2º Bimestre
+
+Aulas inseridas/atualizadas a partir do arquivo Resumos 2º Bimestre.docx:
+- Aula 14: Aula Prática: Conhecendo e Interpretando os Heredogramas
+- Aula 15: Aula Complementar: Solucionando Exercícios de Heredograma
+- Aula 16: Genética e Biotecnologia
+- Aula 17: Biotecnologia Aplicada à Produção de Alimentos e à Saúde: Organismos Geneticamente Modificados (OGMs)
+- Aula 18: Biotecnologia: Clonagem e suas Aplicações
+- Aula 19: Bioética e Biossegurança: o Caso dos Organismos Geneticamente Modificados (OGMs)
+- Aula 20: Júri Simulado: Pesquisas em Biotecnologia
+- Aula 21: Júri Simulado: Ação e Conclusão
+- Aula 22: História das Ideias Evolutivas: Lamarck e o Transformismo
+- Aula 23: Seleção Natural
+- Aula 24: Interpretação de Cladogramas
+- Aula 25: Hereditariedade, Evolução e Biodiversidade
+
+Padrão aplicado em cada aula nova:
+- Resumo da Aula
+- Pontos principais
+- Atenção para a Prova Paulista
+- Conceitos mais cobrados
+- Erros comuns
+- O que saber fazer
+- Questões discursivas
+- Espaço reservado e bem localizado para vídeo futuro
+
+Validação realizada:
+- HTML analisado com BeautifulSoup
+- IDs de aulas conferidos
+- Links internos da página conferidos
+- Google Analytics preservado
+- style.css, script.js e demais arquivos preservados
+- Corrigido link interno #top em tutoria.html adicionando id="top" ao body.

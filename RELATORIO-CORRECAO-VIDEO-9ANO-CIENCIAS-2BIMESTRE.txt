@@ -1,0 +1,10 @@
+Correção realizada na página bimestre-2-9-ciencias.html
+
+Ajuste solicitado pelo professor Lucas:
+- Removidos os blocos de placeholder de vídeo das aulas 14 a 25.
+- Reaplicado o mesmo padrão de código de vídeo já usado nas aulas anteriores.
+- Cada aula ficou com comentário organizado:
+  VÍDEO DA AULA XX
+  TROQUE SOMENTE O LINK ABAIXO
+- Cada aula ficou com div.video-container e iframe pronto para receber o link/embed do YouTube.
+- Conteúdo pedagógico, CSS, JavaScript, Analytics e navegação foram preservados.
