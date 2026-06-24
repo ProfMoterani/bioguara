@@ -1,0 +1,68 @@
+RELATÓRIO DE ATUALIZAÇÃO - BIOGUARÁ
+
+Atualização realizada:
+- Inserção/padronização da seção "Atenção para a Prova Paulista" nas páginas de resumos por matéria e bimestre.
+- Manutenção do layout, cabeçalho, rodapé, navegação, Google Analytics, scripts e links existentes.
+- Inclusão de estilo visual Bioguará no style.css para destacar a seção da Prova Paulista.
+- Página de Educação Financeira - 1º EM - 2º Bimestre mantida com as 14 aulas completas já estruturadas.
+
+Arquivos modificados:
+- bimestre-1-1-biologia.html
+- bimestre-1-1-educacao-financeira.html
+- bimestre-1-2-biologia.html
+- bimestre-1-2-lideranca-oratoria.html
+- bimestre-1-7-ciencias.html
+- bimestre-1-9-ciencias.html
+- bimestre-2-1-biologia.html
+- bimestre-2-2-biologia.html
+- bimestre-2-2-lideranca-oratoria.html
+- bimestre-2-7-ciencias.html
+- bimestre-2-9-ciencias.html
+- bimestre-3-1-biologia.html
+- bimestre-3-1-educacao-financeira.html
+- bimestre-3-2-biologia.html
+- bimestre-3-2-lideranca-oratoria.html
+- bimestre-3-7-ciencias.html
+- bimestre-3-9-ciencias.html
+- bimestre-4-1-biologia.html
+- bimestre-4-1-educacao-financeira.html
+- bimestre-4-2-biologia.html
+- bimestre-4-2-lideranca-oratoria.html
+- bimestre-4-7-ciencias.html
+- bimestre-4-9-ciencias.html
+- style.css
+
+Contagem por página:
+- bimestre-1-1-biologia.html: 14 bloco(s) Prova Paulista para 14 aula(s)/modelo(s)
+- bimestre-1-1-educacao-financeira.html: 1 bloco(s) Prova Paulista para 1 aula(s)/modelo(s)
+- bimestre-1-2-biologia.html: 1 bloco(s) Prova Paulista para 1 aula(s)/modelo(s)
+- bimestre-1-2-lideranca-oratoria.html: 1 bloco(s) Prova Paulista para 1 aula(s)/modelo(s)
+- bimestre-1-7-ciencias.html: 16 bloco(s) Prova Paulista para 16 aula(s)/modelo(s)
+- bimestre-1-9-ciencias.html: 22 bloco(s) Prova Paulista para 22 aula(s)/modelo(s)
+- bimestre-2-1-biologia.html: 10 bloco(s) Prova Paulista para 10 aula(s)/modelo(s)
+- bimestre-2-1-educacao-financeira.html: 14 bloco(s) Prova Paulista para 14 aula(s)/modelo(s)
+- bimestre-2-2-biologia.html: 10 bloco(s) Prova Paulista para 10 aula(s)/modelo(s)
+- bimestre-2-2-lideranca-oratoria.html: 1 bloco(s) Prova Paulista para 1 aula(s)/modelo(s)
+- bimestre-2-7-ciencias.html: 9 bloco(s) Prova Paulista para 9 aula(s)/modelo(s)
+- bimestre-2-9-ciencias.html: 13 bloco(s) Prova Paulista para 13 aula(s)/modelo(s)
+- bimestre-3-1-biologia.html: 1 bloco(s) Prova Paulista para 1 aula(s)/modelo(s)
+- bimestre-3-1-educacao-financeira.html: 1 bloco(s) Prova Paulista para 1 aula(s)/modelo(s)
+- bimestre-3-2-biologia.html: 1 bloco(s) Prova Paulista para 1 aula(s)/modelo(s)
+- bimestre-3-2-lideranca-oratoria.html: 1 bloco(s) Prova Paulista para 1 aula(s)/modelo(s)
+- bimestre-3-7-ciencias.html: 1 bloco(s) Prova Paulista para 1 aula(s)/modelo(s)
+- bimestre-3-9-ciencias.html: 1 bloco(s) Prova Paulista para 1 aula(s)/modelo(s)
+- bimestre-4-1-biologia.html: 1 bloco(s) Prova Paulista para 1 aula(s)/modelo(s)
+- bimestre-4-1-educacao-financeira.html: 1 bloco(s) Prova Paulista para 1 aula(s)/modelo(s)
+- bimestre-4-2-biologia.html: 1 bloco(s) Prova Paulista para 1 aula(s)/modelo(s)
+- bimestre-4-2-lideranca-oratoria.html: 1 bloco(s) Prova Paulista para 1 aula(s)/modelo(s)
+- bimestre-4-7-ciencias.html: 1 bloco(s) Prova Paulista para 1 aula(s)/modelo(s)
+- bimestre-4-9-ciencias.html: 1 bloco(s) Prova Paulista para 1 aula(s)/modelo(s)
+
+Validações:
+- HTMLs verificados: 50
+- Páginas sem Google Analytics: nenhuma
+- Páginas sem viewport responsivo: nenhuma
+- Links/recursos internos quebrados: nenhum
+
+Observação:
+Nas páginas que ainda são modelos/rascunhos com texto como "Título da aula" ou "Escreva aqui", foi criada uma seção padrão de Atenção para a Prova Paulista para preservar a estrutura do site e facilitar o preenchimento futuro. Nas páginas com aulas reais, os pontos foram gerados de acordo com a disciplina, o título e os conceitos predominantes do resumo.

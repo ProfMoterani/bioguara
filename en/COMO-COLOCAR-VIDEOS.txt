@@ -1,0 +1,27 @@
+COMO COLOCAR VÍDEOS NAS AULAS DO BIOGUARÁ
+
+1. Abra a página da turma no Visual Studio Code.
+2. Use Ctrl + F e procure por: VÍDEO DA AULA 01, VÍDEO DA AULA 02, etc.
+3. Em cada aula, você verá um bloco assim:
+
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/COLE_AQUI_O_CODIGO_DO_VIDEO" title="Vídeo da Aula 01" allowfullscreen=""></iframe>
+</div>
+
+4. Substitua SOMENTE o valor de src.
+
+Exemplo: se o link do YouTube for:
+https://youtu.be/hafFiUsN02I?si=E74hIYXbJTl9Y-gB
+
+Use apenas o código do vídeo e deixe assim:
+https://www.youtube.com/embed/hafFiUsN02I
+
+Exemplo final:
+<iframe src="https://www.youtube.com/embed/hafFiUsN02I" title="Vídeo da Aula 01" allowfullscreen=""></iframe>
+
+IMPORTANTE:
+- Não use links youtu.be dentro do iframe.
+- Não use links com /watch?v=.
+- Use sempre o formato /embed/.
+- Não coloque o vídeo dentro de comentários HTML.
+- As aulas novas devem ser inseridas acima da linha: NOVAS AULAS DEVEM SER INSERIDAS ACIMA DESTA LINHA.

@@ -1,0 +1,26 @@
+BIOGUARÁ - BANCO CENTRAL DE QUESTÕES
+
+Agora o simulador usa o arquivo:
+
+dados/questoes.json
+
+COMO FUNCIONA:
+1. O aluno entra no Simulador de Provas.
+2. O site carrega automaticamente dados/questoes.json.
+3. As questões desse arquivo ficam disponíveis para todos os alunos.
+
+COMO CADASTRAR QUESTÕES E PUBLICAR PARA TODOS:
+1. Entre no Simulador de Provas.
+2. Vá até Área do Professor.
+3. Faça login.
+4. Cadastre as questões por turma, disciplina e bimestre.
+5. Clique em "Baixar questoes.json completo".
+6. No VS Code, abra a pasta dados.
+7. Substitua o arquivo questoes.json pelo novo arquivo baixado.
+8. Salve, faça commit e sync/push para o GitHub.
+9. Após o GitHub Pages atualizar, todos os alunos verão as novas questões.
+
+IMPORTANTE:
+- Questões cadastradas no painel antes de substituir dados/questoes.json ficam apenas no navegador do professor.
+- Para ficar permanente para todos, precisa substituir o arquivo dados/questoes.json no projeto e enviar ao GitHub.
+- Use Live Server no VS Code para testar localmente. Abrir por file:// pode impedir o carregamento do JSON em alguns navegadores.

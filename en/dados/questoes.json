@@ -1,0 +1,226 @@
+{
+  "7ano-ciencias-b1": [
+    {
+      "q": "O efeito estufa natural é importante porque:",
+      "o": [
+        "Elimina toda radiação solar",
+        "Mantém a temperatura adequada à vida",
+        "Impede a fotossíntese",
+        "Resfria totalmente o planeta"
+      ],
+      "a": 1
+    },
+    {
+      "q": "A atmosfera terrestre contribui para a vida porque:",
+      "o": [
+        "Filtra parte da radiação e regula a temperatura",
+        "Impede totalmente a entrada de luz",
+        "É formada apenas por oxigênio",
+        "Não participa dos ciclos naturais"
+      ],
+      "a": 0
+    },
+    {
+      "q": "Tempo e clima são diferentes porque:",
+      "o": [
+        "Tempo é momentâneo e clima é padrão ao longo do tempo",
+        "Clima muda todo minuto e tempo nunca muda",
+        "São exatamente a mesma coisa",
+        "Tempo só existe no inverno"
+      ],
+      "a": 0
+    }
+  ],
+  "7ano-ciencias-b2": [
+    {
+      "q": "Qual atitude reduz melhor a poluição ambiental?",
+      "o": [
+        "Descartar lixo em rios",
+        "Separar resíduos recicláveis",
+        "Queimar lixo doméstico",
+        "Usar mais combustíveis fósseis"
+      ],
+      "a": 1
+    },
+    {
+      "q": "O que é poluição sonora?",
+      "o": [
+        "Excesso de ruídos",
+        "Excesso de luz",
+        "Contaminação da água",
+        "Perda de solo"
+      ],
+      "a": 0
+    },
+    {
+      "q": "O saneamento básico é importante porque:",
+      "o": [
+        "Aumenta a poluição",
+        "Ajuda a proteger a saúde e reduzir a contaminação ambiental",
+        "Impede o tratamento de água",
+        "Substitui a necessidade de higiene"
+      ],
+      "a": 1
+    }
+  ],
+  "7ano-ciencias-b3": [],
+  "7ano-ciencias-b4": [],
+  "9ano-ciencias-b1": [
+    {
+      "q": "Uma onda mecânica precisa:",
+      "o": [
+        "De um meio material para se propagar",
+        "Sempre do vácuo",
+        "Apenas de luz solar",
+        "De ausência total de energia"
+      ],
+      "a": 0
+    },
+    {
+      "q": "A frequência de uma onda indica:",
+      "o": [
+        "A cor do objeto",
+        "O número de oscilações por unidade de tempo",
+        "A massa do meio",
+        "A temperatura do ambiente"
+      ],
+      "a": 1
+    }
+  ],
+  "9ano-ciencias-b2": [
+    {
+      "q": "Na retina, os cones estão relacionados principalmente com:",
+      "o": [
+        "Percepção de cores",
+        "Produção de som",
+        "Equilíbrio corporal",
+        "Filtração do sangue"
+      ],
+      "a": 0
+    },
+    {
+      "q": "A cóclea participa do sentido da:",
+      "o": [
+        "Visão",
+        "Audição",
+        "Olfato",
+        "Gustação"
+      ],
+      "a": 1
+    }
+  ],
+  "9ano-ciencias-b3": [],
+  "9ano-ciencias-b4": [],
+  "1em-biologia-b1": [
+    {
+      "q": "A radiação pode ser perigosa quando:",
+      "o": [
+        "Nunca interage com a matéria",
+        "A dose e o tipo de exposição causam danos biológicos",
+        "É sempre inexistente no ambiente",
+        "Só aparece em plantas"
+      ],
+      "a": 1
+    }
+  ],
+  "1em-biologia-b2": [
+    {
+      "q": "O aumento de CO₂ na atmosfera pode:",
+      "o": [
+        "Intensificar a retenção de calor",
+        "Eliminar o efeito estufa natural",
+        "Resfriar todo o planeta imediatamente",
+        "Impedir a fotossíntese em todas as plantas"
+      ],
+      "a": 0
+    },
+    {
+      "q": "Mudanças climáticas são:",
+      "o": [
+        "Alterações de longo prazo nos padrões climáticos",
+        "Apenas a chuva de um dia",
+        "Somente vento forte",
+        "Fenômenos sem relação com dados científicos"
+      ],
+      "a": 0
+    }
+  ],
+  "1em-biologia-b3": [],
+  "1em-biologia-b4": [],
+  "1em-educacaoFinanceira-b1": [
+    {
+      "q": "Educação financeira ajuda principalmente a:",
+      "o": [
+        "Gastar sem controle",
+        "Planejar o uso do dinheiro e tomar decisões melhores",
+        "Ignorar receitas e despesas",
+        "Comprar tudo parcelado sem avaliar"
+      ],
+      "a": 1
+    }
+  ],
+  "1em-educacaoFinanceira-b2": [],
+  "1em-educacaoFinanceira-b3": [],
+  "1em-educacaoFinanceira-b4": [],
+  "2em-biologia-b1": [
+    {
+      "q": "Bioacumulação é:",
+      "o": [
+        "Perda de habitat",
+        "Acúmulo de substâncias no organismo ao longo do tempo",
+        "Produção de sementes",
+        "Divisão celular"
+      ],
+      "a": 1
+    },
+    {
+      "q": "Polinização é importante porque:",
+      "o": [
+        "Impede a fecundação",
+        "Permite formação de sementes e frutos",
+        "Elimina abelhas",
+        "Aumenta pesticidas"
+      ],
+      "a": 1
+    }
+  ],
+  "2em-biologia-b2": [
+    {
+      "q": "Transgênico é um organismo que:",
+      "o": [
+        "Não possui DNA",
+        "Recebeu gene de outra espécie",
+        "Não se reproduz",
+        "É sempre bactéria"
+      ],
+      "a": 1
+    },
+    {
+      "q": "Um OGM é:",
+      "o": [
+        "Um organismo com material genético alterado por engenharia genética",
+        "Sempre um animal sem células",
+        "Um ser vivo sem DNA",
+        "Apenas uma bactéria patogênica"
+      ],
+      "a": 0
+    }
+  ],
+  "2em-biologia-b3": [],
+  "2em-biologia-b4": [],
+  "2em-liderancaOratoria-b1": [
+    {
+      "q": "Uma boa comunicação em público exige:",
+      "o": [
+        "Clareza, organização e respeito ao público",
+        "Falar sem parar e sem objetivo",
+        "Ignorar a plateia",
+        "Usar apenas frases decoradas"
+      ],
+      "a": 0
+    }
+  ],
+  "2em-liderancaOratoria-b2": [],
+  "2em-liderancaOratoria-b3": [],
+  "2em-liderancaOratoria-b4": []
+}

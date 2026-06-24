@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulador de Provas - Bioguará</title>
+<link rel="stylesheet" href="style.css">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2TPTF494FG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-2TPTF494FG');
+</script>
+
+<link rel="alternate" hreflang="pt-BR" href="../simulador-provas.html">
+<link rel="alternate" hreflang="en" href="simulador-provas.html">
+<link rel="alternate" hreflang="ru" href="../ru/simulador-provas.html">
+</head>
+<body>
+<div class="topbar"><div class="search-box">🔎 <input id="siteSearch" type="search" placeholder="Buscar no site..."></div>
+<!-- =========================================================
+ SELETOR DE IDIOMAS BIOGUARÁ
+ Para atualizar idiomas no futuro: mantenha os mesmos nomes de arquivos nas pastas /en e /ru.
+========================================================= -->
+<div class="language-switcher" aria-label="Selecionar idioma">
+  <span class="lang-label">🌐 Idioma:</span>
+  <a class="lang-option" href="../simulador-provas.html" hreflang="pt-BR" lang="pt-BR">🇧🇷 Português</a>
+  <a class="lang-option active" href="simulador-provas.html" hreflang="en" lang="en">🇺🇸 English</a>
+  <a class="lang-option" href="../ru/simulador-provas.html" hreflang="ru" lang="ru">🇷🇺 Русский</a>
+</div>
+<!-- FIM DO SELETOR DE IDIOMAS BIOGUARÁ -->
+<a class="top-link" href="index.html">🏠 Início</a><a class="top-link" href="sobre.html">ℹ️ Sobre o Site</a><a class="top-link" href="artigos-opiniao.html">📝 Artigos</a><a class="top-link" href="mailto:moterani.lucas@gmail.com">✉️ Contato</a></div>
+<section class="hero">
+<img class="hero-left-logo" src="assets/logo-bioguara.png" alt="Logo Bioguará">
+<img class="hero-right-logo" src="assets/logo-bioguara.png" alt="Logo Bioguará decorativo">
+<div class="hero-center"><h1 class="brand-title"><span class="bio">BIO</span><span class="guara">GUARÁ</span></h1><div class="brand-sub">Ciências e Biologia <span>•</span> Resumos <span>•</span> Questões</div><div class="quote"><b>“</b> Estudar é construir o futuro. <b>”</b></div></div>
+</section>
+<nav class="mainnav"><a class="" href="index.html"><span>🏠</span>Início</a><a class="" href="bimestre-1.html"><span>🗓️</span>1º Bimestre</a><a class="" href="bimestre-2.html"><span>🗓️</span>2º Bimestre</a><a class="" href="bimestre-3.html"><span>🗓️</span>3º Bimestre</a><a class="" href="bimestre-4.html"><span>🗓️</span>4º Bimestre</a><a class="" href="materiais.html"><span>📁</span>Materiais</a><a class="" href="artigos-opiniao.html"><span>📝</span>Artigos</a><a class="" href="sobre.html"><span>ℹ️</span>Sobre o Site</a></nav>
+<main class="page-wrap tool-page">
+  <div class="breadcrumb">Início › Ferramentas de Estudo › Simulador de Provas</div>
+  <div class="page-actions top-return"><a class="return-button secondary" href="ferramentas-estudo.html">⬅ Voltar para Ferramentas de Estudo</a></div>
+<h1 class="page-title">Simulador de Provas</h1>
+  <div class="intro-alert">
+    <strong>Treine por turma, disciplina e bimestre.</strong> O simulador lê o banco permanente do arquivo <code>dados/questoes.json</code> e também pode usar questões extras importadas no navegador.
+  </div>
+
+  <section class="tool-panel">
+    <div class="tool-form">
+      <label>Turma</label>
+      <select id="quizTurma"></select>
+
+      <label>Disciplina</label>
+      <select id="quizDisciplina"></select>
+
+      <label>Bimestre</label>
+      <select id="quizBimestre">
+        <option value="todos">Todos os bimestres</option>
+        <option value="b1">1º Bimestre</option>
+        <option value="b2">2º Bimestre</option>
+        <option value="b3">3º Bimestre</option>
+        <option value="b4">4º Bimestre</option>
+      </select>
+
+      <label>Quantidade de questões</label>
+      <select id="quizAmount">
+        <option value="3">3 questões</option>
+        <option value="5">5 questões</option>
+        <option value="10">10 questões</option>
+        <option value="999">Todas disponíveis</option>
+      </select>
+
+      <button id="startQuiz" class="timer-btn primary" type="button">🎯 Gerar simulado</button>
+    </div>
+
+    <div class="tool-note">
+      <h3>Simulado organizado</h3>
+      <p>Escolha turma, disciplina e bimestre. Se escolher “Todos os bimestres”, o sistema mistura questões da disciplina selecionada.</p>
+      <p>O banco permanente fica em <strong>dados/questoes.json</strong>. Ao substituir esse arquivo no GitHub, as questões ficam disponíveis para todos os alunos.</p>
+    </div>
+  </section>
+
+  <section class="lesson-card">
+    <div class="lesson-head"><span class="lesson-badge">🎯</span><h2>Questões</h2></div>
+    <div class="lesson-section">
+      <div id="quizInfo" class="quiz-info"></div>
+      <form id="quizBox" class="quiz-box"></form>
+      <div id="quizResult" class="media-result"></div>
+    </div>
+  </section>
+
+  <section class="lesson-card admin-login-card">
+    <div class="lesson-head"><span class="lesson-badge">🔒</span><h2>Área do Professor</h2></div>
+    <div class="lesson-section">
+      <p>Área restrita para cadastrar questões e gerar o arquivo <strong>questoes.json</strong>.</p>
+
+      <div id="teacherLoginBox" class="teacher-login-box">
+        <div class="tool-form compact-form">
+          <label>Login</label>
+          <input id="teacherUser" type="text" placeholder="Digite o login">
+
+          <label>Senha</label>
+          <input id="teacherPass" type="password" placeholder="Digite a senha">
+
+          <button id="teacherLoginBtn" class="timer-btn primary" type="button">🔓 Entrar</button>
+          <p id="teacherLoginMsg" class="admin-message"></p>
+        </div>
+      </div>
+
+      <div id="teacherPanel" class="teacher-panel" hidden>
+        <div class="intro-alert">
+          <strong>Painel do Professor Bioguará:</strong> cadastre questões por turma, disciplina e bimestre. Depois clique em <strong>Baixar questoes.json completo</strong> e substitua o arquivo <code>dados/questoes.json</code> no site para todos os alunos acessarem.
+        </div>
+
+        <section class="tool-panel">
+          <div class="tool-form">
+            <label>Turma</label>
+            <select id="newTurma"></select>
+
+            <label>Disciplina</label>
+            <select id="newDisciplina"></select>
+
+            <label>Bimestre</label>
+            <select id="newBimestre">
+              <option value="b1">1º Bimestre</option>
+              <option value="b2">2º Bimestre</option>
+              <option value="b3">3º Bimestre</option>
+              <option value="b4">4º Bimestre</option>
+            </select>
+
+            <label>Pergunta</label>
+            <textarea id="newQuestion" rows="3" placeholder="Digite a pergunta"></textarea>
+
+            <label>Alternativa A</label>
+            <input id="newA" type="text" placeholder="Alternativa A">
+
+            <label>Alternativa B</label>
+            <input id="newB" type="text" placeholder="Alternativa B">
+
+            <label>Alternativa C</label>
+            <input id="newC" type="text" placeholder="Alternativa C">
+
+            <label>Alternativa D</label>
+            <input id="newD" type="text" placeholder="Alternativa D">
+
+            <label>Resposta correta</label>
+            <select id="newCorrect">
+              <option value="0">A</option>
+              <option value="1">B</option>
+              <option value="2">C</option>
+              <option value="3">D</option>
+            </select>
+
+            <button id="saveQuestionBtn" class="timer-btn primary" type="button">➕ Adicionar questão</button>
+          </div>
+
+          <div class="tool-note">
+            <h3>Fluxo recomendado</h3>
+            <p>1. Cadastre as questões.</p>
+            <p>2. Clique em <strong>Baixar questoes.json completo</strong>.</p>
+            <p>3. No VS Code, substitua o arquivo <strong>dados/questoes.json</strong>.</p>
+            <p>4. Faça commit e push para o GitHub.</p>
+            <p>5. Todos os alunos verão as novas questões.</p>
+          </div>
+        </section>
+
+        <section class="lesson-card nested-card">
+          <div class="lesson-head"><span class="lesson-badge">📋</span><h2>Questões cadastradas</h2></div>
+          <div class="lesson-section">
+            <div id="extraQuestionsList" class="admin-question-list"></div>
+            <div class="page-actions">
+              <button id="downloadFullBankBtn" class="return-button" type="button">⬇️ Baixar questoes.json completo</button>
+              <button id="exportQuestionsBtn" class="return-button secondary" type="button">⬇️ Baixar extras JSON</button>
+              <button id="importQuestionsBtn" class="return-button secondary" type="button">📂 Importar JSON</button>
+              <input id="importQuestionsFile" type="file" accept=".json" style="display:none;">
+              <button id="clearQuestionsBtn" class="return-button secondary" type="button">🗑️ Limpar extras</button>
+              <button id="teacherLogoutBtn" class="return-button secondary" type="button">🚪 Sair</button>
+            </div>
+
+            <div class="intro-alert">
+              <strong>Importante:</strong> o botão “Baixar questoes.json completo” gera o arquivo que deve substituir <code>dados/questoes.json</code> no projeto. Esse é o jeito de tornar as questões permanentes para todos os alunos no GitHub Pages.
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="feature-footer">
+<div class="feature"><div class="fi">📖</div><p>Resumos claros<br>e organizados</p></div>
+<div class="feature"><div class="fi">☑️</div><p>Questões para<br>fixação do conteúdo</p></div>
+<div class="feature"><div class="fi">🎥</div><p>Espaço para vídeo<br>em cada aula</p></div>
+<div class="feature"><div class="fi">🎯</div><p>Estude em casa,<br>no seu ritmo!</p></div>
+<div class="feature youtube-footer-link"><a href="https://www.youtube.com/@bioguara" target="_blank" rel="noopener noreferrer"><div class="fi">▶️</div><p>Canal Bioguará<br>no YouTube</p></a></div>
+<div class="signature"><img src="assets/logo-bioguara.png" alt="Logo"><div><div class="sig-name">Professor Lucas Costa Moterani</div><div class="sig-sub">Bioguará - Ciências e Biologia</div></div></div>
+</footer>
+<script src="script.js"></script>
+
+<script>
+(function(){
+  'use strict';
+
+  const TEACHER_USER = 'profbioguara';
+  const TEACHER_PASS_HASH = 'd34a2edd0351148756b6385156dcdeb611064e0cb97f5203269e8445e8f5fa82';
+  const EXTRA_KEY = 'bioguaraSimuladorQuestoesExtrasV3';
+  const LOGIN_KEY = 'bioguaraProfessorLogado';
+
+  const structure = {
+    '7ano': { label: '7º Ano', icon: '🔬', subjects: { ciencias: 'Ciências' } },
+    '9ano': { label: '9º Ano', icon: '🧪', subjects: { ciencias: 'Ciências' } },
+    '1em': { label: '1º Ano EM', icon: '🌱', subjects: { biologia: 'Biologia', educacaoFinanceira: 'Educação Financeira' } },
+    '2em': { label: '2º Ano EM', icon: '🧬', subjects: { biologia: 'Biologia', liderancaOratoria: 'Liderança e Oratória' } }
+  };
+
+  const bimestreLabels = { b1: '1º Bimestre', b2: '2º Bimestre', b3: '3º Bimestre', b4: '4º Bimestre' };
+  let permanentBank = {};
+
+  function $(id) { return document.getElementById(id); }
+
+  function escapeHTML(value) {
+    return String(value).replace(/[&<>"']/g, function(ch) {
+      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]);
+    });
+  }
+
+  function makeKey(turma, disciplina, bimestre) { return turma + '-' + disciplina + '-' + bimestre; }
+
+  function ensureAllKeys(bank) {
+    Object.keys(structure).forEach(function(turma) {
+      Object.keys(structure[turma].subjects).forEach(function(disciplina) {
+        ['b1','b2','b3','b4'].forEach(function(bim) {
+          const key = makeKey(turma, disciplina, bim);
+          if (!Array.isArray(bank[key])) bank[key] = [];
+        });
+      });
+    });
+    return bank;
+  }
+
+  async function loadPermanentBank() {
+    try {
+      const response = await fetch('dados/questoes.json?versao=' + Date.now(), { cache: 'no-store' });
+      if (!response.ok) throw new Error('Erro ao carregar questoes.json');
+      const data = await response.json();
+      permanentBank = ensureAllKeys(data || {});
+    } catch(e) {
+      console.warn('Não foi possível carregar dados/questoes.json. Usando banco vazio.', e);
+      permanentBank = ensureAllKeys({});
+    }
+  }
+
+  function loadExtras() {
+    try {
+      const data = JSON.parse(localStorage.getItem(EXTRA_KEY) || '{}');
+      return data && typeof data === 'object' ? data : {};
+    } catch(e) {
+      return {};
+    }
+  }
+
+  function saveExtras(data) { localStorage.setItem(EXTRA_KEY, JSON.stringify(data)); }
+
+  function getFullBank() {
+    const extras = loadExtras();
+    const merged = JSON.parse(JSON.stringify(permanentBank || {}));
+    Object.keys(extras).forEach(function(key) {
+      if (!Array.isArray(merged[key])) merged[key] = [];
+      merged[key] = merged[key].concat(extras[key] || []);
+    });
+    return ensureAllKeys(merged);
+  }
+
+  function getQuestionsByKey(key) { return getFullBank()[key] || []; }
+
+  function getDisciplinas(turma) { return structure[turma].subjects; }
+
+  function getSelectedQuestions() {
+    const turma = $('quizTurma').value;
+    const disciplina = $('quizDisciplina').value;
+    const bimestre = $('quizBimestre').value;
+
+    if (bimestre === 'todos') {
+      let all = [];
+      ['b1','b2','b3','b4'].forEach(function(bim) {
+        all = all.concat(getQuestionsByKey(makeKey(turma, disciplina, bim)));
+      });
+      return all;
+    }
+
+    return getQuestionsByKey(makeKey(turma, disciplina, bimestre));
+  }
+
+  function getSelectionLabel(prefix) {
+    const turma = $(prefix + 'Turma').value;
+    const disciplina = $(prefix + 'Disciplina').value;
+    const bimestreEl = $(prefix + 'Bimestre');
+    const bimestre = bimestreEl ? bimestreEl.value : 'todos';
+    const turmaLabel = structure[turma].label;
+    const disciplinaLabel = structure[turma].subjects[disciplina];
+    const bimLabel = bimestre === 'todos' ? 'Todos os bimestres' : bimestreLabels[bimestre];
+    return turmaLabel + ' › ' + disciplinaLabel + ' › ' + bimLabel;
+  }
+
+  function fillTurmaSelect(selectId) {
+    const select = $(selectId);
+    if (!select) return;
+    select.innerHTML = Object.keys(structure).map(function(key) {
+      return '<option value="' + key + '">' + structure[key].icon + ' ' + structure[key].label + '</option>';
+    }).join('');
+  }
+
+  function fillDisciplinaSelect(turmaSelectId, disciplinaSelectId) {
+    const turmaSelect = $(turmaSelectId);
+    const disciplinaSelect = $(disciplinaSelectId);
+    if (!turmaSelect || !disciplinaSelect) return;
+    const turma = turmaSelect.value;
+    const subjects = getDisciplinas(turma);
+    disciplinaSelect.innerHTML = Object.keys(subjects).map(function(key) {
+      return '<option value="' + key + '">' + subjects[key] + '</option>';
+    }).join('');
+  }
+
+  function initializeSelectors() {
+    fillTurmaSelect('quizTurma');
+    fillDisciplinaSelect('quizTurma', 'quizDisciplina');
+    fillTurmaSelect('newTurma');
+    fillDisciplinaSelect('newTurma', 'newDisciplina');
+
+    if ($('quizTurma')) $('quizTurma').addEventListener('change', function() { fillDisciplinaSelect('quizTurma', 'quizDisciplina'); startQuiz(); });
+    if ($('quizDisciplina')) $('quizDisciplina').addEventListener('change', startQuiz);
+    if ($('quizBimestre')) $('quizBimestre').addEventListener('change', startQuiz);
+    if ($('quizAmount')) $('quizAmount').addEventListener('change', startQuiz);
+    if ($('newTurma')) $('newTurma').addEventListener('change', function() { fillDisciplinaSelect('newTurma', 'newDisciplina'); });
+  }
+
+  function shuffle(array) {
+    const copy = array.slice();
+    for (let i = copy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy;
+  }
+
+  function startQuiz() {
+    const all = getSelectedQuestions();
+    const amount = parseInt($('quizAmount').value, 10);
+    const selected = shuffle(all).slice(0, Math.min(amount, all.length));
+    const box = $('quizBox');
+    const result = $('quizResult');
+    const info = $('quizInfo');
+
+    info.innerHTML = '<strong>Selecionado:</strong> ' + escapeHTML(getSelectionLabel('quiz')) + '<br><span>Questões disponíveis: ' + all.length + '</span>';
+
+    if (!selected.length) {
+      box.innerHTML = '<p>Nenhuma questão disponível para esta seleção ainda. O professor pode cadastrar novas questões na área restrita.</p>';
+      result.textContent = '';
+      box.dataset.currentQuestions = '[]';
+      return;
+    }
+
+    box.dataset.currentQuestions = JSON.stringify(selected);
+    box.innerHTML = selected.map(function(it, i) {
+      return '<div class="quiz-item"><h3>' + (i + 1) + '. ' + escapeHTML(it.q) + '</h3>' +
+        it.o.map(function(op, j) {
+          return '<label><input type="radio" name="q' + i + '" value="' + j + '"> ' + escapeHTML(op) + '</label>';
+        }).join('') +
+      '</div>';
+    }).join('') + '<button type="submit" class="timer-btn primary">Corrigir</button>';
+
+    result.textContent = '';
+  }
+
+  function correctQuiz(event) {
+    event.preventDefault();
+    const box = $('quizBox');
+    const result = $('quizResult');
+    const questions = JSON.parse(box.dataset.currentQuestions || '[]');
+    let score = 0;
+
+    questions.forEach(function(it, i) {
+      const checked = box.querySelector('input[name="q' + i + '"]:checked');
+      if (checked && parseInt(checked.value, 10) === it.a) score++;
+    });
+
+    result.textContent = 'Resultado: ' + score + ' de ' + questions.length + ' acertos.';
+  }
+
+  async function sha256(text) {
+    if (window.crypto && crypto.subtle) {
+      const buffer = new TextEncoder().encode(text);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', buffer);
+      return Array.from(new Uint8Array(hashBuffer)).map(function(b) { return b.toString(16).padStart(2, '0'); }).join('');
+    }
+    return text;
+  }
+
+  async function loginTeacher() {
+    const user = $('teacherUser').value.trim();
+    const pass = $('teacherPass').value;
+    const msg = $('teacherLoginMsg');
+    const hash = await sha256(pass);
+
+    if (user === TEACHER_USER && hash === TEACHER_PASS_HASH) {
+      localStorage.setItem(LOGIN_KEY, '1');
+      msg.textContent = '';
+      showTeacherPanel(true);
+    } else {
+      msg.textContent = 'Login ou senha incorretos.';
+    }
+  }
+
+  function showTeacherPanel(show) {
+    $('teacherLoginBox').hidden = show;
+    $('teacherPanel').hidden = !show;
+    if (show) renderExtraQuestions();
+  }
+
+  function logoutTeacher() {
+    localStorage.removeItem(LOGIN_KEY);
+    showTeacherPanel(false);
+  }
+
+  function saveNewQuestion() {
+    const key = makeKey($('newTurma').value, $('newDisciplina').value, $('newBimestre').value);
+    const q = $('newQuestion').value.trim();
+    const alternatives = [$('newA').value.trim(), $('newB').value.trim(), $('newC').value.trim(), $('newD').value.trim()];
+    const correct = parseInt($('newCorrect').value, 10);
+
+    if (!q || alternatives.some(function(item) { return !item; })) {
+      alert('Preencha a pergunta e as quatro alternativas.');
+      return;
+    }
+
+    const extras = loadExtras();
+    if (!extras[key]) extras[key] = [];
+    extras[key].push({ q: q, o: alternatives, a: correct });
+    saveExtras(extras);
+
+    $('newQuestion').value = '';
+    $('newA').value = '';
+    $('newB').value = '';
+    $('newC').value = '';
+    $('newD').value = '';
+    $('newCorrect').value = '0';
+
+    renderExtraQuestions();
+    startQuiz();
+  }
+
+  function keyToLabel(key) {
+    const parts = key.split('-');
+    const turma = parts[0], disciplina = parts[1], bimestre = parts[2];
+    if (!structure[turma] || !structure[turma].subjects[disciplina]) return key;
+    return structure[turma].label + ' › ' + structure[turma].subjects[disciplina] + ' › ' + bimestreLabels[bimestre];
+  }
+
+  function renderExtraQuestions() {
+    const extras = loadExtras();
+    const fullBank = getFullBank();
+    const list = $('extraQuestionsList');
+    const keys = Object.keys(fullBank).sort();
+
+    let html = '<p><strong>Banco permanente:</strong> ' + Object.values(permanentBank).reduce((sum, arr) => sum + (Array.isArray(arr) ? arr.length : 0), 0) + ' questões. <strong>Extras locais:</strong> ' + Object.values(extras).reduce((sum, arr) => sum + (Array.isArray(arr) ? arr.length : 0), 0) + ' questões.</p>';
+
+    keys.forEach(function(key) {
+      const extraCount = (extras[key] || []).length;
+      const totalCount = (fullBank[key] || []).length;
+      if (totalCount === 0) return;
+      html += '<h3>' + escapeHTML(keyToLabel(key)) + ' <small>(' + totalCount + ' questões, ' + extraCount + ' extras)</small></h3>';
+
+      if (extraCount > 0) {
+        html += extras[key].map(function(it, i) {
+          return '<div class="admin-question-item"><strong>Extra ' + (i + 1) + '. ' + escapeHTML(it.q) + '</strong>' +
+            '<p>Resposta correta: ' + String.fromCharCode(65 + it.a) + '</p>' +
+            '<button type="button" class="delete-extra-question" data-key="' + key + '" data-index="' + i + '">Excluir extra</button></div>';
+        }).join('');
+      }
+    });
+
+    list.innerHTML = html || '<p>Nenhuma questão cadastrada ainda.</p>';
+
+    document.querySelectorAll('.delete-extra-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const extras = loadExtras();
+        extras[btn.dataset.key].splice(parseInt(btn.dataset.index, 10), 1);
+        if (!extras[btn.dataset.key].length) delete extras[btn.dataset.key];
+        saveExtras(extras);
+        renderExtraQuestions();
+        startQuiz();
+      });
+    });
+  }
+
+  function downloadJSON(filename, data) {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json;charset=utf-8' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(link.href);
+  }
+
+  function exportExtrasJSON() { downloadJSON('questoes-extras-bioguara.json', loadExtras()); }
+  function downloadFullBank() { downloadJSON('questoes.json', getFullBank()); }
+
+  function importQuestionsJSON(file) {
+    const reader = new FileReader();
+    reader.onload = function() {
+      try {
+        const data = ensureAllKeys(JSON.parse(reader.result));
+        const currentPermanent = JSON.stringify(permanentBank);
+        const imported = JSON.stringify(data);
+        if (confirm('Deseja importar este JSON como questões extras locais?\n\nPara substituir o banco permanente do site, baixe o arquivo questoes.json e substitua em dados/questoes.json no VS Code.')) {
+          const extras = {};
+          Object.keys(data).forEach(function(key) {
+            const permanentArr = permanentBank[key] || [];
+            const dataArr = data[key] || [];
+            if (JSON.stringify(dataArr) !== JSON.stringify(permanentArr)) {
+              extras[key] = dataArr;
+            }
+          });
+          saveExtras(extras);
+          alert('JSON importado como banco local de questões extras.');
+          renderExtraQuestions();
+          startQuiz();
+        }
+      } catch(e) {
+        alert('Arquivo JSON inválido.');
+      }
+    };
+    reader.readAsText(file);
+  }
+
+  function clearExtraQuestions() {
+    if (confirm('Apagar todas as questões extras salvas neste navegador?')) {
+      saveExtras({});
+      renderExtraQuestions();
+      startQuiz();
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', async function() {
+    await loadPermanentBank();
+    initializeSelectors();
+
+    if ($('startQuiz')) $('startQuiz').addEventListener('click', startQuiz);
+    if ($('quizBox')) $('quizBox').addEventListener('submit', correctQuiz);
+
+    if ($('teacherLoginBtn')) $('teacherLoginBtn').addEventListener('click', loginTeacher);
+    if ($('teacherLogoutBtn')) $('teacherLogoutBtn').addEventListener('click', logoutTeacher);
+    if ($('saveQuestionBtn')) $('saveQuestionBtn').addEventListener('click', saveNewQuestion);
+    if ($('exportQuestionsBtn')) $('exportQuestionsBtn').addEventListener('click', exportExtrasJSON);
+    if ($('downloadFullBankBtn')) $('downloadFullBankBtn').addEventListener('click', downloadFullBank);
+    if ($('importQuestionsBtn')) $('importQuestionsBtn').addEventListener('click', function() { $('importQuestionsFile').click(); });
+    if ($('importQuestionsFile')) $('importQuestionsFile').addEventListener('change', function(ev) { if(ev.target.files[0]) importQuestionsJSON(ev.target.files[0]); });
+    if ($('clearQuestionsBtn')) $('clearQuestionsBtn').addEventListener('click', clearExtraQuestions);
+
+    showTeacherPanel(localStorage.getItem(LOGIN_KEY) === '1');
+    startQuiz();
+  });
+})();
+</script>
+
+<!-- =========================================================
+ TRADUÇÃO AUTOMÁTICA BIOGUARÁ - EN
+ O conteúdo original permanece em português. Esta versão usa tradução automática no navegador.
+========================================================= -->
+<div id="google_translate_element"></div>
+<script>
+(function() {
+  var targetLang = 'en';
+  document.cookie = 'googtrans=/pt/' + targetLang + ';path=/';
+  document.cookie = 'googtrans=/pt/' + targetLang + ';domain=' + location.hostname + ';path=/';
+  window.googleTranslateElementInit = function() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'pt',
+      includedLanguages: 'en,ru,pt',
+      autoDisplay: false
+    }, 'google_translate_element');
+  };
+  var s = document.createElement('script');
+  s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+  document.body.appendChild(s);
+})();
+</script>
+<!-- FIM DA TRADUÇÃO AUTOMÁTICA BIOGUARÁ -->
+</body>
+</html>
