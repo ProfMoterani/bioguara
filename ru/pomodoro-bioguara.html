@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pomodoro Bioguará - Ferramenta de Estudo</title>
+<link rel="stylesheet" href="style.css">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2TPTF494FG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-2TPTF494FG');
+</script>
+
+<link rel="alternate" hreflang="pt-BR" href="../pomodoro-bioguara.html">
+<link rel="alternate" hreflang="en" href="../en/pomodoro-bioguara.html">
+<link rel="alternate" hreflang="ru" href="pomodoro-bioguara.html">
+</head>
+<body>
+<div class="topbar"><div class="search-box">🔎 <input id="siteSearch" type="search" placeholder="Buscar no site..."></div>
+<!-- =========================================================
+ SELETOR DE IDIOMAS BIOGUARÁ
+ Para atualizar idiomas no futuro: mantenha os mesmos nomes de arquivos nas pastas /en e /ru.
+========================================================= -->
+<div class="language-switcher" aria-label="Selecionar idioma">
+  <span class="lang-label">🌐 Idioma:</span>
+  <a class="lang-option" href="../pomodoro-bioguara.html" hreflang="pt-BR" lang="pt-BR">🇧🇷 Português</a>
+  <a class="lang-option" href="../en/pomodoro-bioguara.html" hreflang="en" lang="en">🇺🇸 English</a>
+  <a class="lang-option active" href="pomodoro-bioguara.html" hreflang="ru" lang="ru">🇷🇺 Русский</a>
+</div>
+<!-- FIM DO SELETOR DE IDIOMAS BIOGUARÁ -->
+<a class="top-link" href="index.html">🏠 Início</a><a class="top-link" href="sobre.html">ℹ️ Sobre o Site</a><a class="top-link" href="artigos-opiniao.html">📝 Artigos</a><a class="top-link" href="mailto:moterani.lucas@gmail.com">✉️ Contato</a></div>
+<section class="hero">
+<img class="hero-left-logo" src="assets/logo-bioguara.png" alt="Logo Bioguará">
+<img class="hero-right-logo" src="assets/logo-bioguara.png" alt="Logo Bioguará decorativo">
+<div class="hero-center"><h1 class="brand-title"><span class="bio">BIO</span><span class="guara">GUARÁ</span></h1><div class="brand-sub">Ciências e Biologia <span>•</span> Resumos <span>•</span> Questões</div><div class="quote"><b>“</b> Estudar é construir o futuro. <b>”</b></div></div>
+</section>
+<nav class="mainnav"><a class="" href="index.html"><span>🏠</span>Início</a><a class="" href="bimestre-1.html"><span>🗓️</span>1º Bimestre</a><a class="" href="bimestre-2.html"><span>🗓️</span>2º Bimestre</a><a class="" href="bimestre-3.html"><span>🗓️</span>3º Bimestre</a><a class="" href="bimestre-4.html"><span>🗓️</span>4º Bimestre</a><a class="" href="materiais.html"><span>📁</span>Materiais</a><a class="" href="artigos-opiniao.html"><span>📝</span>Artigos</a><a class="" href="sobre.html"><span>ℹ️</span>Sobre o Site</a></nav>
+<main class="page-wrap pomodoro-page">
+  <div class="breadcrumb">Início › Ferramentas de Estudo › Pomodoro Bioguará</div>
+<h1 class="page-title">Pomodoro Bioguará</h1>
+  <div class="intro-alert"><strong>Ferramenta de foco:</strong> escolha um modo, clique em iniciar e estude sem distrações até o fim do ciclo.</div>
+  <section class="pomodoro-card">
+    <div class="pomodoro-brand">
+      <img src="assets/logo-bioguara.png" alt="Logo Bioguará">
+      <div>
+        <h2>🍅 Pomodoro Bioguará</h2>
+        <p>Foco, pausa, revisão e constância.</p>
+      </div>
+    </div>
+    <div class="pomodoro-layout">
+      <div class="timer-ring" id="timerRing" style="--progress:0deg;">
+        <div class="timer-inner">
+          <div id="timerMode" class="timer-mode">Modo Foco</div>
+          <div id="timerDisplay" class="timer-display">25:00</div>
+          <div id="timerStatus" class="timer-status">Pronto para começar</div>
+        </div>
+      </div>
+      <div class="timer-controls">
+        <h3>Escolha o modo</h3>
+        <div class="mode-grid">
+          <button class="mode-btn active" data-minutes="25" data-label="Modo Foco">📖 Foco<br><span>25 min</span></button>
+          <button class="mode-btn" data-minutes="15" data-label="Modo Revisão">🔁 Revisão<br><span>15 min</span></button>
+          <button class="mode-btn" data-minutes="20" data-label="Modo Questões">📝 Questões<br><span>20 min</span></button>
+          <button class="mode-btn" data-minutes="50" data-label="Modo Intensivo">🔥 Intensivo<br><span>50 min</span></button>
+          <button class="mode-btn" data-minutes="5" data-label="Pausa Curta">☕ Pausa<br><span>5 min</span></button>
+        </div>
+        <div class="control-row">
+          <button id="startBtn" class="timer-btn primary">▶ Iniciar</button>
+          <button id="pauseBtn" class="timer-btn">⏸ Pausar</button>
+          <button id="resetBtn" class="timer-btn">↺ Reiniciar</button>
+        </div>
+        <div class="study-task">
+          <label for="studyTask">Qual tarefa você fará?</label>
+          <select id="studyTask">
+            <option>Ler o resumo</option>
+            <option>Copiar o resumo</option>
+            <option>Responder questões</option>
+            <option>Revisar sem olhar</option>
+            <option>Assistir ao vídeo da aula</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="pomodoro-stats">
+      <div><strong id="cyclesDone">0</strong><span>ciclos concluídos hoje</span></div>
+      <div><strong id="minutesDone">0</strong><span>minutos de foco hoje</span></div>
+      <div><strong>🦊</strong><span>disciplina constrói futuro</span></div>
+    </div>
+  </section>
+  <section class="lesson-card">
+    <div class="lesson-head"><span class="lesson-badge">Como usar</span><h2>Regra simples</h2></div>
+    <div class="lesson-section">
+      <ol class="questions">
+        <li>Escolha uma tarefa: ler, copiar, responder questões ou revisar.</li>
+        <li>Escolha o modo de estudo.</li>
+        <li>Clique em iniciar e mantenha o foco até o final.</li>
+        <li>Na pausa, levante, beba água e descanse os olhos.</li>
+        <li>Depois volte ao Método Bioguará e continue o estudo.</li>
+      </ol>
+      <p><a class="return-button secondary" href="ferramentas-estudo.html">⬅ Voltar para Ferramentas de Estudo</a></p>
+    </div>
+  </section>
+</main>
+<footer class="feature-footer">
+<div class="feature"><div class="fi">📖</div><p>Resumos claros<br>e organizados</p></div>
+<div class="feature"><div class="fi">☑️</div><p>Questões para<br>fixação do conteúdo</p></div>
+<div class="feature"><div class="fi">🎥</div><p>Espaço para vídeo<br>em cada aula</p></div>
+<div class="feature"><div class="fi">🎯</div><p>Estude em casa,<br>no seu ritmo!</p></div>
+<div class="feature youtube-footer-link"><a href="https://www.youtube.com/@bioguara" target="_blank" rel="noopener noreferrer"><div class="fi">▶️</div><p>Canal Bioguará<br>no YouTube</p></a></div>
+<div class="signature"><img src="assets/logo-bioguara.png" alt="Logo"><div><div class="sig-name">Professor Lucas Costa Moterani</div><div class="sig-sub">Bioguará - Ciências e Biologia</div></div></div>
+</footer>
+<script src="script.js"></script>
+<script>
+(function(){
+  const display = document.getElementById('timerDisplay');
+  const ring = document.getElementById('timerRing');
+  const modeText = document.getElementById('timerMode');
+  const statusText = document.getElementById('timerStatus');
+  const startBtn = document.getElementById('startBtn');
+  const pauseBtn = document.getElementById('pauseBtn');
+  const resetBtn = document.getElementById('resetBtn');
+  const modeBtns = document.querySelectorAll('.mode-btn');
+  const cyclesDone = document.getElementById('cyclesDone');
+  const minutesDone = document.getElementById('minutesDone');
+  let total = 25 * 60;
+  let remaining = total;
+  let running = false;
+  let interval = null;
+  let currentMinutes = 25;
+  const todayKey = 'bioguaraPomodoro_' + new Date().toISOString().slice(0,10);
+  let stats = JSON.parse(localStorage.getItem(todayKey) || '{"cycles":0,"minutes":0}');
+  function updateStats(){
+    cyclesDone.textContent = stats.cycles;
+    minutesDone.textContent = stats.minutes;
+    localStorage.setItem(todayKey, JSON.stringify(stats));
+  }
+  function format(s){
+    const m = Math.floor(s/60).toString().padStart(2,'0');
+    const sec = Math.floor(s%60).toString().padStart(2,'0');
+    return `${m}:${sec}`;
+  }
+  function render(){
+    display.textContent = format(remaining);
+    const progress = 360 - ((remaining / total) * 360);
+    ring.style.setProperty('--progress', progress + 'deg');
+  }
+  function beep(){
+    try{
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = 880;
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      gain.gain.setValueAtTime(0.001, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.25, ctx.currentTime + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.5);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.55);
+    }catch(e){}
+  }
+  function finish(){
+    clearInterval(interval);
+    running = false;
+    remaining = 0;
+    render();
+    statusText.textContent = 'Ciclo concluído! Faça uma pausa.';
+    stats.cycles += 1;
+    if(!modeText.textContent.toLowerCase().includes('pausa')) stats.minutes += currentMinutes;
+    updateStats();
+    beep();
+  }
+  startBtn.addEventListener('click', () => {
+    if(running) return;
+    running = true;
+    statusText.textContent = 'Estudo em andamento. Mantenha o foco.';
+    interval = setInterval(() => {
+      remaining -= 1;
+      if(remaining <= 0) finish();
+      else render();
+    }, 1000);
+  });
+  pauseBtn.addEventListener('click', () => {
+    running = false;
+    clearInterval(interval);
+    statusText.textContent = 'Pausado. Retome quando estiver pronto.';
+  });
+  resetBtn.addEventListener('click', () => {
+    running = false;
+    clearInterval(interval);
+    remaining = total;
+    statusText.textContent = 'Pronto para começar';
+    render();
+  });
+  modeBtns.forEach(btn => btn.addEventListener('click', () => {
+    modeBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentMinutes = parseInt(btn.dataset.minutes, 10);
+    total = currentMinutes * 60;
+    remaining = total;
+    running = false;
+    clearInterval(interval);
+    modeText.textContent = btn.dataset.label;
+    statusText.textContent = 'Pronto para começar';
+    render();
+  }));
+  updateStats();
+  render();
+})();
+</script>
+
+<!-- =========================================================
+ TRADUÇÃO AUTOMÁTICA BIOGUARÁ - RU
+ O conteúdo original permanece em português. Esta versão usa tradução automática no navegador.
+========================================================= -->
+<div id="google_translate_element"></div>
+<script>
+(function() {
+  var targetLang = 'ru';
+  document.cookie = 'googtrans=/pt/' + targetLang + ';path=/';
+  document.cookie = 'googtrans=/pt/' + targetLang + ';domain=' + location.hostname + ';path=/';
+  window.googleTranslateElementInit = function() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'pt',
+      includedLanguages: 'en,ru,pt',
+      autoDisplay: false
+    }, 'google_translate_element');
+  };
+  var s = document.createElement('script');
+  s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+  document.body.appendChild(s);
+})();
+</script>
+<!-- FIM DA TRADUÇÃO AUTOMÁTICA BIOGUARÁ -->
+</body>
+</html>

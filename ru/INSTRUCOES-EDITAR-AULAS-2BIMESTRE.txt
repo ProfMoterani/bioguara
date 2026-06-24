@@ -1,0 +1,20 @@
+COMO ADICIONAR NOVAS AULAS NAS PÁGINAS DO 2º BIMESTRE
+
+1. Abra a página da turma no VS Code.
+2. Procure por esta linha:
+   NOVAS AULAS DEVEM SER INSERIDAS ACIMA DESTA LINHA
+3. Cole a nova aula imediatamente acima dessa marcação.
+4. Atualize o menu lateral, adicionando um novo link:
+   <a href="#aula-07">Aula 07</a>
+5. Não cole aulas depois de </article>, </main>, </footer>, </body> ou </html>.
+6. Cada aula está marcada no código assim:
+   <!-- AULA 07 - Título -->
+   <section class="lesson-card" id="aula-07"> ... </section>
+   <!-- FIM DA AULA 07 -->
+
+PADRÃO MANTIDO
+- Sem lesson-kicker.
+- Espaço para vídeo ao final de cada aula.
+- Questões separadas corretamente em <ol class="questions"><li>...</li></ol>.
+- Marcação visual no código para facilitar edição.
+- Rodapé marcado com aviso para não inserir aulas abaixo dele.

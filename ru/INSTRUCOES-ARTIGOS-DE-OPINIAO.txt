@@ -1,0 +1,22 @@
+ATUALIZAÇÃO - ÁREA DE ARTIGOS DE OPINIÃO BIOGUARÁ
+
+Arquivos alterados/criados:
+- artigos-opiniao.html
+- style.css
+- index.html
+- materiais.html
+- demais páginas HTML: navegação superior e menu principal receberam link para Artigos.
+
+Como adicionar novo artigo no futuro:
+1. Abra artigos-opiniao.html.
+2. Localize: ÁREA DE CARDS DOS ARTIGOS.
+3. Copie o modelo de card existente e altere título, descrição, tags e href.
+4. Localize: ÁREA DOS ARTIGOS COMPLETOS.
+5. Copie o modelo de article existente.
+6. Altere o id para ser igual ao href do card, sem o #.
+7. Cole os parágrafos do novo artigo dentro de <div class="lesson-section artigo-texto">.
+8. Não altere style.css, script.js, Google Analytics, cabeçalho ou rodapé.
+
+Primeiro artigo inserido:
+A família ainda é o principal fator do sucesso escolar?
+Autor: Lucas Costa Moterani
