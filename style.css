@@ -2025,3 +2025,116 @@ a{color:inherit;text-decoration:none}
     border-left-width:6px;
   }
 }
+
+
+/* =========================================================
+   ARTIGOS DE OPINIÃO - BIOGUARÁ
+   Estilos exclusivos da página artigos-opiniao.html
+   Não altere os blocos globais do site para adicionar artigos.
+========================================================= */
+.artigos-page .intro-alert{
+  margin-bottom:22px;
+}
+.artigo-admin-card{
+  border-left:6px solid var(--orange);
+}
+.artigos-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:22px;
+  margin:26px 0 34px;
+}
+.artigo-card{
+  display:flex;
+  gap:18px;
+  align-items:flex-start;
+  background:linear-gradient(180deg,#fffaf0,#fff0d7);
+  border:1px solid rgba(242,106,22,.36);
+  border-radius:18px;
+  padding:22px;
+  box-shadow:var(--shadow);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.artigo-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 36px rgba(74,23,0,.22);
+}
+.artigo-card-icon{
+  min-width:54px;
+  height:54px;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(180deg,#ff7b20,#e95b10);
+  color:white;
+  font-size:28px;
+  box-shadow:0 8px 18px rgba(236,93,15,.28);
+}
+.artigo-card-content h2{
+  margin:8px 0 8px;
+  font-size:1.35rem;
+  line-height:1.2;
+  color:#2a1006;
+}
+.artigo-card-content p{
+  margin:0 0 12px;
+  color:#5c321e;
+}
+.artigo-tag{
+  display:inline-block;
+  background:#061016;
+  color:#fff3dd;
+  border-radius:999px;
+  padding:6px 12px;
+  font-size:.78rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+.artigo-meta{
+  font-size:.9rem;
+  color:#7a4222;
+  font-weight:700;
+  margin-bottom:14px;
+}
+.artigo-completo{
+  scroll-margin-top:28px;
+}
+.artigo-header{
+  background:linear-gradient(90deg,rgba(242,106,22,.10),rgba(255,243,221,.72));
+  border-radius:14px;
+}
+.artigo-autor{
+  font-size:1.05rem;
+  margin-top:0;
+}
+.artigo-resumo{
+  font-weight:600;
+  color:#542610;
+}
+.artigo-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:12px;
+}
+.artigo-tags span{
+  background:#fff3dd;
+  border:1px solid rgba(242,106,22,.35);
+  border-radius:999px;
+  padding:7px 12px;
+  font-size:.85rem;
+  font-weight:800;
+  color:#5a260f;
+}
+.artigo-texto p{
+  font-size:1.05rem;
+  line-height:1.85;
+  margin:0 0 18px;
+  text-align:justify;
+}
+@media(max-width:700px){
+  .artigo-card{flex-direction:column;}
+  .artigo-texto p{text-align:left;font-size:1rem;}
+}
