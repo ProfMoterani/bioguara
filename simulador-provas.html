@@ -144,12 +144,16 @@ gtag('config', 'G-2TPTF494FG');
             <label>Alternativa D</label>
             <input id="newD" type="text" placeholder="Alternativa D">
 
+            <label>Alternativa E</label>
+            <input id="newE" type="text" placeholder="Alternativa E">
+
             <label>Resposta correta</label>
             <select id="newCorrect">
               <option value="0">A</option>
               <option value="1">B</option>
               <option value="2">C</option>
               <option value="3">D</option>
+              <option value="4">E</option>
             </select>
 
             <button id="saveQuestionBtn" class="timer-btn primary" type="button">➕ Adicionar questão</button>
@@ -425,11 +429,11 @@ gtag('config', 'G-2TPTF494FG');
   function saveNewQuestion() {
     const key = makeKey($('newTurma').value, $('newDisciplina').value, $('newBimestre').value);
     const q = $('newQuestion').value.trim();
-    const alternatives = [$('newA').value.trim(), $('newB').value.trim(), $('newC').value.trim(), $('newD').value.trim()];
+    const alternatives = [$('newA').value.trim(), $('newB').value.trim(), $('newC').value.trim(), $('newD').value.trim(), $('newE').value.trim()];
     const correct = parseInt($('newCorrect').value, 10);
 
     if (!q || alternatives.some(function(item) { return !item; })) {
-      alert('Preencha a pergunta e as quatro alternativas.');
+      alert('Preencha a pergunta e as cinco alternativas.');
       return;
     }
 
@@ -443,6 +447,7 @@ gtag('config', 'G-2TPTF494FG');
     $('newB').value = '';
     $('newC').value = '';
     $('newD').value = '';
+    $('newE').value = '';
     $('newCorrect').value = '0';
 
     renderExtraQuestions();
