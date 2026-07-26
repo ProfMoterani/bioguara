@@ -5,7 +5,104 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>7º Ano - Ciências | 3º Bimestre - Bioguará</title>
-<link href="style.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/><style>
+/* Organização visual dos blocos "Atenção para a Prova Paulista" */
+.prova-paulista-box .prova-intro{
+  position:relative;
+  z-index:1;
+  margin:0 0 16px;
+  padding:12px 14px;
+  border-left:4px solid #f26a16;
+  border-radius:10px;
+  background:rgba(255,255,255,.62);
+  line-height:1.65;
+}
+.prova-paulista-box .prova-organizada{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:14px;
+}
+.prova-paulista-box .prova-grupo{
+  min-width:0;
+  padding:15px 17px;
+  border:1px solid rgba(128,72,18,.18);
+  border-radius:14px;
+  background:rgba(255,255,255,.78);
+  box-shadow:0 4px 12px rgba(74,23,0,.05);
+}
+.prova-paulista-box .prova-grupo h4{
+  margin:0 0 11px;
+  padding-bottom:8px;
+  border-bottom:1px solid rgba(128,72,18,.14);
+  font-size:1rem;
+  line-height:1.35;
+}
+.prova-paulista-box .prova-grupo ul{
+  margin:0;
+  padding-left:21px;
+}
+.prova-paulista-box .prova-grupo li{
+  margin:0 0 7px;
+  line-height:1.48;
+  break-inside:avoid;
+}
+.prova-paulista-box .prova-grupo li:last-child{
+  margin-bottom:0;
+}
+.prova-paulista-box .prova-conteudos{
+  grid-column:1 / -1;
+  border-color:rgba(242,106,22,.28);
+  background:rgba(255,255,255,.82);
+}
+.prova-paulista-box .prova-conteudos h4{
+  color:#7a3308;
+}
+.prova-paulista-box .prova-conteudos ul{
+  columns:2;
+  column-gap:34px;
+}
+.prova-paulista-box .prova-erros{
+  border-color:rgba(201,67,48,.28);
+  background:rgba(255,244,241,.90);
+}
+.prova-paulista-box .prova-erros h4{
+  color:#9b3023;
+}
+.prova-paulista-box .prova-erros li::marker{
+  color:#c94330;
+}
+.prova-paulista-box .prova-habilidades{
+  border-color:rgba(66,133,70,.28);
+  background:rgba(243,251,242,.92);
+}
+.prova-paulista-box .prova-habilidades h4{
+  color:#2f6f35;
+}
+.prova-paulista-box .prova-habilidades li::marker{
+  color:#438447;
+}
+@media (max-width:900px){
+  .prova-paulista-box .prova-organizada{
+    grid-template-columns:1fr;
+  }
+  .prova-paulista-box .prova-conteudos{
+    grid-column:auto;
+  }
+  .prova-paulista-box .prova-conteudos ul{
+    columns:1;
+  }
+}
+@media (max-width:600px){
+  .prova-paulista-box .prova-intro{
+    padding:11px 12px;
+  }
+  .prova-paulista-box .prova-grupo{
+    padding:13px 14px;
+  }
+}
+</style>
 <!-- Google Analytics -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2TPTF494FG"></script>
 <script>
@@ -32,9 +129,9 @@ gtag('config', 'G-2TPTF494FG');
 <!-- INÍCIO DA AULA 01 -->
 <!-- ========================================================= -->
 <section class="lesson-card" id="aula-01">
-  <div class="lesson-head"><span class="lesson-badge">Aula 01</span><h2>Aula 01 - Ecossistemas Aquáticos</h2></div>
-  <div class="tabs lesson-tabs"><a class="tab active" href="#aula-01-resumo">Resumo da Aula</a><a class="tab" href="#aula-01-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-01-questoes">Questões</a></div>
-  <div class="lesson-section" id="aula-01-resumo"><h3>Resumo</h3>
+<div class="lesson-head"><span class="lesson-badge">Aula 01</span><h2>Aula 01 - Ecossistemas Aquáticos</h2></div>
+<div class="tabs lesson-tabs"><a class="tab active" href="#aula-01-resumo">Resumo da Aula</a><a class="tab" href="#aula-01-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-01-questoes">Questões</a></div>
+<div class="lesson-section" id="aula-01-resumo"><h3>Resumo</h3>
 <p>Os ecossistemas aquáticos são formados pelos seres vivos e pelas condições do ambiente.</p>
 <p>Os seres vivos são os fatores bióticos, enquanto a luz, a temperatura, a profundidade, a salinidade, a água e o tipo de fundo são fatores abióticos.</p>
 <p>Esses ecossistemas podem ser de água doce, como rios, lagos e córregos, ou marinhos, como mares e oceanos.</p>
@@ -60,9 +157,8 @@ gtag('config', 'G-2TPTF494FG');
 <li><strong>Manguezal:</strong> ambiente de transição entre a terra e o mar, com água salobra e grande biodiversidade.</li>
 <li><strong>Água salobra:</strong> água formada pela mistura de água doce com água salgada.</li>
 </ul></div>
-  <div class="lesson-section prova-paulista-box" id="aula-01-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
-<p>Nesta aula, as questões podem apresentar imagens, tabelas ou situações envolvendo rios, lagos, mares e manguezais. O estudante deverá relacionar as condições do ambiente aos seres vivos que conseguem sobreviver nele.</p>
-<h4>Conceitos mais cobrados</h4><ul class="lesson-list prova-list">
+<div class="lesson-section prova-paulista-box" id="aula-01-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
+<p class="prova-intro">Nesta aula, as questões podem apresentar imagens, tabelas ou situações envolvendo rios, lagos, mares e manguezais. O estudante deverá relacionar as condições do ambiente aos seres vivos que conseguem sobreviver nele.</p><div class="prova-organizada"><section class="prova-grupo prova-conteudos"><h4>📌 Conteúdos essenciais</h4><ul class="lesson-list prova-list">
 <li>Ecossistema.</li>
 <li>Fatores bióticos e abióticos.</li>
 <li>Água doce e água salgada.</li>
@@ -70,24 +166,25 @@ gtag('config', 'G-2TPTF494FG');
 <li>Plâncton, nécton e bentos.</li>
 <li>Manguezais.</li>
 <li>Biodiversidade e serviços ecossistêmicos.</li>
-</ul>
-<h4>Erros comuns</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-erros"><h4>⚠️ Evite estes erros</h4><ul class="lesson-list prova-list">
 <li>Considerar que apenas os animais fazem parte dos fatores bióticos.</li>
 <li>Confundir fatores abióticos com elementos sem importância para a vida.</li>
 <li>Pensar que todo organismo aquático consegue viver tanto no mar quanto em rios.</li>
 <li>Confundir plâncton com um único tipo de ser vivo.</li>
 <li>Acreditar que manguezais são ambientes sem importância por apresentarem água barrenta.</li>
-</ul>
-<h4>O que saber fazer</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-habilidades"><h4>✅ Saiba fazer</h4><ul class="lesson-list prova-list">
 <li>Diferenciar fatores bióticos e abióticos.</li>
 <li>Comparar ecossistemas marinhos e de água doce.</li>
 <li>Relacionar as condições da água às adaptações dos organismos.</li>
 <li>Classificar organismos como plâncton, nécton ou bentos.</li>
 <li>Explicar a importância dos manguezais e da pesquisa científica.</li>
 <li>Reconhecer benefícios fornecidos pelos ecossistemas aquáticos.</li>
-</ul>
+</ul></section></div>
+
+
+
 </div>
-  <div class="lesson-section questions-block" id="aula-01-questoes"><h3>Questões da Aula 01</h3><ol class="questions">
+<div class="lesson-section questions-block" id="aula-01-questoes"><h3>Questões da Aula 01</h3><ol class="questions">
 <li>Um estudante comparou um rio do interior com uma praia do litoral e observou que as espécies encontradas nos dois locais eram diferentes. Explique como a salinidade, a luminosidade e a temperatura podem influenciar os seres vivos desses ambientes.</li>
 <li>Em um lago, foram encontrados pequenos organismos flutuando, peixes nadando e caramujos vivendo no fundo. Classifique esses organismos como plâncton, nécton ou bentos e explique o critério utilizado.</li>
 <li>Uma área de manguezal foi aterrada para a construção de prédios. Explique quais consequências essa mudança pode provocar para os animais marinhos e para a biodiversidade local.</li>
@@ -98,18 +195,17 @@ gtag('config', 'G-2TPTF494FG');
  VÍDEO DA AULA 01
  TROQUE SOMENTE O LINK ABAIXO
 ========================================================= -->
-<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/BqKUSNvjr9k" title="Vídeo da Aula 01"></iframe></div>
+<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/tYJC-KWJiWw" title="Vídeo da Aula 01"></iframe></div>
 <!-- FIM DO VÍDEO DA AULA 01 -->
 </div></section>
 <!-- FIM DA AULA 01 -->
-
 <!-- ========================================================= -->
 <!-- INÍCIO DA AULA 02 -->
 <!-- ========================================================= -->
 <section class="lesson-card" id="aula-02">
-  <div class="lesson-head"><span class="lesson-badge">Aula 02</span><h2>Aula 02 - Mata Atlântica</h2></div>
-  <div class="tabs lesson-tabs"><a class="tab active" href="#aula-02-resumo">Resumo da Aula</a><a class="tab" href="#aula-02-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-02-questoes">Questões</a></div>
-  <div class="lesson-section" id="aula-02-resumo"><h3>Resumo</h3>
+<div class="lesson-head"><span class="lesson-badge">Aula 02</span><h2>Aula 02 - Mata Atlântica</h2></div>
+<div class="tabs lesson-tabs"><a class="tab active" href="#aula-02-resumo">Resumo da Aula</a><a class="tab" href="#aula-02-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-02-questoes">Questões</a></div>
+<div class="lesson-section" id="aula-02-resumo"><h3>Resumo</h3>
 <p>A Mata Atlântica é um bioma, ou seja, uma grande região formada por diferentes ecossistemas que apresentam condições ambientais relacionadas.</p>
 <p>Ela possui grande biodiversidade e inclui florestas úmidas, mata de araucária, restingas, manguezais e campos de altitude.</p>
 <p>Nesse bioma vivem muitas espécies de plantas e animais.</p>
@@ -134,9 +230,8 @@ gtag('config', 'G-2TPTF494FG');
 <li><strong>Restauração ecológica:</strong> conjunto de ações usadas para recuperar um ambiente degradado.</li>
 <li><strong>Resiliência:</strong> capacidade de um ecossistema de resistir a impactos ou recuperar-se depois de uma alteração.</li>
 </ul></div>
-  <div class="lesson-section prova-paulista-box" id="aula-02-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
-<p>As questões podem apresentar mapas, fotografias, gráficos, estudos de caso ou notícias sobre desmatamento e preservação. O estudante deverá identificar causas, consequências e possíveis soluções.</p>
-<h4>Conceitos mais importantes</h4><ul class="lesson-list prova-list">
+<div class="lesson-section prova-paulista-box" id="aula-02-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
+<p class="prova-intro">As questões podem apresentar mapas, fotografias, gráficos, estudos de caso ou notícias sobre desmatamento e preservação. O estudante deverá identificar causas, consequências e possíveis soluções.</p><div class="prova-organizada"><section class="prova-grupo prova-conteudos"><h4>📌 Conteúdos essenciais</h4><ul class="lesson-list prova-list">
 <li>Devastação da Mata Atlântica.</li>
 <li>Desmatamento e expansão urbana.</li>
 <li>Fragmentação do habitat.</li>
@@ -147,8 +242,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Corredores ecológicos.</li>
 <li>Restauração ambiental.</li>
 <li>Serviços ecossistêmicos.</li>
-</ul>
-<h4>Erros comuns</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-erros"><h4>⚠️ Evite estes erros</h4><ul class="lesson-list prova-list">
 <li>Pensar que fragmentação significa apenas diminuir o tamanho da floresta.</li>
 <li>Acreditar que toda espécie exótica é invasora.</li>
 <li>Pensar que a extinção de uma espécie afeta apenas aquela espécie.</li>
@@ -156,8 +250,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Acreditar que plantar qualquer árvore é suficiente para restaurar uma floresta.</li>
 <li>Considerar o corredor ecológico como uma estrada para animais.</li>
 <li>Pensar que a preservação beneficia apenas plantas e animais.</li>
-</ul>
-<h4>O que saber fazer</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-habilidades"><h4>✅ Saiba fazer</h4><ul class="lesson-list prova-list">
 <li>Relacionar ações humanas à perda de biodiversidade.</li>
 <li>Explicar como a fragmentação isola populações.</li>
 <li>Diferenciar espécie nativa, exótica e invasora.</li>
@@ -165,9 +258,12 @@ gtag('config', 'G-2TPTF494FG');
 <li>Interpretar sinais de degradação ambiental.</li>
 <li>Propor medidas realistas de preservação.</li>
 <li>Relacionar conservação ambiental e qualidade de vida.</li>
-</ul>
+</ul></section></div>
+
+
+
 </div>
-  <div class="lesson-section questions-block" id="aula-02-questoes"><h3>Questões da Aula 02</h3><ol class="questions">
+<div class="lesson-section questions-block" id="aula-02-questoes"><h3>Questões da Aula 02</h3><ol class="questions">
 <li>Uma estrada foi construída no meio de uma área de Mata Atlântica, separando a floresta em dois fragmentos. Explique como essa fragmentação pode afetar os animais, as plantas e a biodiversidade do local.</li>
 <li>Em uma área degradada, uma planta trazida de outro país começou a crescer rapidamente e a ocupar o espaço das plantas nativas. Explique por que ela pode ser considerada uma espécie exótica invasora e quais problemas pode causar.</li>
 <li>A anta alimenta-se de frutos e espalha sementes por diferentes partes da floresta. Explique por que ela pode ser considerada uma espécie-chave e o que pode acontecer se desaparecer daquela área.</li>
@@ -178,18 +274,17 @@ gtag('config', 'G-2TPTF494FG');
  VÍDEO DA AULA 02
  TROQUE SOMENTE O LINK ABAIXO
 ========================================================= -->
-<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/VIDEO_ID_AULA_02" title="Vídeo da Aula 02"></iframe></div>
+<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/WOVNu2rHb2g" title="Vídeo da Aula 02"></iframe></div>
 <!-- FIM DO VÍDEO DA AULA 02 -->
 </div></section>
 <!-- FIM DA AULA 02 -->
-
 <!-- ========================================================= -->
 <!-- INÍCIO DA AULA 03 -->
 <!-- ========================================================= -->
 <section class="lesson-card" id="aula-03">
-  <div class="lesson-head"><span class="lesson-badge">Aula 03</span><h2>Aula 03 - Os desafios da preservação da Mata Atlântica</h2></div>
-  <div class="tabs lesson-tabs"><a class="tab active" href="#aula-03-resumo">Resumo da Aula</a><a class="tab" href="#aula-03-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-03-questoes">Questões</a></div>
-  <div class="lesson-section" id="aula-03-resumo"><h3>Resumo</h3>
+<div class="lesson-head"><span class="lesson-badge">Aula 03</span><h2>Aula 03 - Os desafios da preservação da Mata Atlântica</h2></div>
+<div class="tabs lesson-tabs"><a class="tab active" href="#aula-03-resumo">Resumo da Aula</a><a class="tab" href="#aula-03-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-03-questoes">Questões</a></div>
+<div class="lesson-section" id="aula-03-resumo"><h3>Resumo</h3>
 <p>A Mata Atlântica sofre com o desmatamento, as queimadas, a expansão das cidades, a agricultura, a pecuária, a construção de estradas, a exploração de madeira e a poluição.</p>
 <p>Essas ações destroem os habitats e reduzem a biodiversidade.</p>
 <p>Quando a floresta é destruída ou dividida em pequenos fragmentos, os animais encontram dificuldade para circular, buscar alimento e reproduzir-se.</p>
@@ -215,9 +310,8 @@ gtag('config', 'G-2TPTF494FG');
 <li><strong>Restauração ecológica:</strong> conjunto de ações usadas para recuperar um ambiente degradado.</li>
 <li><strong>Resiliência:</strong> capacidade de um ecossistema de resistir a impactos ou recuperar-se depois deles.</li>
 </ul></div>
-  <div class="lesson-section prova-paulista-box" id="aula-03-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
-<p>As questões podem apresentar mapas, imagens, notícias ou estudos de caso sobre a destruição e a preservação da Mata Atlântica.</p>
-<h4>Conceitos mais importantes</h4><ul class="lesson-list prova-list">
+<div class="lesson-section prova-paulista-box" id="aula-03-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
+<p class="prova-intro">As questões podem apresentar mapas, imagens, notícias ou estudos de caso sobre a destruição e a preservação da Mata Atlântica.</p><div class="prova-organizada"><section class="prova-grupo prova-conteudos"><h4>📌 Conteúdos essenciais</h4><ul class="lesson-list prova-list">
 <li>Desmatamento e expansão urbana.</li>
 <li>Fragmentação dos habitats.</li>
 <li>Espécies nativas, exóticas e invasoras.</li>
@@ -226,16 +320,14 @@ gtag('config', 'G-2TPTF494FG');
 <li>Corredores ecológicos.</li>
 <li>Restauração ambiental.</li>
 <li>Serviços ecossistêmicos.</li>
-</ul>
-<h4>Erros comuns</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-erros"><h4>⚠️ Evite estes erros</h4><ul class="lesson-list prova-list">
 <li>Pensar que fragmentação significa apenas diminuir a floresta.</li>
 <li>Acreditar que toda espécie exótica é invasora.</li>
 <li>Pensar que a extinção afeta somente a espécie que desapareceu.</li>
 <li>Confundir espécie-chave com espécie ameaçada.</li>
 <li>Achar que plantar qualquer árvore é suficiente para recuperar uma floresta.</li>
 <li>Pensar que corredor ecológico é apenas uma passagem artificial para animais.</li>
-</ul>
-<h4>O que saber fazer</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-habilidades"><h4>✅ Saiba fazer</h4><ul class="lesson-list prova-list">
 <li>Relacionar ações humanas à perda de biodiversidade.</li>
 <li>Explicar como a fragmentação isola populações.</li>
 <li>Diferenciar espécie nativa, exótica e invasora.</li>
@@ -243,9 +335,12 @@ gtag('config', 'G-2TPTF494FG');
 <li>Identificar sinais de degradação ambiental.</li>
 <li>Propor ações de preservação e recuperação.</li>
 <li>Relacionar conservação ambiental e qualidade de vida.</li>
-</ul>
+</ul></section></div>
+
+
+
 </div>
-  <div class="lesson-section questions-block" id="aula-03-questoes"><h3>Questões da Aula 03</h3><ol class="questions">
+<div class="lesson-section questions-block" id="aula-03-questoes"><h3>Questões da Aula 03</h3><ol class="questions">
 <li>Uma estrada foi construída no meio de uma área de Mata Atlântica e separou a floresta em dois fragmentos. Explique como essa fragmentação pode prejudicar os animais e as plantas.</li>
 <li>Uma planta trazida de outra região começou a ocupar rapidamente o espaço das plantas nativas. Explique por que ela pode ser considerada uma espécie exótica invasora e quais problemas pode causar.</li>
 <li>A anta alimenta-se de frutos e espalha sementes pela floresta. Explique por que ela pode ser considerada uma espécie-chave e o que pode acontecer se desaparecer.</li>
@@ -256,18 +351,17 @@ gtag('config', 'G-2TPTF494FG');
  VÍDEO DA AULA 03
  TROQUE SOMENTE O LINK ABAIXO
 ========================================================= -->
-<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/VIDEO_ID_AULA_03" title="Vídeo da Aula 03"></iframe></div>
+<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/ImmgPU1hZnE" title="Vídeo da Aula 03"></iframe></div>
 <!-- FIM DO VÍDEO DA AULA 03 -->
 </div></section>
 <!-- FIM DA AULA 03 -->
-
 <!-- ========================================================= -->
 <!-- INÍCIO DA AULA 04 -->
 <!-- ========================================================= -->
 <section class="lesson-card" id="aula-04">
-  <div class="lesson-head"><span class="lesson-badge">Aula 04</span><h2>Aula 04 - Cerrado</h2></div>
-  <div class="tabs lesson-tabs"><a class="tab active" href="#aula-04-resumo">Resumo da Aula</a><a class="tab" href="#aula-04-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-04-questoes">Questões</a></div>
-  <div class="lesson-section" id="aula-04-resumo"><h3>Resumo</h3>
+<div class="lesson-head"><span class="lesson-badge">Aula 04</span><h2>Aula 04 - Cerrado</h2></div>
+<div class="tabs lesson-tabs"><a class="tab active" href="#aula-04-resumo">Resumo da Aula</a><a class="tab" href="#aula-04-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-04-questoes">Questões</a></div>
+<div class="lesson-section" id="aula-04-resumo"><h3>Resumo</h3>
 <p>O Cerrado é o segundo maior bioma do Brasil e ocupa uma grande área do território nacional.</p>
 <p>Ele possui elevada biodiversidade e é considerado um hotspot, pois reúne muitas espécies, mas sofre fortes ameaças ambientais.</p>
 <p>O clima do Cerrado apresenta invernos secos e verões chuvosos.</p>
@@ -297,9 +391,8 @@ gtag('config', 'G-2TPTF494FG');
 <li><strong>Fogo natural:</strong> incêndio iniciado por causas naturais, como raios, que faz parte da dinâmica de alguns ambientes.</li>
 <li><strong>Queimada antrópica:</strong> fogo provocado direta ou indiretamente pelas atividades humanas.</li>
 </ul></div>
-  <div class="lesson-section prova-paulista-box" id="aula-04-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
-<p>As questões podem apresentar mapas, gráficos, imagens de paisagens, raízes ou queimadas e pedir que o estudante relacione as características do ambiente às adaptações dos seres vivos.</p>
-<h4>Conceitos mais importantes</h4><ul class="lesson-list prova-list">
+<div class="lesson-section prova-paulista-box" id="aula-04-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
+<p class="prova-intro">As questões podem apresentar mapas, gráficos, imagens de paisagens, raízes ou queimadas e pedir que o estudante relacione as características do ambiente às adaptações dos seres vivos.</p><div class="prova-organizada"><section class="prova-grupo prova-conteudos"><h4>📌 Conteúdos essenciais</h4><ul class="lesson-list prova-list">
 <li>Localização e extensão do Cerrado.</li>
 <li>Biodiversidade e hotspot.</li>
 <li>Invernos secos e verões chuvosos.</li>
@@ -309,8 +402,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Formações florestais, savânicas e campestres.</li>
 <li>Fogo natural e queimadas provocadas.</li>
 <li>Ameaças à vegetação nativa.</li>
-</ul>
-<h4>Erros comuns</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-erros"><h4>⚠️ Evite estes erros</h4><ul class="lesson-list prova-list">
 <li>Pensar que o Cerrado possui pouca biodiversidade.</li>
 <li>Acreditar que todo o Cerrado tem a mesma aparência.</li>
 <li>Pensar que os troncos tortuosos indicam plantas doentes.</li>
@@ -319,8 +411,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Confundir fogo natural ocasional com queimadas humanas frequentes.</li>
 <li>Pensar que uma área de plantação é equivalente à vegetação nativa.</li>
 <li>Acreditar que o Cerrado é um ambiente sem água.</li>
-</ul>
-<h4>O que saber fazer</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-habilidades"><h4>✅ Saiba fazer</h4><ul class="lesson-list prova-list">
 <li>Relacionar clima, solo e vegetação.</li>
 <li>Explicar as adaptações das plantas.</li>
 <li>Diferenciar as formações vegetais.</li>
@@ -329,9 +420,12 @@ gtag('config', 'G-2TPTF494FG');
 <li>Diferenciar fogo natural e queimadas humanas.</li>
 <li>Relacionar perda de vegetação e redução da água.</li>
 <li>Interpretar mapas e gráficos sobre desmatamento.</li>
-</ul>
+</ul></section></div>
+
+
+
 </div>
-  <div class="lesson-section questions-block" id="aula-04-questoes"><h3>Questões da Aula 04</h3><ol class="questions">
+<div class="lesson-section questions-block" id="aula-04-questoes"><h3>Questões da Aula 04</h3><ol class="questions">
 <li>O Cerrado apresenta um longo período de seca e solos com poucos nutrientes. Explique como os troncos grossos, as folhas pequenas e as raízes profundas ajudam as plantas a sobreviver nesse ambiente.</li>
 <li>O Cerrado é conhecido como “berço das águas”. Explique o significado dessa expressão e por que a destruição da vegetação pode prejudicar rios e nascentes.</li>
 <li>Um estudante afirmou que todo o Cerrado possui apenas árvores baixas e espaçadas. Explique por que essa afirmação está incorreta, considerando as diferentes formações vegetais do bioma.</li>
@@ -342,18 +436,17 @@ gtag('config', 'G-2TPTF494FG');
  VÍDEO DA AULA 04
  TROQUE SOMENTE O LINK ABAIXO
 ========================================================= -->
-<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/Q14uLreDzwI" title="Vídeo da Aula 04"></iframe></div>
+<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/VhFxNJjfk2s" title="Vídeo da Aula 04"></iframe></div>
 <!-- FIM DO VÍDEO DA AULA 04 -->
 </div></section>
 <!-- FIM DA AULA 04 -->
-
 <!-- ========================================================= -->
 <!-- INÍCIO DA AULA 05 -->
 <!-- ========================================================= -->
 <section class="lesson-card" id="aula-05">
-  <div class="lesson-head"><span class="lesson-badge">Aula 05</span><h2>Aula 05 - Os desafios da preservação do Cerrado</h2></div>
-  <div class="tabs lesson-tabs"><a class="tab active" href="#aula-05-resumo">Resumo da Aula</a><a class="tab" href="#aula-05-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-05-questoes">Questões</a></div>
-  <div class="lesson-section" id="aula-05-resumo"><h3>Resumo</h3>
+<div class="lesson-head"><span class="lesson-badge">Aula 05</span><h2>Aula 05 - Os desafios da preservação do Cerrado</h2></div>
+<div class="tabs lesson-tabs"><a class="tab active" href="#aula-05-resumo">Resumo da Aula</a><a class="tab" href="#aula-05-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-05-questoes">Questões</a></div>
+<div class="lesson-section" id="aula-05-resumo"><h3>Resumo</h3>
 <p>O Cerrado possui grande biodiversidade, com milhares de espécies de plantas e animais.</p>
 <p>Muitas delas são endêmicas, ou seja, só existem naturalmente em determinada região.</p>
 <p>Por reunir elevada biodiversidade e estar muito ameaçado, o Cerrado é considerado um hotspot.</p>
@@ -382,9 +475,8 @@ gtag('config', 'G-2TPTF494FG');
 <li><strong>Área protegida:</strong> espaço destinado à conservação da natureza e das espécies.</li>
 <li><strong>Política pública:</strong> conjunto de decisões e ações realizadas pelo poder público para enfrentar um problema da sociedade.</li>
 </ul></div>
-  <div class="lesson-section prova-paulista-box" id="aula-05-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
-<p>As questões podem apresentar mapas, gráficos, textos, imagens ou estudos de caso sobre desmatamento, queimadas, agricultura, perda de espécies e proteção do Cerrado.</p>
-<h4>Conceitos mais importantes</h4><ul class="lesson-list prova-list">
+<div class="lesson-section prova-paulista-box" id="aula-05-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
+<p class="prova-intro">As questões podem apresentar mapas, gráficos, textos, imagens ou estudos de caso sobre desmatamento, queimadas, agricultura, perda de espécies e proteção do Cerrado.</p><div class="prova-organizada"><section class="prova-grupo prova-conteudos"><h4>📌 Conteúdos essenciais</h4><ul class="lesson-list prova-list">
 <li>Biodiversidade e endemismo.</li>
 <li>Hotspot de biodiversidade.</li>
 <li>Vegetação nativa.</li>
@@ -397,8 +489,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Restauração ecológica.</li>
 <li>Áreas protegidas.</li>
 <li>Práticas sustentáveis.</li>
-</ul>
-<h4>Erros comuns</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-erros"><h4>⚠️ Evite estes erros</h4><ul class="lesson-list prova-list">
 <li>Pensar que o Cerrado possui pouca biodiversidade.</li>
 <li>Acreditar que uma plantação substitui a vegetação nativa.</li>
 <li>Pensar que o desmatamento prejudica apenas as plantas.</li>
@@ -407,8 +498,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Pensar que a perda de vegetação não interfere nos rios.</li>
 <li>Acreditar que preservar significa impedir qualquer uso do bioma.</li>
 <li>Considerar suficiente plantar qualquer espécie para restaurar uma área.</li>
-</ul>
-<h4>O que saber fazer</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-habilidades"><h4>✅ Saiba fazer</h4><ul class="lesson-list prova-list">
 <li>Relacionar ações humanas e perda de habitat.</li>
 <li>Explicar como o desmatamento afeta a biodiversidade.</li>
 <li>Relacionar vegetação, solo, infiltração e disponibilidade de água.</li>
@@ -417,9 +507,12 @@ gtag('config', 'G-2TPTF494FG');
 <li>Relacionar ameaças e consequências.</li>
 <li>Propor ações de preservação.</li>
 <li>Reconhecer a importância da pesquisa e das áreas protegidas.</li>
-</ul>
+</ul></section></div>
+
+
+
 </div>
-  <div class="lesson-section questions-block" id="aula-05-questoes"><h3>Questões da Aula 05</h3><ol class="questions">
+<div class="lesson-section questions-block" id="aula-05-questoes"><h3>Questões da Aula 05</h3><ol class="questions">
 <li>Uma área de Cerrado foi desmatada para a implantação de plantações e pastagens. Explique como essa transformação pode afetar os animais, as plantas e a biodiversidade.</li>
 <li>O Cerrado é conhecido como “berço das águas”. Explique por que a retirada da vegetação pode diminuir a quantidade e a qualidade da água dos rios e das nascentes.</li>
 <li>O fogo natural pode fazer parte da dinâmica do Cerrado, mas incêndios provocados pelas pessoas podem ser prejudiciais. Explique essa diferença.</li>
@@ -430,18 +523,17 @@ gtag('config', 'G-2TPTF494FG');
  VÍDEO DA AULA 05
  TROQUE SOMENTE O LINK ABAIXO
 ========================================================= -->
-<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/VIDEO_ID_AULA_05" title="Vídeo da Aula 05"></iframe></div>
+<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/orGhCBbK4Iw" title="Vídeo da Aula 05"></iframe></div>
 <!-- FIM DO VÍDEO DA AULA 05 -->
 </div></section>
 <!-- FIM DA AULA 05 -->
-
 <!-- ========================================================= -->
 <!-- INÍCIO DA AULA 06 -->
 <!-- ========================================================= -->
 <section class="lesson-card" id="aula-06">
-  <div class="lesson-head"><span class="lesson-badge">Aula 06</span><h2>Aula 06 - Investigação da biodiversidade local</h2></div>
-  <div class="tabs lesson-tabs"><a class="tab active" href="#aula-06-resumo">Resumo da Aula</a><a class="tab" href="#aula-06-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-06-questoes">Questões</a></div>
-  <div class="lesson-section" id="aula-06-resumo"><h3>Resumo</h3>
+<div class="lesson-head"><span class="lesson-badge">Aula 06</span><h2>Aula 06 - Investigação da biodiversidade local</h2></div>
+<div class="tabs lesson-tabs"><a class="tab active" href="#aula-06-resumo">Resumo da Aula</a><a class="tab" href="#aula-06-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-06-questoes">Questões</a></div>
+<div class="lesson-section" id="aula-06-resumo"><h3>Resumo</h3>
 <p>A biodiversidade local é formada pelos diferentes seres vivos encontrados no lugar onde vivemos, como plantas, animais e fungos.</p>
 <p>Ela pode ser observada em praças, jardins, hortas, terrenos, rios, parques e até no caminho entre a casa e a escola.</p>
 <p>Conhecer essa biodiversidade ajuda a identificar espécies presentes na comunidade, compreender sua importância para o equilíbrio ambiental e perceber problemas que podem prejudicá-las, como lixo, esgoto, queimadas, poluição e falta de áreas verdes.</p>
@@ -464,9 +556,8 @@ gtag('config', 'G-2TPTF494FG');
 <li><strong>Legenda:</strong> conjunto de símbolos e explicações utilizados para facilitar a leitura de um mapa.</li>
 <li><strong>Levantamento:</strong> processo de observar e reunir informações sobre alguma coisa.</li>
 </ul></div>
-  <div class="lesson-section prova-paulista-box" id="aula-06-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
-<p>As questões podem apresentar mapas, desenhos, relatos de observação ou situações de um bairro e pedir que o estudante identifique elementos da biodiversidade, problemas ambientais e possíveis soluções.</p>
-<h4>Conceitos mais importantes</h4><ul class="lesson-list prova-list">
+<div class="lesson-section prova-paulista-box" id="aula-06-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
+<p class="prova-intro">As questões podem apresentar mapas, desenhos, relatos de observação ou situações de um bairro e pedir que o estudante identifique elementos da biodiversidade, problemas ambientais e possíveis soluções.</p><div class="prova-organizada"><section class="prova-grupo prova-conteudos"><h4>📌 Conteúdos essenciais</h4><ul class="lesson-list prova-list">
 <li>Biodiversidade local.</li>
 <li>Plantas, animais e fungos do cotidiano.</li>
 <li>Elementos naturais e ações humanas.</li>
@@ -477,8 +568,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Observação e registro.</li>
 <li>Conservação da biodiversidade.</li>
 <li>Participação da comunidade.</li>
-</ul>
-<h4>Erros comuns</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-erros"><h4>⚠️ Evite estes erros</h4><ul class="lesson-list prova-list">
 <li>Pensar que a biodiversidade existe apenas em florestas distantes.</li>
 <li>Considerar somente animais grandes como parte da biodiversidade.</li>
 <li>Esquecer que plantas, fungos e pequenos animais também devem ser observados.</li>
@@ -487,8 +577,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Propor soluções que não estão relacionadas ao problema observado.</li>
 <li>Registrar apenas problemas e ignorar os elementos positivos do bairro.</li>
 <li>Considerar qualquer animal ou planta identificado como espécie nativa sem confirmação.</li>
-</ul>
-<h4>O que saber fazer</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-habilidades"><h4>✅ Saiba fazer</h4><ul class="lesson-list prova-list">
 <li>Reconhecer exemplos de biodiversidade local.</li>
 <li>Identificar problemas que afetam os seres vivos.</li>
 <li>Organizar informações em mapas e listas.</li>
@@ -497,9 +586,12 @@ gtag('config', 'G-2TPTF494FG');
 <li>Comparar áreas mais e menos biodiversas.</li>
 <li>Propor soluções possíveis para a comunidade.</li>
 <li>Explicar por que conhecer a biodiversidade ajuda na preservação.</li>
-</ul>
+</ul></section></div>
+
+
+
 </div>
-  <div class="lesson-section questions-block" id="aula-06-questoes"><h3>Questões da Aula 06</h3><ol class="questions">
+<div class="lesson-section questions-block" id="aula-06-questoes"><h3>Questões da Aula 06</h3><ol class="questions">
 <li>Durante o caminho até a escola, um estudante observou árvores, pássaros, formigas, um terreno com plantas e um córrego. Explique por que esses elementos fazem parte da biodiversidade local.</li>
 <li>Em um mapa do bairro, foram registrados uma praça arborizada, uma horta, lixo acumulado e esgoto chegando a um córrego. Diferencie os elementos da biodiversidade dos problemas socioambientais presentes nessa situação.</li>
 <li>Explique a função de cada uma das três etapas da investigação: mapa mental, mapa socioambiental e mapa propositivo.</li>
@@ -510,18 +602,17 @@ gtag('config', 'G-2TPTF494FG');
  VÍDEO DA AULA 06
  TROQUE SOMENTE O LINK ABAIXO
 ========================================================= -->
-<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/VIDEO_ID_AULA_06" title="Vídeo da Aula 06"></iframe></div>
+<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/5mQS2NV0_wA" title="Vídeo da Aula 06"></iframe></div>
 <!-- FIM DO VÍDEO DA AULA 06 -->
 </div></section>
 <!-- FIM DA AULA 06 -->
-
 <!-- ========================================================= -->
 <!-- INÍCIO DA AULA 07 -->
 <!-- ========================================================= -->
 <section class="lesson-card" id="aula-07">
-  <div class="lesson-head"><span class="lesson-badge">Aula 07</span><h2>Aula 07 - Amazônia</h2></div>
-  <div class="tabs lesson-tabs"><a class="tab active" href="#aula-07-resumo">Resumo da Aula</a><a class="tab" href="#aula-07-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-07-questoes">Questões</a></div>
-  <div class="lesson-section" id="aula-07-resumo"><h3>Resumo</h3>
+<div class="lesson-head"><span class="lesson-badge">Aula 07</span><h2>Aula 07 - Amazônia</h2></div>
+<div class="tabs lesson-tabs"><a class="tab active" href="#aula-07-resumo">Resumo da Aula</a><a class="tab" href="#aula-07-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-07-questoes">Questões</a></div>
+<div class="lesson-section" id="aula-07-resumo"><h3>Resumo</h3>
 <p>A Amazônia é o maior bioma brasileiro e abriga a maior floresta tropical do planeta.</p>
 <p>Ela ocupa áreas de nove países da América do Sul, e grande parte de sua extensão está localizada no Brasil.</p>
 <p>Seu clima é equatorial, com temperaturas elevadas, muita umidade e chuvas frequentes.</p>
@@ -553,9 +644,8 @@ gtag('config', 'G-2TPTF494FG');
 <li><strong>Ciclagem de nutrientes:</strong> circulação e reutilização dos nutrientes entre o solo, os seres vivos e a matéria orgânica.</li>
 <li><strong>Regulação climática:</strong> influência dos ecossistemas sobre chuvas, temperatura, umidade e circulação atmosférica.</li>
 </ul></div>
-  <div class="lesson-section prova-paulista-box" id="aula-07-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
-<p>As questões podem apresentar mapas, gráficos, esquemas, imagens de paisagens ou textos sobre biodiversidade, tipos de vegetação, rios voadores e preservação da Amazônia.</p>
-<h4>Conceitos mais importantes</h4><ul class="lesson-list prova-list">
+<div class="lesson-section prova-paulista-box" id="aula-07-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
+<p class="prova-intro">As questões podem apresentar mapas, gráficos, esquemas, imagens de paisagens ou textos sobre biodiversidade, tipos de vegetação, rios voadores e preservação da Amazônia.</p><div class="prova-organizada"><section class="prova-grupo prova-conteudos"><h4>📌 Conteúdos essenciais</h4><ul class="lesson-list prova-list">
 <li>Localização e extensão da Amazônia.</li>
 <li>Clima equatorial.</li>
 <li>Solo e ciclagem de nutrientes.</li>
@@ -566,8 +656,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Rios voadores.</li>
 <li>Regulação do clima.</li>
 <li>Ameaças e preservação.</li>
-</ul>
-<h4>Erros comuns</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-erros"><h4>⚠️ Evite estes erros</h4><ul class="lesson-list prova-list">
 <li>Confundir Amazônia com Amazônia Legal.</li>
 <li>Pensar que toda a floresta alaga da mesma forma.</li>
 <li>Acreditar que toda a Amazônia possui solo naturalmente muito fértil.</li>
@@ -577,8 +666,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Dizer que a Amazônia é o “pulmão do mundo”.</li>
 <li>Pensar que o desmatamento produz efeitos apenas na região amazônica.</li>
 <li>Confundir grande biodiversidade com ausência de espécies ameaçadas.</li>
-</ul>
-<h4>O que saber fazer</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-habilidades"><h4>✅ Saiba fazer</h4><ul class="lesson-list prova-list">
 <li>Localizar a Amazônia em mapas.</li>
 <li>Relacionar clima, água e vegetação.</li>
 <li>Diferenciar terra firme, várzea e igapó.</li>
@@ -587,9 +675,12 @@ gtag('config', 'G-2TPTF494FG');
 <li>Relacionar biodiversidade e condições ambientais.</li>
 <li>Explicar a influência da Amazônia sobre outras regiões.</li>
 <li>Relacionar ameaças, consequências e ações de preservação.</li>
-</ul>
+</ul></section></div>
+
+
+
 </div>
-  <div class="lesson-section questions-block" id="aula-07-questoes"><h3>Questões da Aula 07</h3><ol class="questions">
+<div class="lesson-section questions-block" id="aula-07-questoes"><h3>Questões da Aula 07</h3><ol class="questions">
 <li>A Floresta Amazônica possui grande quantidade de seres vivos, mas grande parte de seu solo apresenta poucos nutrientes disponíveis. Explique como a decomposição e a ciclagem de nutrientes ajudam a manter a floresta.</li>
 <li>Compare a mata de terra firme, a mata de várzea e a mata de igapó, explicando como o nível de inundação diferencia esses ambientes.</li>
 <li>Explique como a floresta participa da formação dos rios voadores e por que esse fenômeno influencia as chuvas em regiões distantes da Amazônia.</li>
@@ -600,18 +691,17 @@ gtag('config', 'G-2TPTF494FG');
  VÍDEO DA AULA 07
  TROQUE SOMENTE O LINK ABAIXO
 ========================================================= -->
-<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/VIDEO_ID_AULA_07" title="Vídeo da Aula 07"></iframe></div>
+<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/lG2UFVjt9uA" title="Vídeo da Aula 07"></iframe></div>
 <!-- FIM DO VÍDEO DA AULA 07 -->
 </div></section>
 <!-- FIM DA AULA 07 -->
-
 <!-- ========================================================= -->
 <!-- INÍCIO DA AULA 08 -->
 <!-- ========================================================= -->
 <section class="lesson-card" id="aula-08">
-  <div class="lesson-head"><span class="lesson-badge">Aula 08</span><h2>Aula 08 - Desafios na conservação da Amazônia</h2></div>
-  <div class="tabs lesson-tabs"><a class="tab active" href="#aula-08-resumo">Resumo da Aula</a><a class="tab" href="#aula-08-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-08-questoes">Questões</a></div>
-  <div class="lesson-section" id="aula-08-resumo"><h3>Resumo</h3>
+<div class="lesson-head"><span class="lesson-badge">Aula 08</span><h2>Aula 08 - Desafios na conservação da Amazônia</h2></div>
+<div class="tabs lesson-tabs"><a class="tab active" href="#aula-08-resumo">Resumo da Aula</a><a class="tab" href="#aula-08-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-08-questoes">Questões</a></div>
+<div class="lesson-section" id="aula-08-resumo"><h3>Resumo</h3>
 <p>A Amazônia oferece serviços ecossistêmicos importantes, como a regulação do clima, a formação dos rios voadores, a conservação da biodiversidade, o fornecimento de alimentos e recursos naturais e a manutenção dos modos de vida de diferentes povos e comunidades.</p>
 <p>O desmatamento elimina a vegetação e destrói os habitats.</p>
 <p>Com isso, animais e plantas perdem alimento, abrigo e locais de reprodução, as populações ficam isoladas e o risco de extinção aumenta.</p>
@@ -638,9 +728,8 @@ gtag('config', 'G-2TPTF494FG');
 <li><strong>Uso sustentável:</strong> utilização dos recursos naturais sem comprometer sua disponibilidade e o funcionamento dos ecossistemas.</li>
 <li><strong>Fiscalização ambiental:</strong> acompanhamento e controle das atividades que podem causar danos à natureza.</li>
 </ul></div>
-  <div class="lesson-section prova-paulista-box" id="aula-08-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
-<p>As questões podem apresentar mapas, gráficos, imagens, textos jornalísticos ou estudos de caso sobre desmatamento, queimadas, tráfico de animais, mineração e conservação da Amazônia.</p>
-<h4>Conceitos mais importantes</h4><ul class="lesson-list prova-list">
+<div class="lesson-section prova-paulista-box" id="aula-08-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
+<p class="prova-intro">As questões podem apresentar mapas, gráficos, imagens, textos jornalísticos ou estudos de caso sobre desmatamento, queimadas, tráfico de animais, mineração e conservação da Amazônia.</p><div class="prova-organizada"><section class="prova-grupo prova-conteudos"><h4>📌 Conteúdos essenciais</h4><ul class="lesson-list prova-list">
 <li>Serviços ecossistêmicos.</li>
 <li>Desmatamento e fragmentação.</li>
 <li>Rios voadores e ciclo da água.</li>
@@ -653,8 +742,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Unidades de Conservação.</li>
 <li>Ponto de não retorno.</li>
 <li>Conservação e uso sustentável.</li>
-</ul>
-<h4>Erros comuns</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-erros"><h4>⚠️ Evite estes erros</h4><ul class="lesson-list prova-list">
 <li>Pensar que o desmatamento afeta somente as árvores.</li>
 <li>Acreditar que os impactos ficam restritos à região amazônica.</li>
 <li>Confundir conservação com proibição de qualquer atividade humana.</li>
@@ -665,8 +753,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Tratar o ponto de não retorno como um número exato e garantido.</li>
 <li>Acreditar que os povos indígenas prejudicam necessariamente a floresta.</li>
 <li>Pensar que apenas o governo possui responsabilidade pela conservação.</li>
-</ul>
-<h4>O que saber fazer</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-habilidades"><h4>✅ Saiba fazer</h4><ul class="lesson-list prova-list">
 <li>Relacionar causas e consequências do desmatamento.</li>
 <li>Explicar como a perda da floresta altera as chuvas.</li>
 <li>Relacionar tráfico de animais e desequilíbrio ecológico.</li>
@@ -676,9 +763,12 @@ gtag('config', 'G-2TPTF494FG');
 <li>Explicar a função das Terras Indígenas e das Unidades de Conservação.</li>
 <li>Propor ações de conservação.</li>
 <li>Relacionar conservação ambiental e qualidade de vida.</li>
-</ul>
+</ul></section></div>
+
+
+
 </div>
-  <div class="lesson-section questions-block" id="aula-08-questoes"><h3>Questões da Aula 08</h3><ol class="questions">
+<div class="lesson-section questions-block" id="aula-08-questoes"><h3>Questões da Aula 08</h3><ol class="questions">
 <li>Uma grande área da Amazônia foi desmatada para a abertura de pastagens. Explique como isso pode afetar a biodiversidade, o ciclo da água e o clima de outras regiões do Brasil.</li>
 <li>Predadores, polinizadores e dispersores de sementes são retirados da floresta pelo tráfico de animais. Explique por que a retirada dessas espécies pode causar desequilíbrios no ecossistema.</li>
 <li>Uma atividade de mineração contaminou um rio amazônico. Explique como essa contaminação pode afetar os organismos aquáticos e as comunidades que dependem do rio.</li>
@@ -689,18 +779,17 @@ gtag('config', 'G-2TPTF494FG');
  VÍDEO DA AULA 08
  TROQUE SOMENTE O LINK ABAIXO
 ========================================================= -->
-<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/VIDEO_ID_AULA_08" title="Vídeo da Aula 08"></iframe></div>
+<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/xc8Jjaa6GBc" title="Vídeo da Aula 08"></iframe></div>
 <!-- FIM DO VÍDEO DA AULA 08 -->
 </div></section>
 <!-- FIM DA AULA 08 -->
-
 <!-- ========================================================= -->
 <!-- INÍCIO DA AULA 09 -->
 <!-- ========================================================= -->
 <section class="lesson-card" id="aula-09">
-  <div class="lesson-head"><span class="lesson-badge">Aula 09</span><h2>Aula 09 - Pantanal</h2></div>
-  <div class="tabs lesson-tabs"><a class="tab active" href="#aula-09-resumo">Resumo da Aula</a><a class="tab" href="#aula-09-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-09-questoes">Questões</a></div>
-  <div class="lesson-section" id="aula-09-resumo"><h3>Resumo</h3>
+<div class="lesson-head"><span class="lesson-badge">Aula 09</span><h2>Aula 09 - Pantanal</h2></div>
+<div class="tabs lesson-tabs"><a class="tab active" href="#aula-09-resumo">Resumo da Aula</a><a class="tab" href="#aula-09-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-09-questoes">Questões</a></div>
+<div class="lesson-section" id="aula-09-resumo"><h3>Resumo</h3>
 <p>O Pantanal é uma grande planície de inundação, conhecida como “reino das águas”.</p>
 <p>No Brasil, está presente principalmente nos estados de Mato Grosso e Mato Grosso do Sul e também se estende pela Bolívia e pelo Paraguai.</p>
 <p>O clima apresenta uma estação chuvosa e outra seca.</p>
@@ -729,9 +818,8 @@ gtag('config', 'G-2TPTF494FG');
 <li><strong>Caça predatória:</strong> retirada ilegal ou excessiva de animais da natureza.</li>
 <li><strong>Reserva da Biosfera:</strong> território reconhecido por sua importância para a conservação da biodiversidade e para o desenvolvimento sustentável.</li>
 </ul></div>
-  <div class="lesson-section prova-paulista-box" id="aula-09-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
-<p>As questões podem apresentar mapas, fotografias, gráficos ou situações relacionadas às cheias, à biodiversidade e aos impactos ambientais no Pantanal.</p>
-<h4>Conceitos mais importantes</h4><ul class="lesson-list prova-list">
+<div class="lesson-section prova-paulista-box" id="aula-09-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
+<p class="prova-intro">As questões podem apresentar mapas, fotografias, gráficos ou situações relacionadas às cheias, à biodiversidade e aos impactos ambientais no Pantanal.</p><div class="prova-organizada"><section class="prova-grupo prova-conteudos"><h4>📌 Conteúdos essenciais</h4><ul class="lesson-list prova-list">
 <li>Localização do Pantanal.</li>
 <li>Planície de inundação.</li>
 <li>Estações chuvosa e seca.</li>
@@ -744,8 +832,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Desmatamento e queimadas.</li>
 <li>Caça e pesca predatórias.</li>
 <li>Conservação dos rios e habitats.</li>
-</ul>
-<h4>Erros comuns</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-erros"><h4>⚠️ Evite estes erros</h4><ul class="lesson-list prova-list">
 <li>Pensar que o Pantanal permanece totalmente alagado durante todo o ano.</li>
 <li>Acreditar que a seca sempre representa destruição do bioma.</li>
 <li>Considerar as cheias como desastres naturais em qualquer situação.</li>
@@ -756,8 +843,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Acreditar que todos os incêndios possuem causas exclusivamente naturais.</li>
 <li>Confundir pesca artesanal com pesca predatória.</li>
 <li>Pensar que o turismo sempre beneficia o ambiente.</li>
-</ul>
-<h4>O que saber fazer</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-habilidades"><h4>✅ Saiba fazer</h4><ul class="lesson-list prova-list">
 <li>Localizar o Pantanal em mapas.</li>
 <li>Relacionar relevo plano e alagamentos.</li>
 <li>Explicar a alternância entre cheia e seca.</li>
@@ -768,9 +854,12 @@ gtag('config', 'G-2TPTF494FG');
 <li>Identificar ameaças à fauna e à flora.</li>
 <li>Relacionar ações humanas e queimadas.</li>
 <li>Propor medidas de conservação.</li>
-</ul>
+</ul></section></div>
+
+
+
 </div>
-  <div class="lesson-section questions-block" id="aula-09-questoes"><h3>Questões da Aula 09</h3><ol class="questions">
+<div class="lesson-section questions-block" id="aula-09-questoes"><h3>Questões da Aula 09</h3><ol class="questions">
 <li>O Pantanal apresenta períodos de cheia e de seca. Explique como essa alternância modifica os habitats e favorece a biodiversidade do bioma.</li>
 <li>O Pantanal é considerado um ecótono. Explique o significado desse conceito e por que sua vegetação apresenta características de diferentes biomas.</li>
 <li>O jacaré-do-pantanal e a onça-pintada são predadores importantes. Explique como a redução dessas espécies pode provocar desequilíbrios nas cadeias alimentares.</li>
@@ -781,18 +870,17 @@ gtag('config', 'G-2TPTF494FG');
  VÍDEO DA AULA 09
  TROQUE SOMENTE O LINK ABAIXO
 ========================================================= -->
-<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/VIDEO_ID_AULA_09" title="Vídeo da Aula 09"></iframe></div>
+<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/xLRwlkkZ3hU" title="Vídeo da Aula 09"></iframe></div>
 <!-- FIM DO VÍDEO DA AULA 09 -->
 </div></section>
 <!-- FIM DA AULA 09 -->
-
 <!-- ========================================================= -->
 <!-- INÍCIO DA AULA 10 -->
 <!-- ========================================================= -->
 <section class="lesson-card" id="aula-10">
-  <div class="lesson-head"><span class="lesson-badge">Aula 10</span><h2>Aula 10 - Pampa</h2></div>
-  <div class="tabs lesson-tabs"><a class="tab active" href="#aula-10-resumo">Resumo da Aula</a><a class="tab" href="#aula-10-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-10-questoes">Questões</a></div>
-  <div class="lesson-section" id="aula-10-resumo"><h3>Resumo</h3>
+<div class="lesson-head"><span class="lesson-badge">Aula 10</span><h2>Aula 10 - Pampa</h2></div>
+<div class="tabs lesson-tabs"><a class="tab active" href="#aula-10-resumo">Resumo da Aula</a><a class="tab" href="#aula-10-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-10-questoes">Questões</a></div>
+<div class="lesson-section" id="aula-10-resumo"><h3>Resumo</h3>
 <p>O Pampa, também chamado de Campos Sulinos, é um bioma localizado no Rio Grande do Sul e que também se estende pelo Uruguai e pela Argentina.</p>
 <p>Sua paisagem é formada principalmente por campos abertos, com relevo plano ou levemente ondulado e presença de pequenas colinas chamadas coxilhas.</p>
 <p>O clima é subtropical, com verões quentes, invernos frios e chuvas distribuídas ao longo do ano.</p>
@@ -822,9 +910,8 @@ gtag('config', 'G-2TPTF494FG');
 <li><strong>Unidade de Conservação:</strong> área protegida por lei para conservar a biodiversidade e os recursos naturais.</li>
 <li><strong>Serviços ecossistêmicos:</strong> benefícios oferecidos pelos ecossistemas, como proteção do solo, armazenamento de água e regulação do clima.</li>
 </ul></div>
-  <div class="lesson-section prova-paulista-box" id="aula-10-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
-<p>As questões podem apresentar mapas, fotografias, gráficos, textos ou situações sobre os campos naturais, a biodiversidade, a agropecuária e a conservação do Pampa.</p>
-<h4>Conceitos mais importantes</h4><ul class="lesson-list prova-list">
+<div class="lesson-section prova-paulista-box" id="aula-10-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
+<p class="prova-intro">As questões podem apresentar mapas, fotografias, gráficos, textos ou situações sobre os campos naturais, a biodiversidade, a agropecuária e a conservação do Pampa.</p><div class="prova-organizada"><section class="prova-grupo prova-conteudos"><h4>📌 Conteúdos essenciais</h4><ul class="lesson-list prova-list">
 <li>Localização do Pampa.</li>
 <li>Campos Sulinos.</li>
 <li>Clima subtropical.</li>
@@ -838,8 +925,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Arenização e degradação do solo.</li>
 <li>Serviços ecossistêmicos.</li>
 <li>Unidades de conservação.</li>
-</ul>
-<h4>Erros comuns</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-erros"><h4>⚠️ Evite estes erros</h4><ul class="lesson-list prova-list">
 <li>Pensar que uma paisagem com poucas árvores possui pouca biodiversidade.</li>
 <li>Acreditar que campos naturais são áreas degradadas ou “vazias”.</li>
 <li>Confundir campo nativo com pastagem plantada.</li>
@@ -850,8 +936,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Pensar que somente florestas precisam ser protegidas.</li>
 <li>Acreditar que atividades agropecuárias sempre destroem o bioma.</li>
 <li>Pensar que uma unidade de conservação protege apenas animais grandes.</li>
-</ul>
-<h4>O que saber fazer</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-habilidades"><h4>✅ Saiba fazer</h4><ul class="lesson-list prova-list">
 <li>Localizar o Pampa em mapas.</li>
 <li>Relacionar clima, relevo e vegetação.</li>
 <li>Reconhecer campos naturais como ecossistemas biodiversos.</li>
@@ -862,9 +947,12 @@ gtag('config', 'G-2TPTF494FG');
 <li>Identificar impactos das espécies invasoras.</li>
 <li>Relacionar agropecuária, conservação e uso sustentável.</li>
 <li>Justificar a criação de áreas protegidas.</li>
-</ul>
+</ul></section></div>
+
+
+
 </div>
-  <div class="lesson-section questions-block" id="aula-10-questoes"><h3>Questões da Aula 10</h3><ol class="questions">
+<div class="lesson-section questions-block" id="aula-10-questoes"><h3>Questões da Aula 10</h3><ol class="questions">
 <li>Um estudante afirmou que o Pampa possui pouca biodiversidade porque sua paisagem apresenta principalmente campos e poucas árvores. Explique por que essa afirmação está incorreta.</li>
 <li>Uma área de campo nativo foi substituída por uma grande monocultura. Explique como essa mudança pode afetar a vegetação, os animais e o solo.</li>
 <li>Explique a importância das matas ciliares e dos banhados para a conservação da água e da biodiversidade do Pampa.</li>
@@ -875,18 +963,17 @@ gtag('config', 'G-2TPTF494FG');
  VÍDEO DA AULA 10
  TROQUE SOMENTE O LINK ABAIXO
 ========================================================= -->
-<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/VIDEO_ID_AULA_10" title="Vídeo da Aula 10"></iframe></div>
+<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/WOVNu2rHb2g" title="Vídeo da Aula 10"></iframe></div>
 <!-- FIM DO VÍDEO DA AULA 10 -->
 </div></section>
 <!-- FIM DA AULA 10 -->
-
 <!-- ========================================================= -->
 <!-- INÍCIO DA AULA 11 -->
 <!-- ========================================================= -->
 <section class="lesson-card" id="aula-11">
-  <div class="lesson-head"><span class="lesson-badge">Aula 11</span><h2>Aula 11 - Caatinga</h2></div>
-  <div class="tabs lesson-tabs"><a class="tab active" href="#aula-11-resumo">Resumo da Aula</a><a class="tab" href="#aula-11-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-11-questoes">Questões</a></div>
-  <div class="lesson-section" id="aula-11-resumo"><h3>Resumo</h3>
+<div class="lesson-head"><span class="lesson-badge">Aula 11</span><h2>Aula 11 - Caatinga</h2></div>
+<div class="tabs lesson-tabs"><a class="tab active" href="#aula-11-resumo">Resumo da Aula</a><a class="tab" href="#aula-11-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-11-questoes">Questões</a></div>
+<div class="lesson-section" id="aula-11-resumo"><h3>Resumo</h3>
 <p>A Caatinga é um bioma exclusivamente brasileiro, presente principalmente na Região Nordeste e em parte de Minas Gerais.</p>
 <p>Seu nome significa “mata branca”, pois, durante a seca, muitas plantas perdem as folhas e seus galhos claros ficam mais visíveis.</p>
 <p>O clima é semiárido, com temperaturas elevadas, chuvas irregulares e longos períodos de estiagem.</p>
@@ -918,9 +1005,8 @@ gtag('config', 'G-2TPTF494FG');
 <li><strong>Dispersão de sementes:</strong> transporte das sementes para outros locais, realizado pelo vento, pela água ou por animais.</li>
 <li><strong>Desertificação:</strong> degradação do solo em regiões secas, causada pela combinação entre condições climáticas e uso inadequado da terra.</li>
 </ul></div>
-  <div class="lesson-section prova-paulista-box" id="aula-11-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
-<p>As questões podem apresentar mapas, imagens de períodos secos e chuvosos, esquemas de plantas, textos sobre água ou situações de degradação da Caatinga.</p>
-<h4>Conceitos mais importantes</h4><ul class="lesson-list prova-list">
+<div class="lesson-section prova-paulista-box" id="aula-11-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
+<p class="prova-intro">As questões podem apresentar mapas, imagens de períodos secos e chuvosos, esquemas de plantas, textos sobre água ou situações de degradação da Caatinga.</p><div class="prova-organizada"><section class="prova-grupo prova-conteudos"><h4>📌 Conteúdos essenciais</h4><ul class="lesson-list prova-list">
 <li>Localização da Caatinga.</li>
 <li>Clima semiárido.</li>
 <li>Chuvas irregulares e estiagem.</li>
@@ -934,8 +1020,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Desmatamento e queimadas.</li>
 <li>Desertificação.</li>
 <li>Conservação do bioma.</li>
-</ul>
-<h4>Erros comuns</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-erros"><h4>⚠️ Evite estes erros</h4><ul class="lesson-list prova-list">
 <li>Pensar que a Caatinga é um ambiente sem biodiversidade.</li>
 <li>Acreditar que todas as plantas da Caatinga são cactos.</li>
 <li>Pensar que a queda das folhas significa que a planta morreu.</li>
@@ -946,8 +1031,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Acreditar que desertificação significa formação de um deserto de areia.</li>
 <li>Pensar que a ararinha-azul desapareceu completamente do planeta.</li>
 <li>Acreditar que a Caatinga existe em outros países.</li>
-</ul>
-<h4>O que saber fazer</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-habilidades"><h4>✅ Saiba fazer</h4><ul class="lesson-list prova-list">
 <li>Localizar a Caatinga em mapas.</li>
 <li>Relacionar clima e adaptações dos seres vivos.</li>
 <li>Explicar o significado de mata branca.</li>
@@ -958,9 +1042,12 @@ gtag('config', 'G-2TPTF494FG');
 <li>Relacionar retirada da vegetação e degradação do solo.</li>
 <li>Explicar a desertificação.</li>
 <li>Propor ações de conservação.</li>
-</ul>
+</ul></section></div>
+
+
+
 </div>
-  <div class="lesson-section questions-block" id="aula-11-questoes"><h3>Questões da Aula 11</h3><ol class="questions">
+<div class="lesson-section questions-block" id="aula-11-questoes"><h3>Questões da Aula 11</h3><ol class="questions">
 <li>Durante a seca, muitas plantas da Caatinga perdem as folhas, enquanto alguns cactos permanecem verdes. Explique como essas duas características ajudam as plantas a economizar ou armazenar água.</li>
 <li>Um estudante afirmou que a Caatinga possui pouca biodiversidade porque sua paisagem fica seca e aparentemente sem vida durante parte do ano. Explique por que essa afirmação está incorreta.</li>
 <li>Compare um rio intermitente com um rio perene e explique a importância do Rio São Francisco para a biodiversidade e para as comunidades do semiárido.</li>
@@ -971,18 +1058,17 @@ gtag('config', 'G-2TPTF494FG');
  VÍDEO DA AULA 11
  TROQUE SOMENTE O LINK ABAIXO
 ========================================================= -->
-<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/VIDEO_ID_AULA_11" title="Vídeo da Aula 11"></iframe></div>
+<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/VhFxNJjfk2s" title="Vídeo da Aula 11"></iframe></div>
 <!-- FIM DO VÍDEO DA AULA 11 -->
 </div></section>
 <!-- FIM DA AULA 11 -->
-
 <!-- ========================================================= -->
 <!-- INÍCIO DA AULA 12 -->
 <!-- ========================================================= -->
 <section class="lesson-card" id="aula-12">
-  <div class="lesson-head"><span class="lesson-badge">Aula 12</span><h2>Aula 12 - Construindo uma campanha de conscientização ambiental</h2></div>
-  <div class="tabs lesson-tabs"><a class="tab active" href="#aula-12-resumo">Resumo da Aula</a><a class="tab" href="#aula-12-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-12-questoes">Questões</a></div>
-  <div class="lesson-section" id="aula-12-resumo"><h3>Resumo</h3>
+<div class="lesson-head"><span class="lesson-badge">Aula 12</span><h2>Aula 12 - Construindo uma campanha de conscientização ambiental</h2></div>
+<div class="tabs lesson-tabs"><a class="tab active" href="#aula-12-resumo">Resumo da Aula</a><a class="tab" href="#aula-12-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-12-questoes">Questões</a></div>
+<div class="lesson-section" id="aula-12-resumo"><h3>Resumo</h3>
 <p>Uma campanha de conscientização ambiental é uma ação educativa criada para informar as pessoas sobre um problema ambiental, chamar a atenção da comunidade e incentivar atitudes de preservação.</p>
 <p>Ela pode utilizar cartazes, vídeos, apresentações, folhetos, publicações digitais ou outras formas de comunicação.</p>
 <p>Uma campanha precisa apresentar informações científicas corretas, mas em uma linguagem clara e adequada ao público.</p>
@@ -1012,9 +1098,8 @@ gtag('config', 'G-2TPTF494FG');
 <li><strong>Mobilização:</strong> participação de pessoas em ações relacionadas a uma causa.</li>
 <li><strong>Preservação:</strong> proteção de espécies, habitats e processos naturais.</li>
 </ul></div>
-  <div class="lesson-section prova-paulista-box" id="aula-12-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
-<p>As questões podem apresentar campanhas, cartazes, notícias, imagens ou fichas de pesquisa e solicitar que o estudante analise a qualidade das informações e a relação entre espécie, habitat, ameaça e preservação.</p>
-<h4>Conceitos mais importantes</h4><ul class="lesson-list prova-list">
+<div class="lesson-section prova-paulista-box" id="aula-12-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
+<p class="prova-intro">As questões podem apresentar campanhas, cartazes, notícias, imagens ou fichas de pesquisa e solicitar que o estudante analise a qualidade das informações e a relação entre espécie, habitat, ameaça e preservação.</p><div class="prova-organizada"><section class="prova-grupo prova-conteudos"><h4>📌 Conteúdos essenciais</h4><ul class="lesson-list prova-list">
 <li>Campanha de conscientização ambiental.</li>
 <li>Divulgação científica.</li>
 <li>Espécie-bandeira.</li>
@@ -1028,8 +1113,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Problema ambiental.</li>
 <li>Ações de preservação.</li>
 <li>Comunicação clara e responsável.</li>
-</ul>
-<h4>Erros comuns</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-erros"><h4>⚠️ Evite estes erros</h4><ul class="lesson-list prova-list">
 <li>Pensar que uma campanha precisa apenas de uma imagem bonita.</li>
 <li>Utilizar informações sem verificar a fonte.</li>
 <li>Escolher uma mensagem que não se relaciona ao problema ambiental.</li>
@@ -1040,8 +1124,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Utilizar dados desatualizados sem informar a fonte.</li>
 <li>Criar uma campanha sem indicar nenhuma ação possível.</li>
 <li>Acreditar que conscientizar significa apenas causar medo ou tristeza.</li>
-</ul>
-<h4>O que saber fazer</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-habilidades"><h4>✅ Saiba fazer</h4><ul class="lesson-list prova-list">
 <li>Identificar o objetivo de uma campanha.</li>
 <li>Reconhecer uma espécie-bandeira.</li>
 <li>Relacionar espécie, habitat e bioma.</li>
@@ -1052,9 +1135,12 @@ gtag('config', 'G-2TPTF494FG');
 <li>Criar uma mensagem principal clara.</li>
 <li>Propor ações possíveis de preservação.</li>
 <li>Avaliar se uma campanha informa e mobiliza adequadamente.</li>
-</ul>
+</ul></section></div>
+
+
+
 </div>
-  <div class="lesson-section questions-block" id="aula-12-questoes"><h3>Questões da Aula 12</h3><ol class="questions">
+<div class="lesson-section questions-block" id="aula-12-questoes"><h3>Questões da Aula 12</h3><ol class="questions">
 <li>Uma campanha apresenta a fotografia de um animal ameaçado, mas não explica onde ele vive, quais ameaças enfrenta nem como as pessoas podem ajudar. Explique por que essa campanha está incompleta.</li>
 <li>Explique por que uma espécie-bandeira pode ajudar a proteger não apenas a própria espécie, mas também outras formas de vida presentes em seu habitat.</li>
 <li>Um grupo encontrou duas informações diferentes sobre a situação de conservação de uma espécie. Explique como os estudantes podem verificar qual informação é mais confiável.</li>
@@ -1065,18 +1151,17 @@ gtag('config', 'G-2TPTF494FG');
  VÍDEO DA AULA 12
  TROQUE SOMENTE O LINK ABAIXO
 ========================================================= -->
-<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/VIDEO_ID_AULA_12" title="Vídeo da Aula 12"></iframe></div>
+<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/re9BYFWNhpc" title="Vídeo da Aula 12"></iframe></div>
 <!-- FIM DO VÍDEO DA AULA 12 -->
 </div></section>
 <!-- FIM DA AULA 12 -->
-
 <!-- ========================================================= -->
 <!-- INÍCIO DA AULA 13 -->
 <!-- ========================================================= -->
 <section class="lesson-card" id="aula-13">
-  <div class="lesson-head"><span class="lesson-badge">Aula 13</span><h2>Aula 13 - Unidades de Conservação</h2></div>
-  <div class="tabs lesson-tabs"><a class="tab active" href="#aula-13-resumo">Resumo da Aula</a><a class="tab" href="#aula-13-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-13-questoes">Questões</a></div>
-  <div class="lesson-section" id="aula-13-resumo"><h3>Resumo</h3>
+<div class="lesson-head"><span class="lesson-badge">Aula 13</span><h2>Aula 13 - Unidades de Conservação</h2></div>
+<div class="tabs lesson-tabs"><a class="tab active" href="#aula-13-resumo">Resumo da Aula</a><a class="tab" href="#aula-13-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-13-questoes">Questões</a></div>
+<div class="lesson-section" id="aula-13-resumo"><h3>Resumo</h3>
 <p>As Unidades de Conservação, também chamadas de UC, são áreas protegidas por lei para conservar a natureza, a biodiversidade e os recursos naturais.</p>
 <p>Elas possuem limites definidos e regras especiais de administração.</p>
 <p>Essas áreas ajudam a proteger espécies ameaçadas, rios, nascentes, florestas, campos e outros ambientes naturais.</p>
@@ -1108,9 +1193,8 @@ gtag('config', 'G-2TPTF494FG');
 <li><strong>Área de Proteção Ambiental:</strong> Unidade de Uso Sustentável geralmente extensa, onde podem existir propriedades e ocupações humanas submetidas a regras ambientais.</li>
 <li><strong>Reserva Extrativista:</strong> Unidade de Uso Sustentável destinada a proteger os recursos naturais e os modos de vida de comunidades extrativistas.</li>
 </ul></div>
-  <div class="lesson-section prova-paulista-box" id="aula-13-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
-<p>As questões podem apresentar textos, mapas, gráficos, fotografias ou situações-problema e pedir que o estudante identifique o tipo mais adequado de Unidade de Conservação.</p>
-<h4>Conceitos mais importantes</h4><ul class="lesson-list prova-list">
+<div class="lesson-section prova-paulista-box" id="aula-13-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
+<p class="prova-intro">As questões podem apresentar textos, mapas, gráficos, fotografias ou situações-problema e pedir que o estudante identifique o tipo mais adequado de Unidade de Conservação.</p><div class="prova-organizada"><section class="prova-grupo prova-conteudos"><h4>📌 Conteúdos essenciais</h4><ul class="lesson-list prova-list">
 <li>Unidade de Conservação.</li>
 <li>SNUC.</li>
 <li>Proteção Integral.</li>
@@ -1124,8 +1208,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Pesquisa e educação ambiental.</li>
 <li>Serviços ecossistêmicos.</li>
 <li>Categorias de Unidades de Conservação.</li>
-</ul>
-<h4>Erros comuns</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-erros"><h4>⚠️ Evite estes erros</h4><ul class="lesson-list prova-list">
 <li>Pensar que toda Unidade de Conservação proíbe a presença humana.</li>
 <li>Acreditar que todas as Unidades de Conservação possuem as mesmas regras.</li>
 <li>Confundir Proteção Integral com ausência absoluta de qualquer atividade humana.</li>
@@ -1136,8 +1219,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Confundir preservação e exploração.</li>
 <li>Acreditar que comunidades tradicionais são sempre prejudiciais ao ambiente.</li>
 <li>Considerar qualquer área verde uma Unidade de Conservação.</li>
-</ul>
-<h4>O que saber fazer</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-habilidades"><h4>✅ Saiba fazer</h4><ul class="lesson-list prova-list">
 <li>Definir Unidade de Conservação.</li>
 <li>Explicar sua importância.</li>
 <li>Diferenciar Proteção Integral e Uso Sustentável.</li>
@@ -1148,9 +1230,12 @@ gtag('config', 'G-2TPTF494FG');
 <li>Interpretar exemplos de categorias de UC.</li>
 <li>Reconhecer a importância das comunidades tradicionais.</li>
 <li>Relacionar áreas protegidas e preservação da biodiversidade.</li>
-</ul>
+</ul></section></div>
+
+
+
 </div>
-  <div class="lesson-section questions-block" id="aula-13-questoes"><h3>Questões da Aula 13</h3><ol class="questions">
+<div class="lesson-section questions-block" id="aula-13-questoes"><h3>Questões da Aula 13</h3><ol class="questions">
 <li>Explique o que é uma Unidade de Conservação e cite três benefícios que ela pode oferecer à natureza e à sociedade.</li>
 <li>Compare as Unidades de Conservação de Proteção Integral e de Uso Sustentável, destacando a principal diferença relacionada à presença humana e ao uso dos recursos naturais.</li>
 <li>Uma área possui espécies raras, nascentes importantes e ecossistemas muito sensíveis à visitação e à retirada de recursos. Qual grupo de Unidade de Conservação seria mais adequado para essa área? Justifique.</li>
@@ -1161,18 +1246,17 @@ gtag('config', 'G-2TPTF494FG');
  VÍDEO DA AULA 13
  TROQUE SOMENTE O LINK ABAIXO
 ========================================================= -->
-<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/VIDEO_ID_AULA_13" title="Vídeo da Aula 13"></iframe></div>
+<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/3BPLPBvbvBo" title="Vídeo da Aula 13"></iframe></div>
 <!-- FIM DO VÍDEO DA AULA 13 -->
 </div></section>
 <!-- FIM DA AULA 13 -->
-
 <!-- ========================================================= -->
 <!-- INÍCIO DA AULA 14 -->
 <!-- ========================================================= -->
 <section class="lesson-card" id="aula-14">
-  <div class="lesson-head"><span class="lesson-badge">Aula 14</span><h2>Aula 14 - Agricultura</h2></div>
-  <div class="tabs lesson-tabs"><a class="tab active" href="#aula-14-resumo">Resumo da Aula</a><a class="tab" href="#aula-14-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-14-questoes">Questões</a></div>
-  <div class="lesson-section" id="aula-14-resumo"><h3>Resumo</h3>
+<div class="lesson-head"><span class="lesson-badge">Aula 14</span><h2>Aula 14 - Agricultura</h2></div>
+<div class="tabs lesson-tabs"><a class="tab active" href="#aula-14-resumo">Resumo da Aula</a><a class="tab" href="#aula-14-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-14-questoes">Questões</a></div>
+<div class="lesson-section" id="aula-14-resumo"><h3>Resumo</h3>
 <p>A agricultura é a atividade de cultivar plantas para produzir alimentos e outras matérias-primas.</p>
 <p>Ela é essencial para alimentar a população, gerar trabalho e fornecer produtos utilizados no cotidiano.</p>
 <p>A produção agrícola pode ocorrer de diferentes maneiras.</p>
@@ -1207,9 +1291,8 @@ gtag('config', 'G-2TPTF494FG');
 <li><strong>Agroecologia:</strong> área que aplica princípios ecológicos à agricultura e considera também os conhecimentos, a cultura e as condições sociais das comunidades.</li>
 <li><strong>Horta urbana:</strong> espaço de produção de alimentos localizado em cidades, como escolas, quintais, praças e terrenos comunitários.</li>
 </ul></div>
-  <div class="lesson-section prova-paulista-box" id="aula-14-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
-<p>As questões podem apresentar imagens de plantações, hortas e sistemas agroflorestais, além de textos ou situações envolvendo impactos ambientais e formas de produzir alimentos.</p>
-<h4>Conceitos mais importantes</h4><ul class="lesson-list prova-list">
+<div class="lesson-section prova-paulista-box" id="aula-14-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
+<p class="prova-intro">As questões podem apresentar imagens de plantações, hortas e sistemas agroflorestais, além de textos ou situações envolvendo impactos ambientais e formas de produzir alimentos.</p><div class="prova-organizada"><section class="prova-grupo prova-conteudos"><h4>📌 Conteúdos essenciais</h4><ul class="lesson-list prova-list">
 <li>Importância da agricultura.</li>
 <li>Produção de alimentos.</li>
 <li>Monocultura e diversificação.</li>
@@ -1222,8 +1305,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Agroecologia.</li>
 <li>Práticas agrícolas sustentáveis.</li>
 <li>Conhecimentos dos povos originários.</li>
-</ul>
-<h4>Erros comuns</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-erros"><h4>⚠️ Evite estes erros</h4><ul class="lesson-list prova-list">
 <li>Pensar que toda agricultura produz os mesmos impactos.</li>
 <li>Acreditar que agricultura em grande escala é sempre destrutiva.</li>
 <li>Pensar que agricultura familiar é automaticamente orgânica.</li>
@@ -1235,8 +1317,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Pensar que uma monocultura não possui nenhum ser vivo além da cultura plantada.</li>
 <li>Afirmar que produtos orgânicos são sempre mais nutritivos.</li>
 <li>Pensar que técnicas sustentáveis não exigem planejamento e conhecimento.</li>
-</ul>
-<h4>O que saber fazer</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-habilidades"><h4>✅ Saiba fazer</h4><ul class="lesson-list prova-list">
 <li>Explicar a importância da agricultura.</li>
 <li>Relacionar práticas agrícolas e impactos ambientais.</li>
 <li>Diferenciar monocultura e diversificação.</li>
@@ -1247,9 +1328,12 @@ gtag('config', 'G-2TPTF494FG');
 <li>Explicar o funcionamento de um sistema agroflorestal.</li>
 <li>Relacionar produção agrícola, conservação do solo e disponibilidade de água.</li>
 <li>Comparar diferentes formas de produção de alimentos.</li>
-</ul>
+</ul></section></div>
+
+
+
 </div>
-  <div class="lesson-section questions-block" id="aula-14-questoes"><h3>Questões da Aula 14</h3><ol class="questions">
+<div class="lesson-section questions-block" id="aula-14-questoes"><h3>Questões da Aula 14</h3><ol class="questions">
 <li>Uma grande área de vegetação foi substituída por uma monocultura. Explique dois possíveis impactos dessa mudança sobre o solo, a água ou a biodiversidade.</li>
 <li>Em uma horta, joaninhas foram utilizadas para diminuir a quantidade de pulgões. Explique por que essa prática é um exemplo de controle biológico e qual é sua possível vantagem ambiental.</li>
 <li>Um agricultor cultiva milho todos os anos na mesma área. Outro alterna milho, feijão e plantas de cobertura. Explique como a rotação de culturas pode beneficiar o solo e reduzir problemas com pragas e doenças.</li>
@@ -1260,18 +1344,17 @@ gtag('config', 'G-2TPTF494FG');
  VÍDEO DA AULA 14
  TROQUE SOMENTE O LINK ABAIXO
 ========================================================= -->
-<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/VIDEO_ID_AULA_14" title="Vídeo da Aula 14"></iframe></div>
+<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/uNFHVC9Q8Y0" title="Vídeo da Aula 14"></iframe></div>
 <!-- FIM DO VÍDEO DA AULA 14 -->
 </div></section>
 <!-- FIM DA AULA 14 -->
-
 <!-- ========================================================= -->
 <!-- INÍCIO DA AULA 15 -->
 <!-- ========================================================= -->
 <section class="lesson-card" id="aula-15">
-  <div class="lesson-head"><span class="lesson-badge">Aula 15</span><h2>Aula 15 - Júri simulado sobre produção de alimentos e uso do solo</h2></div>
-  <div class="tabs lesson-tabs"><a class="tab active" href="#aula-15-resumo">Resumo da Aula</a><a class="tab" href="#aula-15-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-15-questoes">Questões</a></div>
-  <div class="lesson-section" id="aula-15-resumo"><h3>Resumo</h3>
+<div class="lesson-head"><span class="lesson-badge">Aula 15</span><h2>Aula 15 - Júri simulado sobre produção de alimentos e uso do solo</h2></div>
+<div class="tabs lesson-tabs"><a class="tab active" href="#aula-15-resumo">Resumo da Aula</a><a class="tab" href="#aula-15-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-15-questoes">Questões</a></div>
+<div class="lesson-section" id="aula-15-resumo"><h3>Resumo</h3>
 <p>A produção de alimentos é essencial para a sociedade, mas pode causar impactos ambientais e sociais.</p>
 <p>Dependendo das práticas utilizadas, podem ocorrer degradação do solo, uso excessivo de água, poluição, desmatamento, perda de biodiversidade e problemas para a saúde e para os trabalhadores.</p>
 <p>Uma produção mais sustentável procura obter alimentos sem comprometer a capacidade do solo, da água e dos ecossistemas de continuarem funcionando no futuro.</p>
@@ -1302,9 +1385,8 @@ gtag('config', 'G-2TPTF494FG');
 <li><strong>Viabilidade:</strong> possibilidade de uma proposta ser colocada em prática considerando recursos, custos, conhecimentos e condições disponíveis.</li>
 <li><strong>Sustentabilidade:</strong> busca de equilíbrio entre necessidades ambientais, sociais e econômicas.</li>
 </ul></div>
-  <div class="lesson-section prova-paulista-box" id="aula-15-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
-<p>As questões podem apresentar textos, tabelas, situações-problema ou diferentes propostas de produção e solicitar que o estudante compare argumentos e escolha a alternativa mais bem fundamentada.</p>
-<h4>Conceitos mais importantes</h4><ul class="lesson-list prova-list">
+<div class="lesson-section prova-paulista-box" id="aula-15-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
+<p class="prova-intro">As questões podem apresentar textos, tabelas, situações-problema ou diferentes propostas de produção e solicitar que o estudante compare argumentos e escolha a alternativa mais bem fundamentada.</p><div class="prova-organizada"><section class="prova-grupo prova-conteudos"><h4>📌 Conteúdos essenciais</h4><ul class="lesson-list prova-list">
 <li>Produção sustentável de alimentos.</li>
 <li>Sistema agroalimentar.</li>
 <li>Impactos ambientais e sociais.</li>
@@ -1318,8 +1400,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Aspectos positivos e limitações.</li>
 <li>Júri simulado.</li>
 <li>Sustentabilidade ambiental, social e econômica.</li>
-</ul>
-<h4>Erros comuns</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-erros"><h4>⚠️ Evite estes erros</h4><ul class="lesson-list prova-list">
 <li>Pensar que existe uma única solução correta para toda situação.</li>
 <li>Escolher um método apenas porque ele parece “natural”.</li>
 <li>Apresentar opinião pessoal sem justificativa.</li>
@@ -1332,8 +1413,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Confundir argumento com afirmação.</li>
 <li>Considerar o grupo vencedor pelo desempenho teatral, e não pela qualidade da argumentação.</li>
 <li>Acreditar que reconhecer um problema enfraquece necessariamente a defesa.</li>
-</ul>
-<h4>O que saber fazer</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-habilidades"><h4>✅ Saiba fazer</h4><ul class="lesson-list prova-list">
 <li>Identificar a situação-problema.</li>
 <li>Comparar diferentes métodos de produção.</li>
 <li>Reconhecer benefícios e limitações.</li>
@@ -1346,9 +1426,12 @@ gtag('config', 'G-2TPTF494FG');
 <li>Avaliar a coerência de uma proposta.</li>
 <li>Elaborar uma conclusão fundamentada.</li>
 <li>Relacionar produção, ambiente e sociedade.</li>
-</ul>
+</ul></section></div>
+
+
+
 </div>
-  <div class="lesson-section questions-block" id="aula-15-questoes"><h3>Questões da Aula 15</h3><ol class="questions">
+<div class="lesson-section questions-block" id="aula-15-questoes"><h3>Questões da Aula 15</h3><ol class="questions">
 <li>Uma região precisa aumentar a produção de alimentos, mas já apresenta erosão, contaminação da água e perda de biodiversidade. Explique quatro critérios que deveriam ser considerados para escolher um método de produção mais sustentável.</li>
 <li>Um grupo defendeu a agricultura orgânica afirmando apenas que ela “não prejudica o ambiente”. Explique por que esse argumento é insuficiente e indique como ele poderia ser melhorado.</li>
 <li>Durante o júri, uma equipe reconheceu que o sistema agroflorestal exige planejamento, conhecimento técnico e maior tempo de implantação. Explique por que admitir essas limitações pode tornar a argumentação mais consistente.</li>
@@ -1359,18 +1442,17 @@ gtag('config', 'G-2TPTF494FG');
  VÍDEO DA AULA 15
  TROQUE SOMENTE O LINK ABAIXO
 ========================================================= -->
-<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/VIDEO_ID_AULA_15" title="Vídeo da Aula 15"></iframe></div>
+<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/P7d7CpLfjNg" title="Vídeo da Aula 15"></iframe></div>
 <!-- FIM DO VÍDEO DA AULA 15 -->
 </div></section>
 <!-- FIM DA AULA 15 -->
-
 <!-- ========================================================= -->
 <!-- INÍCIO DA AULA 16 -->
 <!-- ========================================================= -->
 <section class="lesson-card" id="aula-16">
-  <div class="lesson-head"><span class="lesson-badge">Aula 16</span><h2>Aula 16 - Saúde Única</h2></div>
-  <div class="tabs lesson-tabs"><a class="tab active" href="#aula-16-resumo">Resumo da Aula</a><a class="tab" href="#aula-16-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-16-questoes">Questões</a></div>
-  <div class="lesson-section" id="aula-16-resumo"><h3>Resumo</h3>
+<div class="lesson-head"><span class="lesson-badge">Aula 16</span><h2>Aula 16 - Saúde Única</h2></div>
+<div class="tabs lesson-tabs"><a class="tab active" href="#aula-16-resumo">Resumo da Aula</a><a class="tab" href="#aula-16-prova-paulista">Prova Paulista</a><a class="tab" href="#aula-16-questoes">Questões</a></div>
+<div class="lesson-section" id="aula-16-resumo"><h3>Resumo</h3>
 <p>A saúde não é apenas a ausência de doenças.</p>
 <p>Ela também depende do bem-estar físico, mental e social, das condições de vida e da qualidade do ambiente onde as pessoas vivem.</p>
 <p>A saúde pública reúne ações realizadas para prevenir doenças, promover a saúde e cuidar da população.</p>
@@ -1408,9 +1490,8 @@ gtag('config', 'G-2TPTF494FG');
 <li><strong>Incidência:</strong> número de casos novos de uma doença em determinada população e período.</li>
 <li><strong>Letalidade:</strong> proporção de pessoas com determinada doença que morrem em consequência dela.</li>
 </ul></div>
-  <div class="lesson-section prova-paulista-box" id="aula-16-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
-<p>As questões podem apresentar textos, esquemas de transmissão, imagens de ambientes urbanos, dados de doenças ou situações envolvendo saneamento, vetores, animais e saúde humana.</p>
-<h4>Conceitos mais importantes</h4><ul class="lesson-list prova-list">
+<div class="lesson-section prova-paulista-box" id="aula-16-prova-paulista"><h3>🎯 Atenção para a Prova Paulista</h3>
+<p class="prova-intro">As questões podem apresentar textos, esquemas de transmissão, imagens de ambientes urbanos, dados de doenças ou situações envolvendo saneamento, vetores, animais e saúde humana.</p><div class="prova-organizada"><section class="prova-grupo prova-conteudos"><h4>📌 Conteúdos essenciais</h4><ul class="lesson-list prova-list">
 <li>Conceito ampliado de saúde.</li>
 <li>Saúde pública.</li>
 <li>Saúde ambiental.</li>
@@ -1424,8 +1505,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Saneamento básico.</li>
 <li>Enchentes e contaminação.</li>
 <li>Prevenção e políticas públicas.</li>
-</ul>
-<h4>Erros comuns</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-erros"><h4>⚠️ Evite estes erros</h4><ul class="lesson-list prova-list">
 <li>Pensar que saúde significa apenas não estar doente.</li>
 <li>Confundir saúde pública com atendimento hospitalar.</li>
 <li>Acreditar que saúde ambiental trata somente de florestas.</li>
@@ -1438,8 +1518,7 @@ gtag('config', 'G-2TPTF494FG');
 <li>Dizer que os macacos transmitem diretamente a febre amarela às pessoas.</li>
 <li>Considerar o desmatamento como causa direta e obrigatória de qualquer epidemia.</li>
 <li>Pensar que ações individuais substituem saneamento, fiscalização e políticas públicas.</li>
-</ul>
-<h4>O que saber fazer</h4><ul class="lesson-list prova-list">
+</ul></section><section class="prova-grupo prova-habilidades"><h4>✅ Saiba fazer</h4><ul class="lesson-list prova-list">
 <li>Diferenciar saúde pública e saúde ambiental.</li>
 <li>Explicar a abordagem de Saúde Única.</li>
 <li>Relacionar condições ambientais e ocorrência de doenças.</li>
@@ -1452,9 +1531,12 @@ gtag('config', 'G-2TPTF494FG');
 <li>Propor ações integradas de prevenção.</li>
 <li>Reconhecer a responsabilidade individual e coletiva.</li>
 <li>Analisar indicadores como incidência e letalidade.</li>
-</ul>
+</ul></section></div>
+
+
+
 </div>
-  <div class="lesson-section questions-block" id="aula-16-questoes"><h3>Questões da Aula 16</h3><ol class="questions">
+<div class="lesson-section questions-block" id="aula-16-questoes"><h3>Questões da Aula 16</h3><ol class="questions">
 <li>Em um bairro há lixo acumulado, recipientes com água parada e grande quantidade de mosquitos. Explique como essa situação relaciona saúde ambiental e saúde pública.</li>
 <li>Explique o conceito de Saúde Única utilizando uma situação que envolva pessoas, animais e meio ambiente.</li>
 <li>Após uma enchente, moradores entraram em contato com água misturada a esgoto e lixo. Explique como essa situação pode aumentar o risco de leptospirose e indique três medidas de prevenção.</li>
@@ -1465,7 +1547,7 @@ gtag('config', 'G-2TPTF494FG');
  VÍDEO DA AULA 16
  TROQUE SOMENTE O LINK ABAIXO
 ========================================================= -->
-<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/VIDEO_ID_AULA_16" title="Vídeo da Aula 16"></iframe></div>
+<div class="video-container"><iframe allowfullscreen="" src="https://www.youtube.com/embed/e8JyP-0b6WY" title="Vídeo da Aula 16"></iframe></div>
 <!-- FIM DO VÍDEO DA AULA 16 -->
 </div></section>
 <!-- FIM DA AULA 16 -->
